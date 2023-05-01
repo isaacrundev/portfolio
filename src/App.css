@@ -1,0 +1,25 @@
+* {
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.contact-input {
+  background-color: rgb(235, 235, 235);
+  border-radius: 6px;
+  color: #3f3f46;
+  padding: 1px 5px;
+}
+
+section {
+  padding: 2rem;
+}
+
+section:nth-child(odd) {
+  background-color: white;
+  color: black;
+}
