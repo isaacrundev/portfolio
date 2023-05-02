@@ -21,6 +21,7 @@ function App() {
       <Main />
       <Showcases />
       <Contact />
+      <img src="1.png" alt="" />
     </>
   );
 }

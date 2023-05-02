@@ -12,7 +12,7 @@ const Contact = () => {
     console.log(data);
   };
   return (
-    <section id="contact" className="container">
+    <section id="contact" className="">
       <form className="flex items-center " onSubmit={handleSubmit(onsubmit)}>
         <div className="flex flex-col w-2/5 max-w-sm gap-2">
           <label htmlFor="input-name">Name</label>

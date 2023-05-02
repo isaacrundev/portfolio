@@ -16,10 +16,11 @@ body {
 }
 
 section {
-  padding: 2rem;
+  width: 100%;
+  padding: 0 2rem;
 }
 
-section:nth-child(odd) {
+/* section:nth-child(odd) {
   background-color: white;
   color: black;
-}
+} */
