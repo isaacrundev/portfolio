@@ -13,6 +13,7 @@ const Contact = () => {
   };
   return (
     <section id="contact" className="">
+      <div className="py-5 text-3xl font-semibold ">Contact</div>
       <form className="flex items-center " onSubmit={handleSubmit(onsubmit)}>
         <div className="flex flex-col w-2/5 max-w-sm gap-2">
           <label htmlFor="input-name">Name</label>
@@ -26,7 +27,7 @@ const Contact = () => {
             id="input-email"
             className="contact-input"
             {...register("email")}
-          />{" "}
+          />
           <label htmlFor="input-message">Message</label>
           <textarea
             id="input-message"

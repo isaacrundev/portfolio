@@ -1,22 +1,7 @@
-// type ShowcaseData = {
-//   name: string;
-//   previewImg: string;
-//   library: string[];
-//   screenshots: string[];
-//   deployedUrl: string;
-//   githubUrl: string;
-// };
+import github from "../assets/showcases/icons8-github-50.png";
+import link from "../assets/showcases/icons8-link-50.png";
 
-// export const ShowcaseData: ShowcaseData[] = [
-//   {
-//     name: "Card Game",
-//     previewImg: "",
-//     library: ["Bootstrap", "jQuery", "GSAP", "HTML", "CSS", "JavaScript"],
-//     screenshots: [],
-//     deployedUrl: "https://shiny-haupia-090eab.netlify.app/",
-//     githubUrl: "https://github.com/isaacrundev/js_final",
-//   },
-// ];
+export { github, link };
 
 import cardGame1 from "../assets/showcases/CardGame/cardGame1.png";
 import cardGame2 from "../assets/showcases/CardGame/cardGame1.png";
