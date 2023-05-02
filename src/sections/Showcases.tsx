@@ -4,7 +4,7 @@ import { cardGame1, cardGame2, cardGame3 } from "../ts";
 const showcaseData = [
   {
     name: "Card Game",
-    desc: "Draw a card and see which side is bigger. 100% no cheating",
+    desc: "Get new deck of cards every single game. 100% no cheating",
     libraries: ["HTML", "CSS", "JavaScript", "Bootstrap", "jQuery", "GSAP"],
     screenshots: [cardGame1, cardGame2, cardGame3],
     deployedUrl: "https://shiny-haupia-090eab.netlify.app/",
@@ -16,7 +16,9 @@ const Showcases = () => {
   return (
     <section id="showcases" className="bg-white ">
       <div className="container ">
-        <div className="text-xl text-black bg-white">Showcases</div>
+        <div className="py-5 text-3xl font-semibold text-black bg-white">
+          Showcases
+        </div>
         <div className="grid bg-white">
           {showcaseData.map((item) => (
             <Showcase
