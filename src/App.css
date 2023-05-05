@@ -21,7 +21,6 @@ section {
   min-height: 100vh;
 }
 
-/* section:nth-child(odd) {
-  background-color: white;
-  color: black;
-} */
+#btn-back-to-top {
+  position: fixed;
+}

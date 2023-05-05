@@ -1,25 +1,30 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import BackToTop from "./components/BackToTop";
 import Header from "./components/Header";
 import MenuButton from "./components/MenuButton";
 import Contact from "./sections/Contact";
-import Main from "./sections/Main";
+import Hero from "./sections/Hero";
 import Showcases from "./sections/Showcases";
-
-// window.onscroll = function () {
-//   scrollFunction();
-// };
+import About from "./sections/About";
+import { useEffect, useState } from "react";
 
 const menuItem: string[] = ["about", "showcases", "contact"];
 
 function App() {
-  // const [scroll, setScroll] = useState<number>(window.scrollY);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const BackToTopVisibility = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", BackToTopVisibility);
+    console.log(scrollPosition);
+  }, [scrollPosition]);
 
   return (
     <>
-      {/* {document.body.scrollTop > 20 ||
-        (document.documentElement.scrollTop > 20 && <BackToTop />)} */}
       <Header>
         {menuItem.map((item) => (
           <MenuButton
@@ -28,10 +33,11 @@ function App() {
           />
         ))}
       </Header>
-      <Main />
+      <Hero />
+      <About />
       <Showcases />
       <Contact />
-      <img src="1.png" alt="" />
+      {scrollPosition > 64 && <BackToTop />}
     </>
   );
 }

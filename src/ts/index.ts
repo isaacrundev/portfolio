@@ -9,6 +9,10 @@ import whistlerApp1 from "../assets/showcases/WhistlerApp/whistlerApp1.png";
 import whistlerApp2 from "../assets/showcases/WhistlerApp/whistlerApp2.png";
 import whistlerApp3 from "../assets/showcases/WhistlerApp/whistlerApp3.png";
 
+import topBtn from "../assets/back-to-top-icon-png-8.jpg";
+
+export { topBtn };
+
 export { github, link };
 
 export { cardGame1, cardGame2, cardGame3 };

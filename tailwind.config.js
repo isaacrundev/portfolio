@@ -10,8 +10,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        notoSans: ["Noto Sans", "sans-serif"],
       },
     },
+    plugins: [],
   },
-  plugins: [],
 };
