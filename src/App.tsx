@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", BackToTopVisibility);
-    console.log(scrollPosition);
   }, [scrollPosition]);
 
   return (

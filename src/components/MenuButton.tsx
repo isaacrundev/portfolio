@@ -6,9 +6,8 @@ type Props = {
 };
 
 function MenuButton({ text, linkTo }: Props) {
-  const handleClick = () => {};
   return (
-    <AnchorLink href={linkTo} onClick={handleClick}>
+    <AnchorLink href={linkTo}>
       <div className="py-2 hover:pt-2 ">
         <div className="hover:border-b-2 hover:border-white hover:cursor-pointer ">
           {text}
