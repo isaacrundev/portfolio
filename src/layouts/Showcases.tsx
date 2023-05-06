@@ -31,11 +31,9 @@ const showcaseData = [
 const Showcases = () => {
   return (
     <section id="showcases" className="bg-white ">
-      <div className="flex flex-col">
-        <div>
-          <p className="py-6 text-3xl font-semibold text-black bg-white">
-            Showcases
-          </p>
+      <div className="container ">
+        <div className="py-6 text-3xl font-semibold text-black bg-white">
+          Showcases
         </div>
         <div className="grid-cols-2 py-4 bg-white min-[1033px]:grid">
           {showcaseData.map((item) => (

@@ -2,10 +2,10 @@ import "./App.css";
 import BackToTop from "./components/BackToTop";
 import Header from "./components/Header";
 import MenuButton from "./components/MenuButton";
-import Contact from "./sections/Contact";
-import Hero from "./sections/Hero";
-import Showcases from "./sections/Showcases";
-import About from "./sections/About";
+import Contact from "./layouts/Contact";
+import Hero from "./layouts/Hero";
+import Showcases from "./layouts/Showcases";
+import About from "./layouts/About";
 import { useEffect, useState } from "react";
 
 const menuItem: string[] = ["about", "showcases", "contact"];

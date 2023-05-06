@@ -1,4 +1,4 @@
-import { github, link } from "../ts";
+import { github, link } from "../assets";
 
 type Props = {
   name: string;

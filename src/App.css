@@ -4,10 +4,6 @@
   margin: 0 auto;
 }
 
-body {
-  min-height: 100vh;
-}
-
 .contact-input {
   background-color: rgb(235, 235, 235);
   border-radius: 6px;

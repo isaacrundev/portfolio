@@ -14,6 +14,10 @@ import contactGithub from "./contact/iconmonstr-github-1-96.png";
 import contactTelegram from "./contact/iconmonstr-telegram-4-96.png";
 import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png";
 
+import topBtn from "../assets/back-to-top-icon-png-8.jpg";
+
+export { topBtn };
+
 export { github, link };
 
 export { cardGame1, cardGame2, cardGame3 };
