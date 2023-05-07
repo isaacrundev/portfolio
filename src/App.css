@@ -4,19 +4,24 @@
   margin: 0 auto;
 }
 
-.contact-input {
-  background-color: rgb(235, 235, 235);
-  border-radius: 6px;
-  color: #3f3f46;
-  padding: 1px 5px;
-}
-
 section {
   width: 100%;
   padding: 0 2rem;
   min-height: 100vh;
 }
 
+#showcases {
+  background-color: white;
+  color: black;
+}
+
 #btn-back-to-top {
   position: fixed;
+}
+
+.contact-input {
+  background-color: rgb(235, 235, 235);
+  border-radius: 6px;
+  color: #3f3f46;
+  padding: 1px 5px;
 }
