@@ -18,14 +18,7 @@ const Showcase = ({
   githubUrl,
 }: Props) => {
   return (
-    // <div className="container">
-    //   <div className="container">
-    //     <img src={imgPath}>
-    //       <a href={websiteUrl} />
-    //     </img>
-    //   </div>
-    // </div>
-    <div className="flex flex-col w-2/3 mx-auto bg-white rounded-lg shadow">
+    <div className="flex flex-col w-5/6 mx-auto bg-white rounded-lg shadow">
       <div className="overflow-hidden ">
         <a href={deployedUrl} target="_blank">
           <img
@@ -34,30 +27,28 @@ const Showcase = ({
           />
         </a>
       </div>
-      <div className="flex flex-col w-full h-40 p-4">
-        <div className="flex flex-row gap-2">
+      <div className="flex flex-col w-full h-40 px-3">
+        <div className="flex flex-row gap-3 py-3">
           <p className="text-lg font-medium text-primary-500">{name}</p>
-          {/* <div className="flex flex-row gap-1"> */}
-          {/* <span className="w-6"> */}
           <a className="w-6 " href={githubUrl} target="_blank">
             <img
               src={github}
               className="object-contain p-1 bg-white rounded-full"
             />
           </a>
-          {/* </span> */}
-          {/* <span className="w-6"> */}
           <a className="w-6" href={deployedUrl} target="_blank">
             <img
               src={link}
               className="object-contain p-1 bg-white rounded-full"
             />
           </a>
-          {/* </span> */}
-          {/* </div> */}
         </div>
-        <p className="text-xs text-gray-200 ">Libraries: {libraries}</p>
-        <p className="mt-1 text-sm italic text-gray-400">{desc}</p>
+        <div>
+          <p className="text-xs text-gray-200 ">Libraries: {libraries}</p>
+        </div>
+        <div>
+          <p className="mt-2 text-xs italic text-gray-400"> {desc}</p>
+        </div>
       </div>
     </div>
   );

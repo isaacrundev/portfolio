@@ -20,7 +20,7 @@ const showcaseData = [
   },
   {
     name: "Card Game",
-    desc: "Get new deck of cards every single game. 100% no cheating",
+    desc: "Get new deck of cards every single game. 100% no cheating.",
     libraries: "HTML, CSS, JavaScript, Bootstrap, jQuery, GSAP",
     screenshots: [cardGame1, cardGame2, cardGame3],
     deployedUrl: "https://shiny-haupia-090eab.netlify.app/",
@@ -38,7 +38,7 @@ const Showcases = () => {
           </p>
         </div>
         {/* <div className="grid-cols-2 py-20 bg-white min-[1033px]:grid"> */}
-        <div className="flex flex-col gap-20 py-20 bg-white lg:grid lg:grid-cols-2">
+        <div className="flex flex-col gap-20 py-16 bg-white lg:grid lg:grid-cols-2">
           {showcaseData.map((item) => (
             <Showcase
               name={item.name}

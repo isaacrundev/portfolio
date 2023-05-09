@@ -11,7 +11,7 @@ const Hero = () => {
       }}
       transition={{ duration: 1 }}
       id="main"
-      className="flex flex-row items-center"
+      className="flex flex-row items-center min-h-screen"
     >
       <div className="container flex flex-col items-center py-5">
         <p className="text-4xl font-notoSans">HI! I AM</p>

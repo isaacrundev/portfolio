@@ -30,13 +30,12 @@ const contactMethods = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="h-screen">
-      <div className="flex flex-col h-full">
+    <section id="contact">
+      <div className="flex flex-col ">
         <div className="flex flex-col justify-center basis-24">
           <p className="text-3xl font-semibold">Contact</p>
         </div>
-        {/* <div className="mt-40"> */}
-        <div className="flex flex-col justify-center grow">
+        <div className="flex flex-col mt-40">
           <div>
             <p className="py-5 text-2xl text-center">You can find me on:</p>
           </div>
