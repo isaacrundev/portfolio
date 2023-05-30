@@ -14,8 +14,8 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className=""
         >
-          <span className="text-9xl font-notoSans">HI!</span>
-          <span className="text-3xl "> I AM </span>
+          <span className="bg-transparent text-9xl font-notoSans">HI!</span>
+          <span className="text-3xl bg-transparent "> I AM </span>
         </motion.div>
         <motion.p
           initial="hidden"
@@ -25,7 +25,7 @@ const Hero = () => {
             visible: { opacity: 1, x: 0 },
           }}
           transition={{ duration: 1 }}
-          className="text-9xl "
+          className="bg-transparent text-9xl"
         >
           Isaac Wu
         </motion.p>
@@ -37,7 +37,7 @@ const Hero = () => {
             visible: { opacity: 1, x: 0 },
           }}
           transition={{ duration: 1 }}
-          className="text-8xl "
+          className="bg-transparent text-8xl"
         >
           A Web Developer
         </motion.p>
