@@ -20,7 +20,7 @@ const showcaseData = [
   },
   {
     name: "Card Game",
-    desc: "Get new deck of cards every single game. 100% no cheating.",
+    desc: "Get a new deck of cards every single game. 100% no cheating guaranteed.",
     libraries: "HTML, CSS, JavaScript, Bootstrap, jQuery, GSAP",
     screenshots: [cardGame1, cardGame2, cardGame3],
     deployedUrl: "https://shiny-haupia-090eab.netlify.app/",
@@ -41,6 +41,7 @@ const Showcases = () => {
         <div className="flex flex-col gap-20 py-16 bg-white lg:grid lg:grid-cols-2">
           {showcaseData.map((item) => (
             <Showcase
+              key={item.name}
               name={item.name}
               desc={item.desc}
               libraries={item.libraries}

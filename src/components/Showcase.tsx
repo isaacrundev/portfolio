@@ -27,8 +27,8 @@ const Showcase = ({
           />
         </a>
       </div>
-      <div className="flex flex-col w-full h-40 px-3">
-        <div className="flex flex-row gap-3 py-3">
+      <div className="flex flex-col justify-start w-full h-40 px-3">
+        <div className="flex flex-row gap-3 pt-4 pb-2">
           <p className="text-lg font-medium text-primary-500">{name}</p>
           <a className="w-6 " href={githubUrl} target="_blank">
             <img

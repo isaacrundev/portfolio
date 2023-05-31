@@ -41,7 +41,11 @@ const Contact = () => {
           </div>
           <div className="flex gap-4">
             {contactMethods.map((each) => (
-              <div id={each.name} className="m-0 rounded-full w-14">
+              <div
+                key={each.name}
+                id={each.name}
+                className="m-0 rounded-full w-14"
+              >
                 <a href={each.link} target="_blank">
                   <img src={each.icon} />
                 </a>

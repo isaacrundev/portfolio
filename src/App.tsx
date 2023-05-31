@@ -27,6 +27,7 @@ function App() {
       <Header>
         {menuItem.map((item) => (
           <MenuButton
+            key={item}
             text={item.charAt(0).toUpperCase() + item.slice(1)}
             linkTo={"#" + item}
           />
