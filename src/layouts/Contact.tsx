@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   contactEmail,
   contactGithub,
@@ -35,7 +36,16 @@ const Contact = () => {
         <div className="flex flex-col justify-center basis-24">
           <p className="text-3xl font-semibold">Contact</p>
         </div>
-        <div className="flex flex-col mt-40">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 0.75, y: 0 },
+          }}
+          transition={{ duration: 1 }}
+          className="flex flex-col mt-40"
+        >
           <div>
             <p className="py-5 text-2xl text-center">You can find me on:</p>
           </div>
@@ -52,7 +62,7 @@ const Contact = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -42,14 +42,13 @@ const showcaseData = [
 
 const Showcases = () => {
   return (
-    <section id="showcases" className="">
-      <div className="flex flex-col text-inherit bg-inherit">
-        <div className="flex flex-col justify-center text-inherit bg-inherit basis-24">
-          <p className="text-3xl font-semibold text-inherit bg-inherit">
+    <section id="showcases" className="bg-white">
+      <div className="flex flex-col bg-white">
+        <div className="flex flex-col justify-center bg-white basis-24">
+          <p className="text-3xl font-semibold text-black bg-white ">
             Showcases
           </p>
         </div>
-        {/* <div className="grid-cols-2 py-20 bg-white min-[1033px]:grid"> */}
         <div className="flex flex-col gap-20 py-16 bg-white lg:grid lg:grid-cols-2">
           {showcaseData.map((item) => (
             <Showcase
