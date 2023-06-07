@@ -6,9 +6,21 @@ import {
   whistlerApp1,
   whistlerApp2,
   whistlerApp3,
+  foxBook1,
+  foxBook2,
+  foxBook3,
 } from "../assets";
 
 const showcaseData = [
+  {
+    name: "FoxBook",
+    desc: "A MERN stack website for sharing posts among registered users with CRUD.",
+    libraries:
+      "MongoDB, ExpressJS, ReactJS, NodeJS, Tailwind, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS, Cors, Dotenv,Express, Express-async-errors, Jsonwebtoken, Mongoose, Nodemon",
+    screenshots: [foxBook1, foxBook2, foxBook3],
+    deployedUrl: "https://nodejs-final-client.vercel.app/",
+    githubUrl: "https://github.com/isaacrundev/nodejs-final",
+  },
   {
     name: "Whistler App",
     desc: "An anonymous system for reporting inappropriate behaviors to admins. For both reporter an admins.",

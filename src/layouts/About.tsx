@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <section id="about" className="">
-      <div className="flex flex-col ">
+      <div className="flex flex-col px-40">
         <div className="flex flex-col justify-center basis-24">
+          <div className="rounded-full ">
+            <img src="" className="" />
+          </div>
           <p className="text-3xl font-semibold">About</p>
           <motion.p
             initial="hidden"

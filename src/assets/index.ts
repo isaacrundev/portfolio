@@ -9,6 +9,10 @@ import whistlerApp1 from "./showcases/WhistlerApp/whistlerApp1.png";
 import whistlerApp2 from "./showcases/WhistlerApp/whistlerApp1.png";
 import whistlerApp3 from "./showcases/WhistlerApp/whistlerApp1.png";
 
+import foxBook1 from "./showcases/FoxBook/foxBook1.png";
+import foxBook2 from "./showcases/FoxBook/foxBook2.png";
+import foxBook3 from "./showcases/FoxBook/foxBook3.png";
+
 import contactEmail from "./contact/iconmonstr-email-10-96.png";
 import contactGithub from "./contact/iconmonstr-github-1-96.png";
 import contactTelegram from "./contact/iconmonstr-telegram-4-96.png";
@@ -23,5 +27,7 @@ export { github, link };
 export { cardGame1, cardGame2, cardGame3 };
 
 export { whistlerApp1, whistlerApp2, whistlerApp3 };
+
+export { foxBook1, foxBook2, foxBook3 };
 
 export { contactEmail, contactGithub, contactLinkedIn, contactTelegram };
