@@ -27,7 +27,7 @@ const showcaseData = [
     libraries:
       "React, TypeScript, Redux(Redux-toolkit), React Router DOM, Material-UI, React Query, Axios",
     screenshots: [whistlerApp1, whistlerApp2, whistlerApp3],
-    deployedUrl: "https://dev-whistler-app.vercel.app/",
+    deployedUrl: "https://dev-whistler-app.vercel.app/login",
     githubUrl: "https://github.com/WMAD-0522-Final-Project",
   },
   {
