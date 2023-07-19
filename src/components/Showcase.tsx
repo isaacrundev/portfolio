@@ -18,9 +18,8 @@ const Showcase = ({
   githubUrl,
 }: Props) => {
   return (
-    <div className="flex flex-col w-5/6 mx-auto bg-white shadow ">
-      <div className="rounded-md"></div>
-      <div className="overflow-hidden rounded-t-md">
+    <div className="flex flex-col w-5/6 mx-auto bg-white">
+      <div className="overflow-hidden rounded-t-xl">
         <a href={deployedUrl} target="_blank">
           <img
             src={screenshots[0]}
@@ -28,8 +27,8 @@ const Showcase = ({
           />
         </a>
       </div>
-      <div className="flex flex-col justify-start w-full h-48 px-3 sm:h-40 rounded-b-md">
-        <div className="flex flex-row gap-3 pt-4 pb-2">
+      <div className="flex flex-col w-full h-48 px-5 sm:h-40 rounded-b-xl">
+        <div className="flex gap-3 pt-4 pb-2">
           <p className="text-lg font-medium text-primary-500">{name}</p>
           <a className="w-6 " href={githubUrl} target="_blank">
             <img
@@ -45,10 +44,13 @@ const Showcase = ({
           </a>
         </div>
         <div>
-          <p className="text-xs text-gray-200 ">Libraries: {libraries}</p>
+          <p className="text-xs text-gray-200 ">Libraries used: {libraries}</p>
         </div>
         <div>
-          <p className="mt-2 text-xs italic text-gray-400"> {desc}</p>
+          <p className="pt-5 mt-2 text-xs italic font-bold text-gray-700">
+            {" "}
+            {desc}
+          </p>
         </div>
       </div>
     </div>
