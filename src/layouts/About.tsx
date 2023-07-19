@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="">
-      <div className="flex flex-col px-10 lg:px-60">
+    <section id="about" className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center px-5 lg:px-52">
         <div className="flex flex-col justify-center text-inherit bg-inherit basis-24">
           <p className="text-3xl font-semibold text-inherit bg-inherit">
             About
           </p>
         </div>
         <div className="flex flex-col justify-center basis-24">
-          <div className="rounded-full ">
+          {/* <div className="rounded-full ">
             <img src="" className="" />
-          </div>
+          </div> */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -21,7 +21,7 @@ const About = () => {
               visible: { opacity: 1, x: 0 },
             }}
             transition={{ duration: 1 }}
-            className="lg:leading-relaxed "
+            className="lg:leading-relaxed"
           >
             <p>
               Hello, I'm Isaac Wu, a passionate web developer and former project

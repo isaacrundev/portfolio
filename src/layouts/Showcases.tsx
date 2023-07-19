@@ -39,17 +39,19 @@ const showcaseData = [
     githubUrl: "https://github.com/isaacrundev/js_final",
   },
 ];
-
 const Showcases = () => {
   return (
-    <section id="showcases" className="bg-white">
+    <section
+      id="showcases"
+      className="flex items-center justify-center bg-white"
+    >
       <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-center bg-white basis-24">
           <p className="text-3xl font-semibold text-black bg-white ">
             Showcases
           </p>
         </div>
-        <div className="flex flex-col gap-20 py-16 bg-white lg:grid lg:grid-cols-2">
+        <div className="flex flex-col gap-20 pb-16 bg-white lg:grid lg:grid-cols-2">
           {showcaseData.map((item) => (
             <Showcase
               key={item.name}

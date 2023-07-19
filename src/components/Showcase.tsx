@@ -19,6 +19,7 @@ const Showcase = ({
 }: Props) => {
   return (
     <div className="flex flex-col w-5/6 mx-auto bg-white shadow ">
+      <div className="rounded-md"></div>
       <div className="overflow-hidden rounded-t-md">
         <a href={deployedUrl} target="_blank">
           <img
