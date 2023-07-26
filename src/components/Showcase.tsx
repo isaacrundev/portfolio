@@ -7,6 +7,7 @@ type Props = {
   screenshots: string[];
   deployedUrl: string;
   githubUrl: string;
+  role?: string;
 };
 
 const Showcase = ({
@@ -16,9 +17,10 @@ const Showcase = ({
   screenshots,
   deployedUrl,
   githubUrl,
+  role,
 }: Props) => {
   return (
-    <div className="flex flex-col w-5/6 mx-auto bg-white">
+    <div className="flex flex-col w-5/6 max-w-3xl mx-auto bg-white">
       <div className="overflow-hidden rounded-t-xl">
         <a href={deployedUrl} target="_blank">
           <img
@@ -27,8 +29,8 @@ const Showcase = ({
           />
         </a>
       </div>
-      <div className="flex flex-col w-full h-48 px-5 sm:h-40 rounded-b-xl">
-        <div className="flex gap-3 pt-4 pb-2">
+      <div className="flex flex-col w-full gap-3 px-5 min-h-fit rounded-b-xl">
+        <div className="flex items-center justify-center gap-3 pt-3">
           <p className="text-lg font-medium text-primary-500">{name}</p>
           <a className="w-6 " href={githubUrl} target="_blank">
             <img
@@ -43,14 +45,18 @@ const Showcase = ({
             />
           </a>
         </div>
+        {role && (
+          <div>
+            <p className="text-sm text-gray-200 ">
+              My role in the team: {role}
+            </p>
+          </div>
+        )}
         <div>
           <p className="text-xs text-gray-200 ">Libraries used: {libraries}</p>
         </div>
-        <div>
-          <p className="pt-5 mt-2 text-xs italic font-bold text-gray-700">
-            {" "}
-            {desc}
-          </p>
+        <div className="pb-5">
+          <p className="text-xs italic font-bold text-gray-700 ">{desc}</p>
         </div>
       </div>
     </div>

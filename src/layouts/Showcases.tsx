@@ -23,12 +23,13 @@ const showcaseData = [
   },
   {
     name: "Whistler App",
-    desc: "An anonymous system for reporting inappropriate behaviors to admins. For both reporter an admins.",
+    desc: "An anonymous system for reporting inappropriate behaviors to admins. For both reporter and admins.",
     libraries:
-      "React, TypeScript, Redux(Redux-toolkit), React Router DOM, Material-UI, React Query, Axios",
+      "React, TypeScript, Redux(Redux-toolkit), React Router DOM, Material-UI, React Query, Axios, React-beautiful-dnd",
     screenshots: [whistlerApp1, whistlerApp2, whistlerApp3],
     deployedUrl: "https://dev-whistler-app.vercel.app/login",
     githubUrl: "https://github.com/WMAD-0522-Final-Project",
+    role: "Frontend developer",
   },
   {
     name: "Card Game",
@@ -51,7 +52,8 @@ const Showcases = () => {
             Showcases
           </p>
         </div>
-        <div className="flex flex-col gap-20 pb-16 bg-white lg:grid lg:grid-cols-2">
+        {/* <div className="flex flex-col gap-20 pb-16 bg-white lg:grid lg:grid-cols-2"> */}
+        <div className="flex flex-col gap-20 pb-16 bg-white">
           {showcaseData.map((item) => (
             <Showcase
               key={item.name}
@@ -61,6 +63,7 @@ const Showcases = () => {
               screenshots={item.screenshots}
               deployedUrl={item.deployedUrl}
               githubUrl={item.githubUrl}
+              role={item.role}
             />
           ))}
         </div>
