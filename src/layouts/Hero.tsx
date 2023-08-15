@@ -2,11 +2,8 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section
-      id="main"
-      className="flex flex-col items-center justify-center min-h-screen"
-    >
-      <div className="flex flex-col justify-center gap-5">
+    <section id="main" className="flex flex-col min-h-screen pt-60">
+      <div className="flex flex-col justify-center gap-5 px-10">
         <motion.p
           initial="hidden"
           whileInView="visible"
