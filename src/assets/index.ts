@@ -10,8 +10,8 @@ import cardGameMobile2 from "./showcases/CardGame/cardGame-mobile2.png";
 import cardGameMobile3 from "./showcases/CardGame/cardGame-mobile3.png";
 
 import whistlerApp1 from "./showcases/WhistlerApp/whistlerApp1.png";
-import whistlerApp2 from "./showcases/WhistlerApp/whistlerApp1.png";
-import whistlerApp3 from "./showcases/WhistlerApp/whistlerApp1.png";
+import whistlerApp2 from "./showcases/WhistlerApp/whistlerApp2.png";
+import whistlerApp3 from "./showcases/WhistlerApp/whistlerApp3.png";
 import whistlerAppMobile1 from "./showcases/WhistlerApp/whistlerApp-mobile1.png";
 import whistlerAppMobile2 from "./showcases/WhistlerApp/whistlerApp-mobile2.png";
 import whistlerAppMobile3 from "./showcases/WhistlerApp/whistlerApp-mobile3.png";
