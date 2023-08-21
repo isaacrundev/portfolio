@@ -1,4 +1,5 @@
 import { github, link } from "../assets";
+import SlideCard from "./SlideCard";
 
 type Props = {
   name: string;
@@ -20,16 +21,18 @@ const Showcase = ({
   role,
 }: Props) => {
   return (
-    <div className="flex flex-col w-5/6 max-w-3xl mx-auto bg-white">
-      <div className="overflow-hidden rounded-t-xl">
-        <a href={deployedUrl} target="_blank">
+    <div className="flex flex-col w-5/6 max-w-3xl bg-white">
+      {/* <div className="overflow-hidden rounded-t-xl"> */}
+      <div className="relative w-full ">
+        {/* <a href={deployedUrl} target="_blank">
           <img
             src={screenshots[0]}
             className="object-fill w-full duration-500 ease-out scale-100 aspect-video hover:scale-105"
-          />
-        </a>
+          /> */}
+        <SlideCard screenshots={screenshots} />
+        {/* </a> */}
       </div>
-      <div className="flex flex-col w-full gap-3 px-5 min-h-fit rounded-b-xl">
+      <div className="relative flex flex-col w-full gap-3 px-5 top-72 min-h-fit rounded-b-xl">
         <div className="flex items-center justify-center gap-3 pt-3">
           <p className="text-lg font-medium text-primary-500">{name}</p>
           <a className="w-6 " href={githubUrl} target="_blank">
