@@ -42,8 +42,8 @@ const About = () => {
               </p>
               <br />
               <p>
-                After a couple years, I made up my mind to study web-development
-                at Cornerstone International Community College of Canada.
+                After a couple years, I decided to study web-development at
+                Cornerstone International Community College of Canada.
               </p>
               <br />
               <p>
