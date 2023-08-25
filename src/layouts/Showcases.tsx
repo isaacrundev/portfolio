@@ -1,5 +1,5 @@
 import Showcase from "../components/Showcase";
-import "../assets";
+import "../assets/index.ts";
 import {
   cardGame1,
   cardGame2,
@@ -19,7 +19,7 @@ import {
   whistlerAppMobile1,
   whistlerAppMobile2,
   whistlerAppMobile3,
-} from "../assets";
+} from "../assets/index.ts";
 
 const showcaseData = [
   {
@@ -76,8 +76,8 @@ const Showcases = () => {
   return (
     <section id="showcases" className="flex  justify-center h-[225vh] bg-white">
       <div className="flex flex-col bg-white">
-        <div className="flex flex-col justify-center bg-white basis-24">
-          <p className="text-3xl font-semibold text-black bg-white ">
+        <div className="flex flex-col justify-center bg-white">
+          <p className="py-8 text-3xl font-semibold text-black bg-white">
             Showcases
           </p>
         </div>

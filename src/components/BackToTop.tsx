@@ -1,4 +1,4 @@
-import { topBtn } from "../assets";
+import { topBtn } from "../assets/index.ts";
 
 const BackToTop = () => {
   const handleClick = () => {

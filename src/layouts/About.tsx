@@ -1,19 +1,14 @@
 import { motion } from "framer-motion";
-import { me } from "../assets";
+import { me } from "../assets/index.ts";
 
 const About = () => {
   return (
-    <section id="about" className="flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center px-5 lg:px-52">
-        <div className="flex flex-col text-inherit bg-inherit basis-20">
-          <p className="text-3xl font-semibold text-inherit bg-inherit">
-            About
-          </p>
+    <section id="about" className="flex ">
+      <div className="flex flex-col items-center px-8 md:px-20">
+        <div className="flex flex-col ">
+          <p className="py-8 text-3xl font-semibold">About</p>
         </div>
-        <div className="flex flex-col justify-center basis-24">
-          {/* <div className="rounded-full ">
-            <img src="" className="" />
-          </div> */}
+        <div className="flex flex-col items-center md:pt-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -25,7 +20,7 @@ const About = () => {
             className="flex flex-col sm:flex-row sm:gap-16 lg:leading-relaxed"
           >
             <img
-              className=" object-contain max-w-[80%] sm:max-w-[30%]"
+              className="object-contain w-5/6 rounded-md sm:w-1/4"
               src={me}
               alt="me"
             />

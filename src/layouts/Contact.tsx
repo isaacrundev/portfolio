@@ -4,7 +4,7 @@ import {
   contactGithub,
   contactLinkedIn,
   contactTelegram,
-} from "../assets";
+} from "../assets/index.ts";
 
 const contactMethods = [
   {
@@ -33,8 +33,8 @@ const Contact = () => {
   return (
     <section id="contact">
       <div className="flex flex-col ">
-        <div className="flex flex-col justify-center basis-24">
-          <p className="text-3xl font-semibold">Contact</p>
+        <div className="flex flex-col justify-center">
+          <p className="py-8 text-3xl font-semibold">Contact</p>
         </div>
         <motion.div
           initial="hidden"

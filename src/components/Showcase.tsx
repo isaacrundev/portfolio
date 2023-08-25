@@ -1,4 +1,4 @@
-import { github, link } from "../assets";
+import { github, link } from "../assets/index.ts";
 import SlideCard from "./SlideCard";
 
 type Props = {
@@ -21,7 +21,7 @@ const Showcase = ({
   role,
 }: Props) => {
   return (
-    <div className="flex flex-col w-5/6 max-w-3xl bg-white">
+    <div className="flex flex-col w-5/6 max-w-3xl bg-white ">
       {/* <div className="overflow-hidden rounded-t-xl"> */}
       <div className="relative w-full ">
         {/* <a href={deployedUrl} target="_blank">

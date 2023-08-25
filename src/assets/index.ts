@@ -30,6 +30,12 @@ import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png";
 
 import topBtn from "./back-to-top-icon-png-8.jpg";
 import me from "./14C60149-3736-4BE8-86D4-AAF1BDA7F2AF_1_201_a.jpeg";
+import heroImg from "./undraw_hello_re_3evm.svg";
+import bubbleTalk from "./Bubble-talk.svg";
+
+export { bubbleTalk };
+
+export { heroImg };
 
 export { topBtn };
 
