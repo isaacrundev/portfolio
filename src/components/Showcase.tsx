@@ -23,7 +23,7 @@ const Showcase = ({
   return (
     <div className="flex flex-col w-5/6 max-w-3xl bg-white ">
       {/* <div className="overflow-hidden rounded-t-xl"> */}
-      <div className="relative w-full ">
+      <div className="relative w-full h-72 rounded-t-xl">
         {/* <a href={deployedUrl} target="_blank">
           <img
             src={screenshots[0]}
@@ -32,7 +32,7 @@ const Showcase = ({
         <SlideCard screenshots={screenshots} />
         {/* </a> */}
       </div>
-      <div className="relative flex flex-col w-full gap-3 px-5 top-72 min-h-fit rounded-b-xl">
+      <div className="relative flex flex-col w-full gap-3 px-5 min-h-fit rounded-b-xl">
         <div className="flex items-center justify-center gap-3 pt-3">
           <p className="text-lg font-medium text-primary-500">{name}</p>
           <a className="w-6 " href={githubUrl} target="_blank">

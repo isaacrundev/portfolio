@@ -53,7 +53,7 @@ export default function SlideCard({ screenshots }: Props) {
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           //   className="absolute rounded-t-xl"
-          className="absolute object-scale-down w-full bg-white bg-opacity-0 h-72 rounded-t-xl"
+          className="absolute object-contain w-full bg-white bg-opacity-0 h-72 rounded-t-xl"
           key={page}
           src={screenshots[imageIndex]}
           custom={direction}
@@ -80,13 +80,13 @@ export default function SlideCard({ screenshots }: Props) {
         />
       </AnimatePresence>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-white rounded-full cursor-pointer select-none right-1 top-32"
+        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none right-1 top-48"
         onClick={() => paginate(1)}
       >
         {"‣"}
       </div>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-white rounded-full cursor-pointer select-none left-1 -scale-100 top-32"
+        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none left-1 -scale-100 top-48"
         onClick={() => paginate(-1)}
       >
         {"‣"}

@@ -74,7 +74,10 @@ const showcaseData = [
 ];
 const Showcases = () => {
   return (
-    <section id="showcases" className="flex  justify-center h-[225vh] bg-white">
+    <section
+      id="showcases"
+      className="flex  justify-center min-h-[200vh] sm:h-[250vh] bg-white"
+    >
       <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-center bg-white">
           <p className="py-8 text-3xl font-semibold text-black bg-white">
@@ -82,7 +85,7 @@ const Showcases = () => {
           </p>
         </div>
         {/* <div className="flex flex-col gap-20 pb-16 bg-white lg:grid lg:grid-cols-2"> */}
-        <div className="flex flex-col pb-16 bg-white gap-96">
+        <div className="flex flex-col gap-32 pb-16 bg-white">
           {showcaseData.map((item) => (
             <Showcase
               key={item.name}
