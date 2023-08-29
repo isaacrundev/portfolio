@@ -1,6 +1,11 @@
 import github from "./showcases/icons8-github-50.png";
 import link from "./showcases/icons8-link-50.png";
 
+import dod1 from "./showcases/dod/dod1.png";
+import dod2 from "./showcases/dod/dod2.png";
+import dod3 from "./showcases/dod/dod3.png";
+import dod4 from "./showcases/dod/dod4.png";
+
 import cardGame1 from "./showcases/CardGame/cardGame1.png";
 import cardGame2 from "./showcases/CardGame/cardGame2.png";
 import cardGame3 from "./showcases/CardGame/cardGame3.png";
@@ -32,6 +37,8 @@ import topBtn from "./back-to-top-icon-png-8.jpg";
 import me from "./14C60149-3736-4BE8-86D4-AAF1BDA7F2AF_1_201_a.jpeg";
 import heroImg from "./undraw_hello_re_3evm.svg";
 import bubbleTalk from "./Bubble-talk.svg";
+
+export { dod1, dod2, dod3, dod4 };
 
 export { bubbleTalk };
 

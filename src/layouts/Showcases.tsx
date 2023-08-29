@@ -7,6 +7,10 @@ import {
   cardGameMobile1,
   cardGameMobile2,
   cardGameMobile3,
+  dod1,
+  dod2,
+  dod3,
+  dod4,
   foxBook1,
   foxBook2,
   foxBook3,
@@ -23,10 +27,19 @@ import {
 
 const showcaseData = [
   {
+    name: "Diet or Die",
+    desc: "A website enables users to see and record their diet by importing data from OpenFoodFacts API or input manually",
+    libraries:
+      "NextJS, ReactJS, NextAuthJS, Prisma, PostgreSQL, TailwindCSS, Flowbite, React Hook Form, Zod, BcryptJS",
+    screenshots: [dod1, dod2, dod3, dod4],
+    deployedUrl: "https://dod-nextjs.vercel.app/",
+    githubUrl: "https://github.com/isaacrundev/dod-nextjs",
+  },
+  {
     name: "FoxBook",
     desc: "A CRUD MERN stack website for sharing posts among registered users.",
     libraries:
-      "MongoDB, ExpressJS, ReactJS, NodeJS, Mongoose, TailwindCSS, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS, Express",
+      "MongoDB, ExpressJS, ReactJS, NodeJS, Mongoose, TailwindCSS, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS",
     screenshots: [
       foxBook1,
       foxBook2,
@@ -76,7 +89,7 @@ const Showcases = () => {
   return (
     <section
       id="showcases"
-      className="flex  justify-center min-h-[200vh] sm:h-[250vh] bg-white"
+      className="flex  justify-center min-h-[300vh] sm:h-[325vh] bg-white"
     >
       <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-center bg-white">
