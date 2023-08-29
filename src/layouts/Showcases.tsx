@@ -87,10 +87,7 @@ const showcaseData = [
 ];
 const Showcases = () => {
   return (
-    <section
-      id="showcases"
-      className="flex  justify-center min-h-[300vh] sm:h-[325vh] bg-white"
-    >
+    <section id="showcases" className="flex justify-center bg-white">
       <div className="flex flex-col bg-white">
         <div className="flex flex-col justify-center bg-white">
           <p className="py-8 text-3xl font-semibold text-black bg-white">
