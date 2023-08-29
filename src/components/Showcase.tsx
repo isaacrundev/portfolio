@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { github, link } from "../assets/index.ts";
 import SlideCard from "./SlideCard";
 
@@ -25,7 +26,12 @@ const Showcase = ({
   demoPswd,
 }: Props) => {
   return (
-    <div className="flex flex-col w-5/6 max-w-3xl bg-white ">
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      className="flex flex-col w-5/6 max-w-3xl bg-white "
+    >
       <div className="relative w-full h-72 rounded-t-xl">
         <SlideCard screenshots={screenshots} />
       </div>
@@ -66,7 +72,7 @@ const Showcase = ({
           <p className="text-xs italic font-bold text-gray-700 ">{desc}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
