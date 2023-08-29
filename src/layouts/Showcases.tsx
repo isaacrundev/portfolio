@@ -30,10 +30,12 @@ const showcaseData = [
     name: "Diet or Die",
     desc: "A website enables users to see and record their diet by importing data from OpenFoodFacts API or input manually",
     libraries:
-      "NextJS, ReactJS, NextAuthJS, Prisma, PostgreSQL, TailwindCSS, Flowbite, React Hook Form, Zod, BcryptJS",
+      "NextJS, ReactJS, NextAuthJS, Prisma, PostgreSQL, TailwindCSS, Shadcn/ui, React Hook Form, Zod, BcryptJS",
     screenshots: [dod1, dod2, dod3, dod4],
     deployedUrl: "https://dod-nextjs.vercel.app/",
     githubUrl: "https://github.com/isaacrundev/dod-nextjs",
+    demoUsername: "aloha@qmail.com",
+    demoPswd: "111111",
   },
   {
     name: "FoxBook",
@@ -106,6 +108,8 @@ const Showcases = () => {
               deployedUrl={item.deployedUrl}
               githubUrl={item.githubUrl}
               role={item.role}
+              demoUsername={item.demoUsername}
+              demoPswd={item.demoPswd}
             />
           ))}
         </div>

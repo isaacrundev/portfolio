@@ -9,6 +9,8 @@ type Props = {
   deployedUrl: string;
   githubUrl: string;
   role?: string;
+  demoUsername?: string;
+  demoPswd?: string;
 };
 
 const Showcase = ({
@@ -19,18 +21,13 @@ const Showcase = ({
   deployedUrl,
   githubUrl,
   role,
+  demoUsername,
+  demoPswd,
 }: Props) => {
   return (
     <div className="flex flex-col w-5/6 max-w-3xl bg-white ">
-      {/* <div className="overflow-hidden rounded-t-xl"> */}
       <div className="relative w-full h-72 rounded-t-xl">
-        {/* <a href={deployedUrl} target="_blank">
-          <img
-            src={screenshots[0]}
-            className="object-fill w-full duration-500 ease-out scale-100 aspect-video hover:scale-105"
-          /> */}
         <SlideCard screenshots={screenshots} />
-        {/* </a> */}
       </div>
       <div className="relative flex flex-col w-full gap-3 px-5 min-h-fit rounded-b-xl">
         <div className="flex items-center justify-center gap-3 pt-3">
@@ -53,6 +50,13 @@ const Showcase = ({
             <p className="text-sm text-gray-200 ">
               My role in the team: {role}
             </p>
+          </div>
+        )}
+        {demoUsername && demoPswd && (
+          <div>
+            <p className="text-xs text-gray-400 ">Account for Demostration:</p>
+            <p className="text-xs text-gray-200 ">Username- {demoUsername}</p>
+            <p className="text-xs text-gray-200 ">Password- {demoPswd}</p>
           </div>
         )}
         <div>
