@@ -17,7 +17,7 @@ const Hero = () => {
         transition={{ duration: 2 }}
         className={`relative left-24 sm:left-56 bg-[url('./assets/Bubble-talk.svg')] w-36 aspect-square bg-no-repeat flex items-center justify-center`}
       >
-        <p className="absolute text-2xl top-9 ">Aloha!</p>
+        <p className="absolute text-2xl select-none top-9">Aloha!</p>
       </motion.span>
       <div className="flex flex-col justify-center gap-3 px-10">
         <motion.img
