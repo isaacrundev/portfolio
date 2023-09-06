@@ -7,9 +7,11 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      black: "#1a1313",
-      white: "#f0ebeb",
+    extends: {
+      colors: {
+        black: "#1a1313",
+        white: "#f0ebeb",
+      },
     },
     extend: {
       fontFamily: {

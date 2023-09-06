@@ -60,16 +60,20 @@ const Showcase = ({
         )}
         {demoUsername && demoPswd && (
           <div>
-            <p className="text-xs text-gray-400 ">Account for Demostration:</p>
-            <p className="text-xs text-gray-200 ">Username- {demoUsername}</p>
-            <p className="text-xs text-gray-200 ">Password- {demoPswd}</p>
+            <p className="text-xs italic text-gray-400">
+              Demo login credentials:
+            </p>
+            <p className="text-xs italic text-gray-400">
+              Username- {demoUsername}
+            </p>
+            <p className="text-xs italic text-gray-400">Password- {demoPswd}</p>
           </div>
         )}
         <div>
           <p className="text-xs text-gray-200 ">Libraries used: {libraries}</p>
         </div>
         <div className="pb-5">
-          <p className="text-xs italic font-bold text-gray-700 ">{desc}</p>
+          <p className="text-xs italic font-bold text-gray-400 ">{desc}</p>
         </div>
       </div>
     </motion.div>
