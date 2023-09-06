@@ -3,7 +3,6 @@ import {
   contactEmail,
   contactGithub,
   contactLinkedIn,
-  contactTelegram,
 } from "../assets/index.ts";
 
 const contactMethods = [
