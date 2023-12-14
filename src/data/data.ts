@@ -28,7 +28,7 @@ import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.png";
 export const showcaseData = [
   {
     name: "YouBike Live Data Tracker",
-    desc: "A single paged, web-based service enables users to check live data of YouBike in Taipei city",
+    desc: "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city",
     libraries: "Vite, ReactJS, TailwindCSS, Shadcn/ui, React Query, Axios",
     screenshots: [youbikeDesktop1, youbikeMobile1],
     deployedUrl: "https://youbike-tan.vercel.app/",
@@ -36,7 +36,7 @@ export const showcaseData = [
   },
   {
     name: "Diet or Die",
-    desc: "A website enables users to see and record their diet by importing data from OpenFoodFacts API or input manually",
+    desc: "A website for recording diet by bringing your own data or importing from OpenFoodFacts API",
     libraries:
       "NextJS, ReactJS, NextAuthJS, Prisma, PostgreSQL, TailwindCSS, Shadcn/ui, React Hook Form, Zod, BcryptJS",
     screenshots: [dod1, dod2, dod3, dod4],
@@ -47,7 +47,7 @@ export const showcaseData = [
   },
   {
     name: "FoxBook",
-    desc: "A CRUD MERN stack website for sharing posts among registered users.",
+    desc: "A CRUD MERN stack website for sharing posts among registered users",
     libraries:
       "MongoDB, ExpressJS, ReactJS, NodeJS, Mongoose, TailwindCSS, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS",
     screenshots: [
@@ -63,7 +63,7 @@ export const showcaseData = [
   },
   {
     name: "Whistler App",
-    desc: "An anonymous system for reporting inappropriate behaviors to admins. For both reporter and admins.",
+    desc: "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins",
     libraries:
       "React, TypeScript, Redux(Redux-toolkit), React Router DOM, Material-UI, React Query, Axios, React-beautiful-dnd",
     screenshots: [
@@ -81,7 +81,7 @@ export const showcaseData = [
   },
   {
     name: "Card Game",
-    desc: "Get a new deck of cards every single game. 100% no cheating guaranteed.",
+    desc: "Get a new deck of cards every single game. 100% no cheating guaranteed",
     libraries: "HTML, CSS, JavaScript, Bootstrap, jQuery, GSAP",
     screenshots: [
       cardGame1,
