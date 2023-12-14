@@ -27,8 +27,8 @@ import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.png";
 
 export const showcaseData = [
   {
-    name: "Youbike Live Data Tracker",
-    desc: "A website enables users to check live data of Youbike in Taipei",
+    name: "YouBike Live Data Tracker",
+    desc: "A single paged, web-based service enables users to check live data of YouBike in Taipei city",
     libraries: "Vite, ReactJS, TailwindCSS, Shadcn/ui, React Query, Axios",
     screenshots: [youbikeDesktop1, youbikeMobile1],
     deployedUrl: "https://youbike-tan.vercel.app/",
