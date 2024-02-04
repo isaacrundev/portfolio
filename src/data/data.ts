@@ -36,7 +36,7 @@ export const showcaseData = [
   },
   {
     name: "Diet or Die",
-    desc: "A website for recording diet by bringing your own data or importing from OpenFoodFacts API",
+    desc: "A website for recording diet by bringing your own data or importing from OpenFoodFacts API *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
     libraries:
       "NextJS, ReactJS, NextAuthJS, Prisma, PostgreSQL, TailwindCSS, Shadcn/ui, React Hook Form, Zod, BcryptJS",
     screenshots: [dod1, dod2, dod3, dod4],
@@ -49,7 +49,7 @@ export const showcaseData = [
     name: "FoxBook",
     desc: "A CRUD MERN stack website for sharing posts among registered users",
     libraries:
-      "MongoDB, ExpressJS, ReactJS, NodeJS, Mongoose, TailwindCSS, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS",
+      "MongoDB, ExpressJS, ReactJS, NodeJS, Mongoose, TailwindCSS, Flowbite, React Hook Form, React-router-dom, Zod, BcryptJS. *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
     screenshots: [
       foxBook1,
       foxBook2,
