@@ -15,6 +15,7 @@ import {
   foxBookMobile1,
   foxBookMobile2,
   foxBookMobile3,
+  mvdbScreenshots,
   whistlerApp1,
   whistlerApp2,
   whistlerApp3,
@@ -26,6 +27,15 @@ import youbikeDesktop1 from "../assets/showcases/Youbike/youbike-desktop1.png";
 import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.png";
 
 export const showcaseData = [
+  {
+    name: "MVDB",
+    desc: "A pure front-end website enables users to see and look up movie info.",
+    libraries:
+      "Ant Design, Axios, TanStack Router, React-spring, TanStack Query",
+    screenshots: mvdbScreenshots,
+    deployedUrl: "https://spiffy-scone-79afc0.netlify.app/",
+    githubUrl: "https://gitlab.com/isaac.run.dev/mvdb",
+  },
   {
     name: "YouBike Live Data Tracker",
     desc: "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city",

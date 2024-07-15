@@ -38,6 +38,22 @@ import me from "./14C60149-3736-4BE8-86D4-AAF1BDA7F2AF_1_201_a.jpeg";
 import heroImg from "./undraw_hello_re_3evm.svg";
 import bubbleTalk from "./Bubble-talk.svg";
 
+import mvdbMobile1 from "./MVDB/mvdb_mobile_1.png";
+import mvdbMobile2 from "./MVDB/mvdb_mobile_2.png";
+import mvdbMobile3 from "./MVDB/mvdb_mobile_3.png";
+import mvdbDesktop1 from "./MVDB/mvdb_desktop_1.png";
+import mvdbDesktop2 from "./MVDB/mvdb_desktop_2.png";
+import mvdbDesktop3 from "./MVDB/mvdb_desktop_3.png";
+
+export const mvdbScreenshots = [
+  mvdbMobile1,
+  mvdbMobile2,
+  mvdbMobile3,
+  mvdbDesktop1,
+  mvdbDesktop2,
+  mvdbDesktop3,
+];
+
 export { dod1, dod2, dod3, dod4 };
 
 export { bubbleTalk };
