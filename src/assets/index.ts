@@ -38,6 +38,9 @@ import me from "./14C60149-3736-4BE8-86D4-AAF1BDA7F2AF_1_201_a.jpeg";
 import heroImg from "./undraw_hello_re_3evm.svg";
 import bubbleTalk from "./Bubble-talk.svg";
 
+import youbikeDesktop1 from "../assets/showcases/Youbike/youbike-desktop1.png";
+import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.png";
+
 import mvdbMobile1 from "./MVDB/mvdb_mobile_1.png";
 import mvdbMobile2 from "./MVDB/mvdb_mobile_2.png";
 import mvdbMobile3 from "./MVDB/mvdb_mobile_3.png";
@@ -54,7 +57,9 @@ export const mvdbScreenshots = [
   mvdbDesktop3,
 ];
 
-export { dod1, dod2, dod3, dod4 };
+export const youbikeScreenshots = [youbikeMobile1, youbikeDesktop1];
+
+export const dodScreenshots = [dod1, dod2, dod3, dod4];
 
 export { bubbleTalk };
 
@@ -64,32 +69,31 @@ export { topBtn };
 
 export { github, link };
 
-export {
+export const cardGameScreenshots = [
   cardGame1,
   cardGame2,
   cardGame3,
   cardGameMobile1,
   cardGameMobile2,
   cardGameMobile3,
-};
-
-export {
+];
+export const whistlerAppScreenshots = [
   whistlerApp1,
   whistlerApp2,
   whistlerApp3,
   whistlerAppMobile1,
   whistlerAppMobile2,
   whistlerAppMobile3,
-};
+];
 
-export {
+export const foxBookScreenshots = [
   foxBook1,
   foxBook2,
   foxBook3,
   foxBookMobile1,
   foxBookMobile2,
   foxBookMobile3,
-};
+];
 
 export { contactEmail, contactGithub, contactLinkedIn, contactTelegram };
 
