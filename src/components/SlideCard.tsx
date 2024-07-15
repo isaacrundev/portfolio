@@ -53,6 +53,7 @@ export default function SlideCard({ screenshots }: Props) {
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           //   className="absolute rounded-t-xl"
+          loading="lazy"
           className="absolute object-contain w-full bg-white bg-opacity-0 h-72 rounded-t-xl"
           key={page}
           src={screenshots[imageIndex]}
