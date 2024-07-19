@@ -10,9 +10,9 @@ import {
 export const showcaseData = [
   {
     name: "MVDB",
-    desc: "A pure front-end website enables users to see and look up movie info.",
+    desc: "A multilanguage pure front-end website enables users to see and look up movie info.",
     libraries:
-      "Ant Design, Axios, TanStack Router, React-spring, TanStack Query",
+      "Ant Design, Axios, TanStack Router, React-spring, TanStack Query, React-i18next",
     screenshots: mvdbScreenshots,
     deployedUrl: "https://spiffy-scone-79afc0.netlify.app/",
     githubUrl: "https://gitlab.com/isaac.run.dev/mvdb",
