@@ -1,5 +1,3 @@
-import AnchorLink from "react-anchor-link-smooth-scroll";
-
 type Props = {
   text: string;
   linkTo: string;
@@ -7,13 +5,10 @@ type Props = {
 
 function MenuButton({ text, linkTo }: Props) {
   return (
-    <AnchorLink href={linkTo}>
-      <div className="py-2 hover:pt-2 ">
-        <div className="hover:border-b-2 hover:border-white hover:cursor-pointer ">
-          {text}
-        </div>
-      </div>
-    </AnchorLink>
+    <a href={linkTo} className="relative font-medium text-slate-300 hover:text-white transition-colors group py-1">
+      {text}
+      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+    </a>
   );
 }
 

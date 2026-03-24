@@ -52,9 +52,8 @@ export default function SlideCard({ screenshots }: Props) {
     <>
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
-          //   className="absolute rounded-t-xl"
           loading="lazy"
-          className="absolute object-contain w-full bg-white bg-opacity-0 h-72 rounded-t-xl"
+          className="absolute inset-0 object-contain w-full h-full p-2"
           key={page}
           src={screenshots[imageIndex]}
           custom={direction}
@@ -81,13 +80,13 @@ export default function SlideCard({ screenshots }: Props) {
         />
       </AnimatePresence>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none right-1 top-48"
+        className="absolute z-10 flex items-center justify-center w-10 h-10 text-xl font-bold text-slate-800 bg-slate-100/50 hover:bg-slate-100 rounded-full cursor-pointer select-none right-3 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-md backdrop-blur-sm"
         onClick={() => paginate(1)}
       >
         {"‣"}
       </div>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none left-1 -scale-100 top-48"
+        className="absolute z-10 flex items-center justify-center w-10 h-10 text-xl font-bold text-slate-800 bg-slate-100/50 hover:bg-slate-100 rounded-full cursor-pointer select-none left-3 top-1/2 -translate-y-1/2 -scale-x-100 hover:-scale-x-110 transition-all shadow-md backdrop-blur-sm"
         onClick={() => paginate(-1)}
       >
         {"‣"}

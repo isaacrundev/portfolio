@@ -4,15 +4,15 @@ import { showcaseData } from "../data/data.ts";
 
 const Showcases = () => {
   return (
-    <section id="showcases" className="flex justify-center bg-white">
-      <div className="flex flex-col bg-white">
-        <div className="flex flex-col justify-center bg-white">
-          <p className="py-8 text-3xl font-semibold text-black bg-white">
-            Showcases
-          </p>
+    <section id="showcases" className="flex flex-col items-center py-24 md:py-32 relative scroll-mt-24">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent -z-10" />
+      <div className="flex flex-col w-full max-w-6xl px-4 sm:px-8">
+        <div className="flex flex-col items-center mb-20 md:mb-24 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Projects</span>
+          </h2>
         </div>
-        {/* <div className="flex flex-col gap-20 pb-16 bg-white lg:grid lg:grid-cols-2"> */}
-        <div className="flex flex-col gap-32 pb-16 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 w-full items-stretch justify-items-center">
           {showcaseData.map((item) => (
             <Showcase
               key={item.name}
