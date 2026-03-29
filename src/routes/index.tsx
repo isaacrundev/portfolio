@@ -1,12 +1,14 @@
-import "./App.css";
-import BackToTop from "./components/BackToTop";
-import Header from "./components/Header";
-import MenuButton from "./components/MenuButton";
-import Contact from "./layouts/Contact";
-import Hero from "./layouts/Hero";
-import Showcases from "./layouts/Showcases";
-import About from "./layouts/About";
+import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from "react";
+import BackToTop from "../components/BackToTop";
+import Header from "../components/Header";
+import MenuButton from "../components/MenuButton";
+import Contact from "../layouts/Contact";
+import Hero from "../layouts/Hero";
+import Showcases from "../layouts/Showcases";
+import About from "../layouts/About";
+
+export const Route = createFileRoute('/')({ component: App })
 
 const menuItem: string[] = ["about", "showcases", "contact"];
 
@@ -20,7 +22,8 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", BackToTopVisibility);
-  }, [scrollPosition]);
+    return () => window.removeEventListener("scroll", BackToTopVisibility);
+  }, []); // fixed dependencies if needed
 
   return (
     <>
@@ -41,5 +44,3 @@ function App() {
     </>
   );
 }
-
-export default App;
