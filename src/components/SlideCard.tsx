@@ -52,9 +52,8 @@ export default function SlideCard({ screenshots }: Props) {
     <>
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
-          //   className="absolute rounded-t-xl"
           loading="lazy"
-          className="absolute object-contain w-full bg-white bg-opacity-0 h-72 rounded-t-xl"
+          className="absolute inset-0 object-contain w-full h-full p-2"
           key={page}
           src={screenshots[imageIndex]}
           custom={direction}
@@ -81,16 +80,16 @@ export default function SlideCard({ screenshots }: Props) {
         />
       </AnimatePresence>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none right-1 top-48"
+        className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none right-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(1)}
       >
-        {"‣"}
+        <span className="group-hover:translate-x-0.5 transition-transform">❯</span>
       </div>
       <div
-        className="absolute z-10 flex items-center justify-center w-10 h-10 text-lg font-bold text-black bg-white rounded-full cursor-pointer select-none left-1 -scale-100 top-48"
+        className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none left-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(-1)}
       >
-        {"‣"}
+        <span className="group-hover:-translate-x-0.5 transition-transform">❮</span>
       </div>
     </>
   );

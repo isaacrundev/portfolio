@@ -1,5 +1,4 @@
 import { ArrowUpFromLine } from "lucide-react";
-import { topBtn } from "../assets/index.ts";
 
 const BackToTop = () => {
   const handleClick = () => {
@@ -8,24 +7,15 @@ const BackToTop = () => {
   return (
     <button
       type="button"
-      data-mdb-ripple="true"
-      data-mdb-ripple-color="light"
-      id="btn-back-to-top"
       onClick={handleClick}
-      // className="fixed inline-block p-1 uppercase transition duration-150 ease-in-out bg-white rounded-full shadow-md w-14 h-14 hover:shadow-lg focus:bg-gray-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-300 active:shadow-2xl bottom-5 right-5"
-      className="fixed flex items-center justify-center text-black transition duration-150 ease-in-out bg-white rounded-full shadow-md hover:font-bold w-14 h-14 bottom-5 right-5"
+      className="fixed flex items-center justify-center text-brand-cyan transition-all duration-500 ease-in-out bg-slate-900/60 backdrop-blur-xl border border-brand-cyan/30 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:bg-brand-cyan/10 hover:border-brand-cyan hover:scale-110 w-12 h-12 sm:w-14 sm:h-14 bottom-6 right-6 group z-50 pointer-events-auto overflow-hidden"
     >
-      {/* <img src={topBtn} className="object-contain bg-transparent w-9" /> */}
-      {/* <img src={topBtn} className="object-contain w-8 bg-white" /> */}
-      {/* <div className="flex flex-col bg-white"> */}
-      <span className="z-50 bg-inherit">
-        <ArrowUpFromLine
-          className="bg-transparent"
-          stroke="#322f2f"
-          strokeWidth={3}
-        />
-      </span>
-      {/* </div> */}
+      <div className="absolute inset-0 bg-brand-cyan/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+      <ArrowUpFromLine
+        className="group-hover:-translate-y-1 relative z-10 transition-transform"
+        strokeWidth={2.5}
+        size={22}
+      />
     </button>
   );
 };
