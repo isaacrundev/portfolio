@@ -34,7 +34,7 @@ const contactMethods = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 relative flex justify-center overflow-hidden scroll-mt-28">
+    <section id="contact" className="py-20 relative flex justify-center overflow-hidden scroll-mt-28">
       {/* Background gradients */}
       <div className="absolute bottom-0 w-full h-[600px] bg-gradient-to-t from-brand-purple/10 via-brand-pink/5 to-transparent -z-10" />
       <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-cyan/20 blur-[150px] rounded-[100%] pointer-events-none -z-10" />
@@ -45,7 +45,7 @@ const Contact = () => {
            whileInView={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8 }}
            viewport={{ once: true }}
-           className="text-center mb-16"
+           className="text-center mb-10"
         >
           <h2 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
             Let's <span className="text-gradient">Connect</span>
@@ -64,7 +64,7 @@ const Contact = () => {
           }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-col w-full glass-card rounded-[3rem] p-12 md:p-20 relative overflow-hidden"
+          className="flex flex-col w-full glass-card rounded-[3rem] p-8 md:p-12 relative overflow-hidden"
         >
           {/* Internal Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[60px]" />
