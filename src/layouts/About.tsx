@@ -17,14 +17,14 @@ const itemVariants: Variants = {
 
 const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden flex justify-center scroll-mt-24">
+    <section id="about" className="py-20 relative overflow-hidden flex justify-center scroll-mt-24">
       <div className="w-full max-w-7xl px-8 flex flex-col items-center">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8 }}
            viewport={{ once: true, margin: "-100px" }}
-           className="text-center mb-24"
+           className="text-center mb-12"
         >
           <h2 className="text-5xl md:text-6xl font-black tracking-tight text-white inline-block relative">
             About <span className="text-gradient">Me</span>
@@ -50,7 +50,7 @@ const About = () => {
           </motion.div>
 
           {/* Text Bento Box */}
-          <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col justify-center p-10 lg:p-14 glass-card rounded-[2.5rem] relative overflow-hidden">
+          <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col justify-center p-7 lg:p-10 glass-card rounded-[2.5rem] relative overflow-hidden">
             <div className="absolute -right-32 -top-32 w-64 h-64 bg-brand-cyan/10 rounded-full blur-[80px]" />
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-brand-pink/10 rounded-full blur-[80px]" />
             
