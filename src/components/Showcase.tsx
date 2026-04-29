@@ -64,7 +64,11 @@ const Showcase = ({
           </div>
         </div>
         
-        <p className="text-slate-300 leading-relaxed text-base flex-grow mb-6 font-light">{desc}</p>
+        <p className="text-slate-300 leading-relaxed text-base flex-grow mb-6 font-light whitespace-pre-wrap">
+          {desc.split('*').map((part, i) => (
+            i === 0 ? part : <span key={i} className="block mt-2 opacity-80 text-sm">*{part}</span>
+          ))}
+        </p>
         
         {role && (
           <div className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-brand-purple/10 border border-brand-purple/20">
