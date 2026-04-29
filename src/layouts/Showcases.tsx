@@ -2,8 +2,23 @@ import Showcase from "../components/Showcase";
 import "../assets/index.ts";
 import { showcaseData } from "../data/data.ts";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
+const getDescKey = (name: string) => {
+  switch(name) {
+    case "MVDB": return "mvdbDesc";
+    case "YouBike Live Data Tracker": return "youbikeDesc";
+    case "Diet or Die": return "dodDesc";
+    case "FoxBook": return "foxbookDesc";
+    case "Whistler App": return "whistlerDesc";
+    case "Card Game": return "cardgameDesc";
+    default: return "";
+  }
+};
 
 const Showcases = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="showcases" className="flex flex-col items-center py-16 md:py-20 relative scroll-mt-24">
       {/* Background Orbs */}
@@ -18,9 +33,9 @@ const Showcases = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center mb-12 text-center"
         >
-          <span className="text-brand-cyan font-mono font-bold tracking-widest uppercase mb-4 text-sm">Selected Work</span>
+          <span className="text-brand-cyan font-mono font-bold tracking-widest uppercase mb-4 text-sm">{t('showcases.subtitle')}</span>
           <h2 className="text-5xl md:text-6xl font-black tracking-tight text-white relative">
-            Featured <span className="text-gradient">Projects</span>
+            {t('showcases.title1')}<span className="text-gradient">{t('showcases.title2')}</span>
             <div className="absolute -bottom-4 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-purple to-transparent opacity-50"></div>
           </h2>
         </motion.div>
@@ -31,12 +46,12 @@ const Showcases = () => {
               key={item.name}
               index={i}
               name={item.name}
-              desc={item.desc}
+              desc={t(`showcases.${getDescKey(item.name)}`, item.desc)}
               libraries={item.libraries}
               screenshots={item.screenshots}
               deployedUrl={item.deployedUrl}
               githubUrl={item.githubUrl}
-              role={item.role}
+              role={item.role ? t('showcases.role') : undefined}
               demoUsername={item.demoUsername}
               demoPswd={item.demoPswd}
             />

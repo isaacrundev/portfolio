@@ -4,6 +4,7 @@ import {
   contactGithub,
   contactLinkedIn,
 } from "../assets/index.ts";
+import { useTranslation } from "react-i18next";
 
 const contactMethods = [
   {
@@ -33,6 +34,8 @@ const contactMethods = [
 ];
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-20 relative flex justify-center overflow-hidden scroll-mt-28">
       {/* Background gradients */}
@@ -48,10 +51,10 @@ const Contact = () => {
            className="text-center mb-10"
         >
           <h2 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            {t('contact.title1')}<span className="text-gradient">{t('contact.title2')}</span>
           </h2>
           <p className="text-xl md:text-2xl font-light text-slate-300 max-w-2xl mx-auto">
-            Currently open to new opportunities! Let's build something awesome together.
+            {t('contact.desc')}
           </p>
         </motion.div>
 
