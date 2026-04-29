@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "about": "About",
+    "showcases": "Showcases",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "greeting": "Hi, I am",
+    "developer": "> Developer_",
+    "problemSolver": "> Problem Solver_",
+    "uiuxEngineer": "> UI/UX Engineer_",
+    "lifelongLearner": "> Lifelong Learner_",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "title1": "About ",
+    "title2": "Me",
+    "intro": "Hello, I'm <1>Isaac Wu</1>, a passionate web developer and former project manager.",
+    "story": "Sometimes I wondered—it would be perfect if I could know more about programming and software development when I was a project manager. That curiosity led me to dive deep into code.",
+    "quote1": "\"Now, web development is not only a way to understand how systems work behind the scenes, but a canvas to build something ",
+    "quote2": "interesting, handy, and visually stunning.",
+    "quote3": "\""
+  },
+  "showcases": {
+    "subtitle": "Selected Work",
+    "title1": "Featured ",
+    "title2": "Projects",
+    "mvdbDesc": "A multilanguage pure front-end website enables users to see and look up movie info.",
+    "youbikeDesc": "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city",
+    "dodDesc": "A website for recording diet by bringing your own data or importing from OpenFoodFacts API *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
+    "foxbookDesc": "A CRUD MERN stack website for sharing posts among registered users. *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
+    "whistlerDesc": "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins",
+    "cardgameDesc": "Get a new deck of cards every single game. 100% no cheating guaranteed",
+    "role": "Frontend developer"
+  },
+  "contact": {
+    "title1": "Let's ",
+    "title2": "Connect",
+    "desc": "Currently open to new opportunities! Let's build something awesome together."
+  }
+}

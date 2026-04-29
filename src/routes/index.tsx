@@ -1,8 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import BackToTop from "../components/BackToTop";
 import Header from "../components/Header";
 import MenuButton from "../components/MenuButton";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 import Contact from "../layouts/Contact";
 import Hero from "../layouts/Hero";
 import Showcases from "../layouts/Showcases";
@@ -14,6 +16,7 @@ const menuItem: string[] = ["about", "showcases", "contact"];
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const { t } = useTranslation();
 
   const BackToTopVisibility = () => {
     const position = window.scrollY;
@@ -23,7 +26,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("scroll", BackToTopVisibility);
     return () => window.removeEventListener("scroll", BackToTopVisibility);
-  }, []); // fixed dependencies if needed
+  }, []);
 
   return (
     <>
@@ -31,10 +34,11 @@ function App() {
         {menuItem.map((item) => (
           <MenuButton
             key={item}
-            text={item.charAt(0).toUpperCase() + item.slice(1)}
+            text={t(`nav.${item}`)}
             linkTo={"#" + item}
           />
         ))}
+        <LanguageSwitcher />
       </Header>
       <Hero />
       <About />

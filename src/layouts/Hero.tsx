@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { useTranslation } from "react-i18next";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -16,6 +17,8 @@ const itemVariants: Variants = {
 };
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <section id="main" className="flex flex-col min-h-screen pt-28 pb-12 justify-center items-center overflow-hidden relative">
       {/* Dynamic Animated Background Blobs */}
@@ -41,7 +44,7 @@ const Hero = () => {
             <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-cyan"></span>
           </span>
           <span className="text-sm sm:text-base font-semibold text-slate-200 tracking-wide">
-            Available for new projects
+            {t('hero.available')}
           </span>
         </motion.div>
 
@@ -49,7 +52,7 @@ const Hero = () => {
           variants={itemVariants} 
           className="text-6xl sm:text-7xl lg:text-9xl py-2 font-black tracking-tighter leading-[1.1] text-white"
         >
-          Hi, I am <br/>
+          {t('hero.greeting')} <br/>
           <span className="text-gradient">
             Isaac Wu
           </span>
@@ -57,11 +60,12 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="text-xl sm:text-2xl lg:text-3xl text-slate-400 font-mono h-16 sm:h-20 mt-6 lg:mt-8 flex items-center justify-center">
           <TypeAnimation
+            key={i18n.language}
             sequence={[
-              "> Developer_", 2000,
-              "> Problem Solver_", 2000,
-              "> UI/UX Engineer_", 2000,
-              "> Lifelong Learner_", 2000,
+              t('hero.developer'), 2000,
+              t('hero.problemSolver'), 2000,
+              t('hero.uiuxEngineer'), 2000,
+              t('hero.lifelongLearner'), 2000,
             ]}
             wrapper="span"
             speed={40}
@@ -73,10 +77,10 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 mt-8 w-full sm:w-auto">
           <a href="#showcases" className="group relative px-10 py-4 rounded-2xl bg-slate-50 text-slate-900 font-bold tracking-wide transition-all hover:scale-[1.03] active:scale-95 w-full sm:w-auto overflow-hidden">
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink opacity-0 group-hover:opacity-20 transition-opacity"></span>
-            View Work
+            {t('hero.viewWork')}
           </a>
           <a href="#contact" className="px-10 py-4 rounded-2xl w-full sm:w-auto backdrop-blur-md bg-white/5 hover:bg-white/10 text-slate-100 font-bold border border-white/10 transition-all hover:scale-[1.03] active:scale-95">
-            Contact Me
+            {t('hero.contactMe')}
           </a>
         </motion.div>
       </motion.div>

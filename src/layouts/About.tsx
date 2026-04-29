@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { me } from "../assets/index.ts";
+import { useTranslation, Trans } from "react-i18next";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -16,6 +17,8 @@ const itemVariants: Variants = {
 };
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="py-20 relative overflow-hidden flex justify-center scroll-mt-24">
       <div className="w-full max-w-7xl px-8 flex flex-col items-center">
@@ -27,7 +30,7 @@ const About = () => {
            className="text-center mb-12"
         >
           <h2 className="text-5xl md:text-6xl font-black tracking-tight text-white inline-block relative">
-            About <span className="text-gradient">Me</span>
+            {t('about.title1')}<span className="text-gradient">{t('about.title2')}</span>
             <div className="absolute -bottom-4 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-cyan to-transparent opacity-50"></div>
           </h2>
         </motion.div>
@@ -56,17 +59,16 @@ const About = () => {
             
             <div className="flex flex-col gap-8 text-slate-300 text-xl leading-relaxed font-light z-10 w-full">
               <p>
-                Hello, I'm <strong className="text-white font-bold">Isaac Wu</strong>, a passionate web developer and former project manager.
+                <Trans i18nKey="about.intro" components={{ 1: <strong className="text-white font-bold" /> }} />
               </p>
               <p>
-                Sometimes I wondered—it would be perfect if I could know more
-                about programming and software development when I was a project
-                manager. That curiosity led me to dive deep into code.
+                {t('about.story')}
               </p>
               <div className="bg-white/5 p-6 rounded-2xl border border-white/5 shadow-inner">
                 <p className="italic text-slate-200">
-                  "Now, web development is not only a way to understand
-                  how systems work behind the scenes, but a canvas to build something <span className="text-gradient font-bold not-italic">interesting, handy, and visually stunning.</span>"
+                  {t('about.quote1')}
+                  <span className="text-gradient font-bold not-italic">{t('about.quote2')}</span>
+                  {t('about.quote3')}
                 </p>
               </div>
             </div>
