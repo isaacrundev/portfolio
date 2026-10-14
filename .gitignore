@@ -43,3 +43,9 @@ opencode.json
 mcp.json
 .context-mode/
 .github/copilot-instructions.md
+
+# Local working files -- kept on disk, deliberately not tracked.
+# STATUS.md is the handoff note; tools/verify is local tooling that drives a
+# browser from this machine. Delete a line to start tracking it.
+STATUS.md
+tools/verify/
