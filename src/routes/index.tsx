@@ -15,17 +15,16 @@ export const Route = createFileRoute('/')({ component: App })
 const menuItem: string[] = ["about", "showcases", "contact"];
 
 function App() {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const { t } = useTranslation();
 
-  const BackToTopVisibility = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", BackToTopVisibility);
-    return () => window.removeEventListener("scroll", BackToTopVisibility);
+    // Boolean state: React bails out of re-rendering when the value is unchanged,
+    // so scrolling no longer re-renders every showcase on every scroll event.
+    const onScroll = () => setShowBackToTop(window.scrollY > 64);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -44,7 +43,7 @@ function App() {
       <About />
       <Showcases />
       <Contact />
-      {scrollPosition > 64 && <BackToTop />}
+      {showBackToTop && <BackToTop />}
     </>
   );
 }

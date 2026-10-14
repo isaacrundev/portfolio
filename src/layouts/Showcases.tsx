@@ -1,5 +1,4 @@
 import Showcase from "../components/Showcase";
-import "../assets/index.ts";
 import { showcaseData } from "../data/data.ts";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
