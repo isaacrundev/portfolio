@@ -28,10 +28,15 @@ const About = () => {
           {/* Profile Image Bento Box */}
           <div ref={profileRef} className="reveal lg:col-span-5 relative group rounded-[2.5rem] p-2 glass-card overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]" />
+            {/* Below the fold. React 19 emits a high-priority
+                <link rel=preload as=image> for every eager <img> it server-renders,
+                so omitting loading=lazy pulls this 106KB in ahead of the hero. */}
             <img
               className="relative object-cover w-full h-[500px] rounded-[2.2rem] transition-transform duration-700 group-hover:scale-[1.02] filter group-hover:contrast-110"
               src={me}
               alt="Isaac Wu"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

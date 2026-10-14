@@ -1,6 +1,3 @@
-import github from "./showcases/icons8-github-50.png";
-import link from "./showcases/icons8-link-50.png";
-
 import dod1 from "./showcases/dod/dod1.webp";
 import dod2 from "./showcases/dod/dod2.webp";
 import dod3 from "./showcases/dod/dod3.webp";
@@ -28,10 +25,13 @@ import foxBookMobile1 from "./showcases/FoxBook/foxBook-mobile1.webp";
 import foxBookMobile2 from "./showcases/FoxBook/foxBook-mobile2.webp";
 import foxBookMobile3 from "./showcases/FoxBook/foxBook-mobile3.webp";
 
-import contactEmail from "./contact/iconmonstr-email-10-96.png";
-import contactGithub from "./contact/iconmonstr-github-1-96.png";
-import contactTelegram from "./contact/iconmonstr-telegram-4-96.png";
-import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png";
+// ?no-inline: each of these is under Vite's 4KB inline limit, so without it they
+// become base64 in both the SSR'd HTML and the route bundle -- 10KB of PNG as
+// 13.7KB of base64 on the critical path, for icons at the bottom of the page.
+// As files they are lazy, hashed, and cached for a year.
+import contactEmail from "./contact/iconmonstr-email-10-96.png?no-inline";
+import contactGithub from "./contact/iconmonstr-github-1-96.png?no-inline";
+import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png?no-inline";
 
 import me from "./me.webp";
 
@@ -57,8 +57,6 @@ export const mvdbScreenshots = [
 export const youbikeScreenshots = [youbikeMobile1, youbikeDesktop1];
 
 export const dodScreenshots = [dod1, dod2, dod3, dod4];
-
-export { github, link };
 
 export const cardGameScreenshots = [
   cardGame1,
@@ -86,6 +84,5 @@ export const foxBookScreenshots = [
   foxBookMobile3,
 ];
 
-export { contactEmail, contactGithub, contactLinkedIn, contactTelegram };
-
+export { contactEmail, contactGithub, contactLinkedIn };
 export { me };

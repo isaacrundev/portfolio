@@ -28,6 +28,17 @@ export const Route = createRootRoute({
       }
     ],
     links: [
+      // Without this the browser requests /favicon.ico on every visit and gets a
+      // 404. public/icon.png was already there, just never referenced.
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/icon.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/icon.png',
+      },
       // Both are used above the fold -- Outfit by everything, the mono face by the
       // hero's typed line -- so they start downloading alongside the CSS rather
       // than after it is parsed. crossorigin must match how CSS fetches a font.
