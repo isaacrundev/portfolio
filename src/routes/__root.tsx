@@ -3,6 +3,8 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import appCss from '../index.css?url'
+import outfitFont from '../assets/fonts/outfit-latin.woff2?url'
+import monoFont from '../assets/fonts/jetbrains-mono-latin.woff2?url'
 import { LanguageProvider, useTranslation } from '../i18n'
 
 const THEME_INIT_SCRIPT = `(function(){var root=document.documentElement;root.classList.add('js');try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`
@@ -26,9 +28,22 @@ export const Route = createRootRoute({
       }
     ],
     links: [
+      // Both are used above the fold -- Outfit by everything, the mono face by the
+      // hero's typed line -- so they start downloading alongside the CSS rather
+      // than after it is parsed. crossorigin must match how CSS fetches a font.
       {
-        rel: 'stylesheet',
-        href: 'https://rsms.me/inter/inter.css',
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: outfitFont,
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: monoFont,
+        crossOrigin: 'anonymous',
       },
       {
         rel: 'stylesheet',
