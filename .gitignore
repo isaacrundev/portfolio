@@ -26,3 +26,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Agent / AI tooling -- local configuration, not part of the project.
+# This repo is the software; the tools used to write it keep their settings here
+# or in a global directory, and neither belongs in the history.
+.pi/
+.pi-*/
+AGENTS.md
+CLAUDE.md
+.claude/
+.cursor/
+.cursorrules
+opencode.json
+.opencode/
+.mcp.json
+mcp.json
+.context-mode/
+.github/copilot-instructions.md
