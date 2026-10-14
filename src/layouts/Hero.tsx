@@ -2,8 +2,11 @@ import { TypeAnimation } from "react-type-animation";
 import { useTranslation } from "../i18n";
 import { useReducedMotion } from "../hooks/useReducedMotion.ts";
 
-// Staggered entrance: 0.2s delay before the first item, 0.15s between them.
-const STAGGER = [0.2, 0.35, 0.5, 0.65];
+// Staggered entrance: 0.05s delay before the first item, 0.07s between them.
+// Kept deliberately tight -- the heading is the LCP element, so delay plus the
+// 0.45s in index.css is what LCP costs. At the old [0.2 ... 0.65] the heading
+// finished at 1.15s.
+const STAGGER = [0.05, 0.12, 0.19, 0.26];
 
 const Hero = () => {
   const { t, lang } = useTranslation();
