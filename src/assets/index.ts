@@ -33,7 +33,7 @@ import contactGithub from "./contact/iconmonstr-github-1-96.png";
 import contactTelegram from "./contact/iconmonstr-telegram-4-96.png";
 import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png";
 
-import me from "./14C60149-3736-4BE8-86D4-AAF1BDA7F2AF_1_201_a.webp";
+import me from "./me.webp";
 
 import youbikeDesktop1 from "../assets/showcases/Youbike/youbike-desktop1.webp";
 import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.webp";
