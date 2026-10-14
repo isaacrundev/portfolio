@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { wrap } from "popmotion";
 
 type Props = { screenshots: string[] };
+
+// popmotion's wrap(), inlined -- it was the only thing we used from that package.
+export const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
 
 const variants = {
   enter: (direction: number) => {
@@ -79,18 +84,22 @@ export default function SlideCard({ screenshots }: Props) {
           }}
         />
       </AnimatePresence>
-      <div
+      <button
+        type="button"
+        aria-label="Next screenshot"
         className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none right-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(1)}
       >
         <span className="group-hover:translate-x-0.5 transition-transform">❯</span>
-      </div>
-      <div
+      </button>
+      <button
+        type="button"
+        aria-label="Previous screenshot"
         className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none left-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(-1)}
       >
         <span className="group-hover:-translate-x-0.5 transition-transform">❮</span>
-      </div>
+      </button>
     </>
   );
 }
