@@ -141,9 +141,13 @@
 .js .reveal.is-revealed { animation: reveal-up 0.8s ease-out backwards; }
 .js .reveal-scale.is-revealed { animation: reveal-scale 0.8s ease-out backwards; }
 
-.enter-up { animation: reveal-up 0.8s ease-out backwards; }
-.enter-left { animation: reveal-left 0.8s ease-out backwards; }
-.enter-down { animation: reveal-down 0.8s ease-out backwards; }
+/* Shorter than the scroll reveals below: these are the first thing painted, and
+   LCP is the hero heading, so every millisecond of delay + duration here is a
+   millisecond of LCP. At 0.8s with a 0.35s delay the heading only became opaque
+   1.15s after the CSS applied, which was the whole LCP budget. */
+.enter-up { animation: reveal-up 0.45s ease-out backwards; }
+.enter-left { animation: reveal-left 0.45s ease-out backwards; }
+.enter-down { animation: reveal-down 0.45s ease-out backwards; }
 
 .slide-in-right { animation: slide-in-from-right 0.35s ease-out backwards; }
 .slide-in-left { animation: slide-in-from-left 0.35s ease-out backwards; }
