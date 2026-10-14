@@ -25,14 +25,14 @@ const Header = ({ children }: Props) => {
   return (
     <header
       id="header"
-      className="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 pointer-events-none"
+      className="fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-6 md:px-12 pointer-events-none"
     >
       <div
         ref={backdrop}
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-3xl border-b border-white/5 pointer-events-none -z-10"
       />
       <div className="max-w-7xl mx-auto flex justify-between items-center bg-transparent pointer-events-auto">
-        <div className="enter-left text-2xl font-extrabold tracking-tighter">
+        <div className="enter-left text-xl sm:text-2xl font-extrabold tracking-tighter">
           <span className="text-white hover:text-brand-cyan transition-colors cursor-pointer select-none">
             I.W
           </span>
@@ -40,7 +40,7 @@ const Header = ({ children }: Props) => {
 
         <nav
           style={{ animationDelay: "0.1s" }}
-          className="enter-down flex flex-row gap-2 sm:gap-6 items-center p-2 rounded-full glass-card pointer-events-auto"
+          className="enter-down flex flex-row gap-1 sm:gap-6 items-center p-1.5 sm:p-2 rounded-full glass-card pointer-events-auto"
         >
           {children}
         </nav>
