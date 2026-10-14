@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -12,15 +11,13 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <motion.button
+    <button
       onClick={toggleLanguage}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="ml-1 sm:ml-2 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 text-sm sm:text-base transition-colors pointer-events-auto"
+      className="ml-1 sm:ml-2 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 text-slate-200 text-sm sm:text-base transition-all duration-200 pointer-events-auto"
       title={i18n.language?.startsWith("zh") ? "Switch to English" : "切換至中文"}
     >
       {i18n.language?.startsWith("zh") ? "EN" : "中"}
-    </motion.button>
+    </button>
   );
 };
 

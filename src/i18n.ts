@@ -21,8 +21,13 @@ i18n
     resources,
     fallbackLng: 'en',
     detection: {
-      order: ['localStorage'],
-      caches: ['localStorage']
+      // localStorage first so an explicit choice wins, then the browser itself:
+      // with only localStorage, every first-time visitor got English.
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
+      // We only have one Chinese translation, so every zh* tag maps onto it;
+      // anything else falls back to English rather than a missing locale.
+      convertDetectedLanguage: (lng: string) => (lng.startsWith('zh') ? 'zh-TW' : 'en'),
     },
     interpolation: {
       escapeValue: false, // react already safes from xss

@@ -1,7 +1,7 @@
 import Showcase from "../components/Showcase";
 import { showcaseData } from "../data/data.ts";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useReveal } from "../hooks/useReveal.ts";
 
 const getDescKey = (name: string) => {
   switch(name) {
@@ -17,6 +17,7 @@ const getDescKey = (name: string) => {
 
 const Showcases = () => {
   const { t } = useTranslation();
+  const headingRef = useReveal<HTMLDivElement>();
 
   return (
     <section id="showcases" className="flex flex-col items-center py-16 md:py-20 relative scroll-mt-24">
@@ -25,19 +26,16 @@ const Showcases = () => {
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[150px] -z-10 pointer-events-none" />
 
       <div className="flex flex-col w-full max-w-7xl px-6 sm:px-12">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center mb-12 text-center"
+        <div
+          ref={headingRef}
+          className="reveal flex flex-col items-center mb-12 text-center"
         >
           <span className="text-brand-cyan font-mono font-bold tracking-widest uppercase mb-4 text-sm">{t('showcases.subtitle')}</span>
           <h2 className="text-5xl md:text-6xl font-black tracking-tight text-white relative">
             {t('showcases.title1')}<span className="text-gradient">{t('showcases.title2')}</span>
             <div className="absolute -bottom-4 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-purple to-transparent opacity-50"></div>
           </h2>
-        </motion.div>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-14 w-full items-stretch justify-items-center">
           {showcaseData.map((item, i) => (
