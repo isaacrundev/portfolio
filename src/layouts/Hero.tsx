@@ -1,11 +1,11 @@
 import { TypeAnimation } from "react-type-animation";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "../i18n";
 
 // Staggered entrance: 0.2s delay before the first item, 0.15s between them.
 const STAGGER = [0.2, 0.35, 0.5, 0.65];
 
 const Hero = () => {
-  const { t, i18n } = useTranslation();
+  const { t, lang } = useTranslation();
 
   return (
     <section id="main" className="flex flex-col min-h-screen pt-28 pb-12 justify-center items-center overflow-hidden relative">
@@ -45,7 +45,7 @@ const Hero = () => {
           className="enter-up text-xl sm:text-2xl lg:text-3xl text-slate-400 font-mono h-16 sm:h-20 mt-6 lg:mt-8 flex items-center justify-center"
         >
           <TypeAnimation
-            key={i18n.language}
+            key={lang}
             sequence={[
               t('hero.developer'), 2000,
               t('hero.problemSolver'), 2000,
