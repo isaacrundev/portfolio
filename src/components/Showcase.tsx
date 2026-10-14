@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { Code2, ExternalLink, UserRound, KeyRound } from "lucide-react";
 import SlideCard from "./SlideCard";
+import { useReveal } from "../hooks/useReveal.ts";
 
 type Props = {
   index: number;
@@ -28,14 +28,13 @@ const Showcase = ({
   demoPswd,
 }: Props) => {
   const techStack = libraries.split(",").map(t => t.trim()).filter(Boolean);
+  // Alternate columns enter slightly later, as before.
+  const revealRef = useReveal<HTMLDivElement>((index % 2) * 0.2);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: (index % 2) * 0.2 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="flex flex-col w-full h-full mx-auto glass-card rounded-[2rem] overflow-hidden group"
+    <div
+      ref={revealRef}
+      className="reveal flex flex-col w-full h-full mx-auto glass-card rounded-[2rem] overflow-hidden group"
     >
       <div className="relative w-full h-[300px] sm:h-[350px] shrink-0 overflow-hidden bg-slate-900 border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 pointer-events-none" />
@@ -101,7 +100,7 @@ const Showcase = ({
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

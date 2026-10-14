@@ -67,3 +67,70 @@
     @apply shadow-[0_0_20px_rgba(236,72,153,0.5)];
   }
 }
+
+/* Entrance and carousel animations, hand-rolled in CSS so the page does not
+   ship framer-motion (~150KB) for a handful of fades. `backwards` holds the
+   hidden start state through animation-delay, then hands the element back to
+   normal CSS, so hover transforms keep working after the reveal. */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(2.5rem); filter: blur(8px); }
+}
+
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-1.25rem); }
+}
+
+@keyframes reveal-down {
+  from { opacity: 0; transform: translateY(-1.25rem); }
+}
+
+@keyframes slide-in-from-right {
+  from { opacity: 0; transform: translateX(100%); }
+}
+
+@keyframes slide-in-from-left {
+  from { opacity: 0; transform: translateX(-100%); }
+}
+
+/* Only the `to` keyframe: the exit picks up wherever the drag left the image. */
+@keyframes slide-out-left {
+  to { opacity: 0; transform: translateX(-100%); }
+}
+
+@keyframes slide-out-right {
+  to { opacity: 0; transform: translateX(100%); }
+}
+
+/* Scroll reveals: useReveal adds .is-revealed once the element is in view.
+   Hidden only while JS is running, so the page still reads without it. */
+.js .reveal:not(.is-revealed),
+.js .reveal-scale:not(.is-revealed) {
+  opacity: 0;
+}
+
+.js .reveal.is-revealed { animation: reveal-up 0.8s ease-out backwards; }
+.js .reveal-scale.is-revealed { animation: reveal-scale 0.8s ease-out backwards; }
+
+.enter-up { animation: reveal-up 0.8s ease-out backwards; }
+.enter-left { animation: reveal-left 0.8s ease-out backwards; }
+.enter-down { animation: reveal-down 0.8s ease-out backwards; }
+
+.slide-in-right { animation: slide-in-from-right 0.35s ease-out backwards; }
+.slide-in-left { animation: slide-in-from-left 0.35s ease-out backwards; }
+.slide-out-left { animation: slide-out-left 0.35s ease-out forwards; }
+.slide-out-right { animation: slide-out-right 0.35s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal:not(.is-revealed),
+  .js .reveal-scale:not(.is-revealed) { opacity: 1; }
+
+  .js .reveal.is-revealed,
+  .js .reveal-scale.is-revealed,
+  .enter-up,
+  .enter-left,
+  .enter-down { animation: none; }
+}
