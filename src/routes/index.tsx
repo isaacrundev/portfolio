@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "../i18n";
 import BackToTop from "../components/BackToTop";
 import Header from "../components/Header";
 import MenuButton from "../components/MenuButton";

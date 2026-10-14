@@ -2,7 +2,8 @@
   "nav": {
     "about": "About",
     "showcases": "Showcases",
-    "contact": "Contact"
+    "contact": "Contact",
+    "backToTop": "Back to top"
   },
   "hero": {
     "available": "Available for new projects",
@@ -33,7 +34,15 @@
     "foxbookDesc": "A CRUD MERN stack website for sharing posts among registered users. *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
     "whistlerDesc": "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins",
     "cardgameDesc": "Get a new deck of cards every single game. 100% no cheating guaranteed",
-    "role": "Frontend developer"
+    "role": "Frontend developer",
+    "roleLabel": "Role",
+    "credentials": "Test Credentials",
+    "user": "User",
+    "pass": "Pass",
+    "viewSource": "View Source",
+    "visitSite": "Visit live site",
+    "nextScreenshot": "Next screenshot",
+    "prevScreenshot": "Previous screenshot"
   },
   "contact": {
     "title1": "Let's ",

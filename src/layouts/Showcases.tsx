@@ -1,6 +1,6 @@
 import Showcase from "../components/Showcase";
 import { showcaseData } from "../data/data.ts";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "../i18n.tsx";
 import { useReveal } from "../hooks/useReveal.ts";
 
 const getDescKey = (name: string) => {

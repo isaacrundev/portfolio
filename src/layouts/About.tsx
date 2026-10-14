@@ -1,9 +1,12 @@
 import { me } from "../assets/index.ts";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "../i18n.tsx";
 import { useReveal } from "../hooks/useReveal.ts";
 
 const About = () => {
   const { t } = useTranslation();
+  // about.intro wraps the name in <1>...</1>, which is the only rich text on this
+  // page; both locales use it, so splitting on the tags is enough.
+  const [intro, introName, introRest] = t("about.intro").split(/<\/?1>/);
   const headingRef = useReveal<HTMLDivElement>();
   const profileRef = useReveal<HTMLDivElement>();
   const storyRef = useReveal<HTMLDivElement>(0.15);
@@ -39,7 +42,7 @@ const About = () => {
             
             <div className="flex flex-col gap-8 text-slate-300 text-xl leading-relaxed font-light z-10 w-full">
               <p>
-                <Trans i18nKey="about.intro" components={{ 1: <strong className="text-white font-bold" /> }} />
+                {intro}<strong className="text-white font-bold">{introName}</strong>{introRest}
               </p>
               <p>
                 {t('about.story')}

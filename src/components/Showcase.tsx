@@ -1,6 +1,7 @@
 import { Code2, ExternalLink, UserRound, KeyRound } from "lucide-react";
 import SlideCard from "./SlideCard";
 import { useReveal } from "../hooks/useReveal.ts";
+import { useTranslation } from "../i18n.tsx";
 
 type Props = {
   index: number;
@@ -27,7 +28,8 @@ const Showcase = ({
   demoUsername,
   demoPswd,
 }: Props) => {
-  const techStack = libraries.split(",").map(t => t.trim()).filter(Boolean);
+  const { t } = useTranslation();
+  const techStack = libraries.split(",").map((tech) => tech.trim()).filter(Boolean);
   // Alternate columns enter slightly later, as before.
   const revealRef = useReveal<HTMLDivElement>((index % 2) * 0.2);
 
@@ -38,7 +40,7 @@ const Showcase = ({
     >
       <div className="relative w-full h-[300px] sm:h-[350px] shrink-0 overflow-hidden bg-slate-900 border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 pointer-events-none" />
-        <SlideCard screenshots={screenshots} />
+        <SlideCard screenshots={screenshots} name={name} />
         <div className="absolute top-4 left-4 z-20 flex gap-2">
            <div className="w-3 h-3 rounded-full bg-red-400"></div>
            <div className="w-3 h-3 rounded-full bg-amber-400"></div>
@@ -51,12 +53,12 @@ const Showcase = ({
           <h3 className="text-3xl font-bold tracking-tight text-white group-hover:text-brand-cyan transition-colors duration-300">{name}</h3>
           <div className="flex gap-3">
             {githubUrl && (
-              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 border border-white/10 transition-all text-slate-300 hover:text-white hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.05)]" href={githubUrl} target="_blank" rel="noreferrer" title="View Source">
+              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 border border-white/10 transition-all text-slate-300 hover:text-white hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.05)]" href={githubUrl} target="_blank" rel="noreferrer" title={t("showcases.viewSource")} aria-label={`${name} — ${t("showcases.viewSource")}`}>
                 <Code2 size={22} strokeWidth={2} />
               </a>
             )}
             {deployedUrl && (
-              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-brand-cyan/20 hover:bg-brand-cyan/40 border border-brand-cyan/30 transition-all text-brand-cyan hover:text-white hover:scale-110 active:scale-95 glow-cyan" href={deployedUrl} target="_blank" rel="noreferrer">
+              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-brand-cyan/20 hover:bg-brand-cyan/40 border border-brand-cyan/30 transition-all text-brand-cyan hover:text-white hover:scale-110 active:scale-95 glow-cyan" href={deployedUrl} target="_blank" rel="noreferrer" title={t("showcases.visitSite")} aria-label={`${name} — ${t("showcases.visitSite")}`}>
                 <ExternalLink size={22} strokeWidth={2} />
               </a>
             )}
@@ -72,7 +74,7 @@ const Showcase = ({
         {role && (
           <div className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-brand-purple/10 border border-brand-purple/20">
             <UserRound size={18} className="text-brand-purple" />
-            <span className="font-semibold text-brand-purple text-sm">Role</span>
+            <span className="font-semibold text-brand-purple text-sm">{t("showcases.roleLabel")}</span>
             <span className="text-slate-200 font-medium text-sm">{role}</span>
           </div>
         )}
@@ -81,13 +83,13 @@ const Showcase = ({
           <div className="bg-slate-950/50 p-4 rounded-xl border border-white/10 text-xs text-slate-400 font-mono flex flex-col gap-3 mb-6 shadow-inner">
             <div className="flex items-center gap-2 text-slate-300 mb-1">
               <KeyRound size={16} className="text-brand-pink" />
-              <span className="font-bold tracking-widest text-[11px] uppercase text-brand-pink/90">Test Credentials</span>
+              <span className="font-bold tracking-widest text-[11px] uppercase text-brand-pink/90">{t("showcases.credentials")}</span>
             </div>
             <div className="flex justify-between items-center bg-black/40 px-4 py-2.5 rounded-lg border border-white/5">
-              <span className="text-slate-500 font-medium tracking-wide">User</span> <span className="text-brand-cyan select-all font-bold">{demoUsername}</span>
+              <span className="text-slate-500 font-medium tracking-wide">{t("showcases.user")}</span> <span className="text-brand-cyan select-all font-bold">{demoUsername}</span>
             </div>
             <div className="flex justify-between items-center bg-black/40 px-4 py-2.5 rounded-lg border border-white/5">
-              <span className="text-slate-500 font-medium tracking-wide">Pass</span> <span className="text-brand-cyan select-all font-bold">{demoPswd}</span>
+              <span className="text-slate-500 font-medium tracking-wide">{t("showcases.pass")}</span> <span className="text-brand-cyan select-all font-bold">{demoPswd}</span>
             </div>
           </div>
         )}

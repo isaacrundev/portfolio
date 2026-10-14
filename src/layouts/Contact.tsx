@@ -3,7 +3,7 @@ import {
   contactGithub,
   contactLinkedIn,
 } from "../assets/index.ts";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "../i18n.tsx";
 import { useReveal } from "../hooks/useReveal.ts";
 
 const contactMethods = [
