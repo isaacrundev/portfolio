@@ -47,7 +47,7 @@ const ContactLink = ({ method, index }: { method: ContactMethod; index: number }
       className={`reveal group flex flex-col items-center justify-center gap-6 bg-slate-900/40 p-10 rounded-[2rem] border border-white/10 transition-all duration-500 backdrop-blur-md hover:-translate-y-2.5 active:scale-95 ${method.border} ${method.bg} shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-2xl`}
     >
       <div className="w-20 h-20 flex items-center justify-center bg-slate-950 rounded-2xl p-4 border border-white/5 group-hover:scale-110 transition-transform duration-500 shadow-inner">
-        <img src={method.icon} alt={method.name} className="w-full h-full object-contain filter drop-shadow-lg" />
+        <img src={method.icon} alt={method.name} loading="lazy" decoding="async" className="w-full h-full object-contain filter drop-shadow-lg" />
       </div>
       <span className={`text-xl font-bold tracking-wide text-slate-300 transition-colors duration-500 ${method.color}`}>
         {method.name}
