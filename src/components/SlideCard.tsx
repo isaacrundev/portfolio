@@ -1,6 +1,7 @@
 import { useRef, useState, type PointerEvent } from "react";
+import { useTranslation } from "../i18n.tsx";
 
-type Props = { screenshots: string[] };
+type Props = { screenshots: string[]; name: string };
 
 // popmotion's wrap(), inlined -- it was the only thing we used from that package.
 export const wrap = (min: number, max: number, v: number) => {
@@ -25,7 +26,8 @@ export const swipeDirection = (offset: number, velocity: number) => {
 
 const SPRING_BACK = "transform 0.3s ease-out";
 
-export default function SlideCard({ screenshots }: Props) {
+export default function SlideCard({ screenshots, name }: Props) {
+  const { t } = useTranslation();
   const [[page, direction], setPage] = useState([0, 0]);
   const [leaving, setLeaving] = useState<number | null>(null);
   const drag = useRef<{ startX: number; startTime: number } | null>(null);
@@ -90,7 +92,7 @@ export default function SlideCard({ screenshots }: Props) {
       )}
       <img
         key={page}
-        alt=""
+        alt={name}
         loading="lazy"
         draggable={false}
         src={screenshots[imageIndex]}
@@ -104,7 +106,7 @@ export default function SlideCard({ screenshots }: Props) {
       />
       <button
         type="button"
-        aria-label="Next screenshot"
+        aria-label={t("showcases.nextScreenshot")}
         className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none right-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(1)}
       >
@@ -112,7 +114,7 @@ export default function SlideCard({ screenshots }: Props) {
       </button>
       <button
         type="button"
-        aria-label="Previous screenshot"
+        aria-label={t("showcases.prevScreenshot")}
         className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none left-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
         onClick={() => paginate(-1)}
       >

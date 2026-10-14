@@ -2,7 +2,8 @@
   "nav": {
     "about": "關於我",
     "showcases": "作品集",
-    "contact": "聯絡我"
+    "contact": "聯絡我",
+    "backToTop": "回到頂端"
   },
   "hero": {
     "available": "歡迎洽談新專案",
@@ -33,7 +34,15 @@
     "foxbookDesc": "一個基於 MERN 組合的 CRUD 網站，讓註冊使用者可以分享貼文。*此專案使用無伺服器資料庫，發送第一次請求時可能會發生錯誤，請稍後再試。",
     "whistlerDesc": "一個供檢舉人向管理員檢舉不當行為的匿名系統。包含檢舉人與管理員雙端功能。",
     "cardgameDesc": "保證每局都是全新的牌組。百分之百無作弊。",
-    "role": "前端開發工程師"
+    "role": "前端開發工程師",
+    "roleLabel": "角色",
+    "credentials": "測試帳號",
+    "user": "帳號",
+    "pass": "密碼",
+    "viewSource": "查看原始碼",
+    "visitSite": "前往網站",
+    "nextScreenshot": "下一張截圖",
+    "prevScreenshot": "上一張截圖"
   },
   "contact": {
     "title1": "與我 ",
