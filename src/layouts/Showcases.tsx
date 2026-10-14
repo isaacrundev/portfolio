@@ -20,7 +20,7 @@ const Showcases = () => {
   const headingRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="showcases" className="flex flex-col items-center py-16 md:py-20 relative scroll-mt-24">
+    <section id="showcases" className="flex flex-col items-center py-16 md:py-20 relative overflow-hidden scroll-mt-24">
       {/* Background Orbs */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[150px] -z-10 pointer-events-none" />
