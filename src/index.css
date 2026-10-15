@@ -106,14 +106,6 @@
   from { opacity: 0; transform: scale(0.95); }
 }
 
-@keyframes reveal-left {
-  from { opacity: 0; transform: translateX(-1.25rem); }
-}
-
-@keyframes reveal-down {
-  from { opacity: 0; transform: translateY(-1.25rem); }
-}
-
 @keyframes slide-in-from-right {
   from { opacity: 0; transform: translateX(100%); }
 }
@@ -141,13 +133,21 @@
 .js .reveal.is-revealed { animation: reveal-up 0.8s ease-out backwards; }
 .js .reveal-scale.is-revealed { animation: reveal-scale 0.8s ease-out backwards; }
 
-/* Shorter than the scroll reveals below: these are the first thing painted, and
-   LCP is the hero heading, so every millisecond of delay + duration here is a
-   millisecond of LCP. At 0.8s with a 0.35s delay the heading only became opaque
-   1.15s after the CSS applied, which was the whole LCP budget. */
-.enter-up { animation: reveal-up 0.45s ease-out backwards; }
-.enter-left { animation: reveal-left 0.45s ease-out backwards; }
-.enter-down { animation: reveal-down 0.45s ease-out backwards; }
+/* The entrance splits the fade from the movement, so the fade can finish at 0.15s
+   while the rise keeps its full 0.45s and its original easing. An element that is
+   still transparent has not painted, so LCP sits and waits for the fade -- that is
+   what the entrance costs, and why shortening the whole animation in #41 helped
+   less than expected: the duration was never what LCP was waiting on.
+   Measured on 4x CPU + Slow 4G, paired against the old timing over 8 interleaved
+   runs: LCP won 7/8, median 1102ms -> 960ms. */
+@keyframes enter-fade { from { opacity: 0; } }
+@keyframes enter-up { from { transform: translateY(2.5rem); filter: blur(8px); } }
+@keyframes enter-left { from { transform: translateX(-1.25rem); } }
+@keyframes enter-down { from { transform: translateY(-1.25rem); } }
+
+.enter-up { animation: enter-up 0.45s ease-out backwards, enter-fade 0.15s ease-out backwards; }
+.enter-left { animation: enter-left 0.45s ease-out backwards, enter-fade 0.15s ease-out backwards; }
+.enter-down { animation: enter-down 0.45s ease-out backwards, enter-fade 0.15s ease-out backwards; }
 
 .slide-in-right { animation: slide-in-from-right 0.35s ease-out backwards; }
 .slide-in-left { animation: slide-in-from-left 0.35s ease-out backwards; }
