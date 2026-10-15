@@ -99,6 +99,14 @@
    hidden start state through animation-delay, then hands the element back to
    normal CSS, so hover transforms keep working after the reveal. */
 @keyframes reveal-up {
+  from { opacity: 0; transform: translateY(2.5rem); }
+}
+
+/* Blur makes the browser re-rasterise the whole element every frame, which is the
+   most expensive thing happening during load: it was worth 22ms of long tasks and
+   ~130ms of the hero heading's first paint on a throttled phone. The scroll reveals
+   run long after load and cost nothing, so they keep it; the entrance does not. */
+@keyframes reveal-up-blur {
   from { opacity: 0; transform: translateY(2.5rem); filter: blur(8px); }
 }
 
@@ -138,10 +146,10 @@
   opacity: 0;
 }
 
-.js .reveal.is-revealed { animation: reveal-up 0.8s ease-out backwards; }
+.js .reveal.is-revealed { animation: reveal-up-blur 0.8s ease-out backwards; }
 .js .reveal-scale.is-revealed { animation: reveal-scale 0.8s ease-out backwards; }
 
-/* Shorter than the scroll reveals below: these are the first thing painted, and
+/* Shorter than the scroll reveals above: these are the first thing painted, and
    LCP is the hero heading, so every millisecond of delay + duration here is a
    millisecond of LCP. At 0.8s with a 0.35s delay the heading only became opaque
    1.15s after the CSS applied, which was the whole LCP budget. */
