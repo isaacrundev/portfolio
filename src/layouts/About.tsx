@@ -1,4 +1,4 @@
-import { me } from "../assets/index.ts";
+import { avifVersions, me } from "../assets/index.ts";
 import { useTranslation } from "../i18n.tsx";
 import { useReveal } from "../hooks/useReveal.ts";
 
@@ -31,13 +31,16 @@ const About = () => {
             {/* Below the fold. React 19 emits a high-priority
                 <link rel=preload as=image> for every eager <img> it server-renders,
                 so omitting loading=lazy pulls this 106KB in ahead of the hero. */}
-            <img
-              className="relative object-cover w-full h-[500px] rounded-[2.2rem] transition-transform duration-700 group-hover:scale-[1.02] filter group-hover:contrast-110"
-              src={me}
-              alt="Isaac Wu"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture className="contents">
+              {avifVersions[me] && <source srcSet={avifVersions[me]} type="image/avif" />}
+              <img
+                className="relative object-cover w-full h-[500px] rounded-[2.2rem] transition-transform duration-700 group-hover:scale-[1.02] filter group-hover:contrast-110"
+                src={me}
+                alt="Isaac Wu"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           {/* Text Bento Box */}
