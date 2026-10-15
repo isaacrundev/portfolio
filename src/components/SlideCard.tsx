@@ -1,5 +1,6 @@
-import { useRef, useState, type PointerEvent } from "react";
+import { useRef, useState, type ComponentProps, type PointerEvent } from "react";
 import { useTranslation } from "../i18n.tsx";
+import { avifVersions } from "../assets/index.ts";
 
 type Props = { screenshots: string[]; name: string };
 
@@ -26,6 +27,17 @@ export const swipeDirection = (offset: number, velocity: number) => {
 
 const SPRING_BACK = "transform 0.3s ease-out";
 
+/** `<picture>` wrapper that swaps in AVIF where one exists and falls back to the
+ *  WebP otherwise -- only some images win from AVIF, so the source is conditional.
+ *  Defined at module level, not inside the render: a fresh component type each
+ *  render would remount the <img> and restart its slide animation. */
+const Picture = ({ shot, alt, ...rest }: { shot: string; alt: string } & ComponentProps<"img">) => (
+  <picture className="contents">
+    {avifVersions[shot] && <source srcSet={avifVersions[shot]} type="image/avif" />}
+    <img alt={alt} src={shot} {...rest} />
+  </picture>
+);
+
 export default function SlideCard({ screenshots, name }: Props) {
   const { t } = useTranslation();
   const [[page, direction], setPage] = useState([0, 0]);
@@ -33,6 +45,8 @@ export default function SlideCard({ screenshots, name }: Props) {
   const drag = useRef<{ startX: number; startTime: number } | null>(null);
 
   const imageIndex = wrap(0, screenshots.length, page);
+  const src = screenshots[imageIndex];
+  const leavingSrc = leaving === null ? null : screenshots[wrap(0, screenshots.length, leaving)];
 
   const paginate = (step: number) => {
     setLeaving(page);
@@ -78,24 +92,24 @@ export default function SlideCard({ screenshots, name }: Props) {
 
   return (
     <>
-      {leaving !== null && (
-        <img
+      {leavingSrc !== null && (
+        <Picture
           key={leaving}
+          shot={leavingSrc}
           alt=""
           aria-hidden="true"
           className={`absolute inset-0 object-contain w-full h-full p-2 ${
             direction > 0 ? "slide-out-left" : "slide-out-right"
           }`}
-          src={screenshots[wrap(0, screenshots.length, leaving)]}
           onAnimationEnd={() => setLeaving(null)}
         />
       )}
-      <img
+      <Picture
         key={page}
+        shot={src}
         alt={name}
         loading="lazy"
         draggable={false}
-        src={screenshots[imageIndex]}
         onPointerDown={startDrag}
         onPointerMove={moveDrag}
         onPointerUp={releaseDrag}
