@@ -63,6 +63,9 @@
   }
   
   html {
+    /* Dark only: without this a light-OS visitor gets light scrollbars and form
+       controls on a dark page. */
+    color-scheme: dark;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
   }
