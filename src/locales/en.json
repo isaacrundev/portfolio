@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Isaac Wu | Web Developer Portfolio",
+    "description": "Isaac Wu - Passionate Web Developer portfolio showcasing modern user interfaces, performant coding, and digital experiences."
+  },
   "nav": {
     "about": "About",
     "showcases": "Showcases",
@@ -29,11 +33,11 @@
     "title1": "Featured ",
     "title2": "Projects",
     "mvdbDesc": "A multilanguage pure front-end website enables users to see and look up movie info.",
-    "youbikeDesc": "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city",
+    "youbikeDesc": "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city.",
     "dodDesc": "A website for recording diet by bringing your own data or importing from OpenFoodFacts API *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
     "foxbookDesc": "A CRUD MERN stack website for sharing posts among registered users. *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
-    "whistlerDesc": "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins",
-    "cardgameDesc": "Get a new deck of cards every single game. 100% no cheating guaranteed",
+    "whistlerDesc": "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins.",
+    "cardgameDesc": "Get a new deck of cards every single game. 100% no cheating guaranteed.",
     "role": "Frontend developer",
     "roleLabel": "Role",
     "credentials": "Test Credentials",

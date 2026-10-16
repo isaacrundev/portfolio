@@ -1,13 +1,17 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { useEffect } from 'react'
 
+import en from '../locales/en.json'
 import appCss from '../index.css?url'
 import outfitFont from '../assets/fonts/outfit-latin.woff2?url'
 import monoFont from '../assets/fonts/jetbrains-mono-latin.woff2?url'
 import { LanguageProvider, useTranslation } from '../i18n'
 
-const THEME_INIT_SCRIPT = `(function(){var root=document.documentElement;root.classList.add('js');try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`
+// Runs before first paint: the reveal animations stay hidden until JS marks the
+// document, so the page still reads when JS never arrives.
+const JS_CLASS_SCRIPT = "document.documentElement.classList.add('js')"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -20,11 +24,12 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Isaac Wu | Web Developer Portfolio',
+        // From en.json so the prerendered head matches what the client sets below.
+        title: en.meta.title,
       },
       {
         name: 'description',
-        content: 'Isaac Wu - Passionate Web Developer portfolio showcasing modern user interfaces, performant coding, and digital experiences.',
+        content: en.meta.description,
       }
     ],
     links: [
@@ -74,12 +79,21 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 }
 
 function Document({ children }: { children: React.ReactNode }) {
-  const { lang } = useTranslation()
+  const { lang, t } = useTranslation()
+
+  // The prerendered head is always English; this is what puts the tab and the
+  // search preview in the reader's own language once we know it.
+  useEffect(() => {
+    document.title = t('meta.title')
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', t('meta.description'))
+  }, [lang, t])
 
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: JS_CLASS_SCRIPT }} />
         <HeadContent />
       </head>
       <body className="font-sans antialiased bg-gray-900 text-white min-h-screen">
