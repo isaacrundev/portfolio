@@ -27,7 +27,7 @@ npm test           # vitest
 src/
   routes/       file-based routes (index.tsx is the whole page, __root.tsx the shell)
   layouts/      Hero, About, Showcases, Contact — the page sections
-  components/   Header, Footer, Showcase, SlideCard, ThemeToggle, ...
+  components/   Header, Showcase, SlideCard, BackToTop, ...
   assets/       images + index.ts that re-exports them
   locales/      en.json, zh-TW.json
   data/         showcase entries
@@ -36,8 +36,12 @@ src/
 
 ## Notes
 
-- Theming is light/dark/auto, stored in `localStorage` under `theme`.
-- Language is stored in `localStorage` and falls back to English.
+- Dark only. `index.css` sets `color-scheme: dark`; there is no light palette and no
+  toggle. The pre-paint script in `__root.tsx` only adds a `.js` class, which the
+  scroll reveals use to stay hidden only while JS is running.
+- Language is stored in `localStorage` under `lang` and falls back to English. `title`
+  and `description` are prerendered in English and rewritten once the language is
+  known; add new strings to both `locales/*.json` files.
 - Screenshots in `src/assets` are WebP at 2x their displayed size (~800KB total).
   Re-encode new screenshots the same way before adding them; the carousel shows
   them at roughly 564x350 CSS px.
