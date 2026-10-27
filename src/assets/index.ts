@@ -8,6 +8,7 @@ import sushiOtokoMobile1 from "./showcases/SushiOtoko/sushiOtoko-mobile1.webp";
 
 import interval1 from "./showcases/Interval/interval1.webp";
 import interval2 from "./showcases/Interval/interval2.webp";
+import interval3 from "./showcases/Interval/interval3.webp";
 import apnea1 from "./showcases/Apnea/apnea1.webp";
 
 // ?no-inline: each of these is under Vite's 4KB inline limit, so without it they
@@ -44,7 +45,9 @@ export const avifVersions: Record<string, string> = {
 export const dodScreenshots = [dod1, dod2, dod3, dod4];
 
 export const sushiOtokoScreenshots = [sushiOtoko1, sushiOtokoMobile1];
-export const intervalScreenshots = [interval1, interval2];
+// order is the story: running timer, then the home screen it starts from,
+// then the 1-5 module settings behind it
+export const intervalScreenshots = [interval1, interval2, interval3];
 export const apneaScreenshots = [apnea1];
 
 export { contactEmail, contactGithub, contactLinkedIn };
