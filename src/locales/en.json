@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Isaac Wu | Web Developer Portfolio",
-    "description": "Isaac Wu - Passionate Web Developer portfolio showcasing modern user interfaces, performant coding, and digital experiences."
+    "title": "Isaac Wu | Developer Building with AI",
+    "description": "Isaac Wu — a developer who builds, researches and ships with AI: web apps, watch apps, and the self-hosted agents that run the chores behind them."
   },
   "nav": {
     "about": "About",
@@ -22,7 +22,7 @@
   "about": {
     "title1": "About ",
     "title2": "Me",
-    "intro": "Hello, I'm <1>Isaac Wu</1>, a passionate web developer and former project manager.",
+    "intro": "Hello, I'm <1>Isaac Wu</1>, a developer who builds, researches and ships with AI — and a former project manager.",
     "story": "Sometimes I wondered—it would be perfect if I could know more about programming and software development when I was a project manager. That curiosity led me to dive deep into code.",
     "nowLabel": "Right now",
     "now": "Lately the daily chores go to a self-hosted Hermes Agent: it keeps my memory store backed up every day, runs the scheduled jobs, looks after the search service I host myself, and writes down what it learned from each mess it had to clean up. Less time on chores, more time on code — and building the small tools that fix my own problems is the part I enjoy most these days.",
