@@ -15,7 +15,7 @@ export const showcaseData = [
     githubUrl: "https://github.com/isaacrundev/interval-timer",
   },
   {
-    name: "Apnea",
+    name: "Apnea Trainer",
     desc: "A dry static breath-hold trainer for the same watch. Runs CO₂ and O₂ tables -- the default CO₂ table is the one printed in the AIDA3 manual -- and walks you through every hold and rest interval on the dial.",
     libraries: "Zepp OS 5, JavaScript, Zeus CLI, Amazfit Balance 2",
     screenshots: apneaScreenshots,

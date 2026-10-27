@@ -7,7 +7,7 @@ const getDescKey = (name: string) => {
   switch(name) {
     case "Diet or Die": return "dodDesc";
     case "Interval Timer": return "intervalDesc";
-    case "Apnea": return "apneaDesc";
+    case "Apnea Trainer": return "apneaDesc";
     case "Sushi Otoko": return "sushiOtokoDesc";
     default: return "";
   }
