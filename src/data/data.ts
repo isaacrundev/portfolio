@@ -1,13 +1,40 @@
 import {
+  apneaScreenshots,
   cardGameScreenshots,
   dodScreenshots,
   foxBookScreenshots,
+  intervalScreenshots,
   mvdbScreenshots,
+  sushiOtokoScreenshots,
   whistlerAppScreenshots,
   youbikeScreenshots,
 } from "../assets";
 
 export const showcaseData = [
+  {
+    name: "Interval",
+    desc: "A watch-only interval timer for the Amazfit Balance 2. No phone app, no account: set work, rest, rounds and sets on the watch, hit start, and it counts down with vibration cues while you train.",
+    libraries: "Zepp OS 5, JavaScript, Zeus CLI, Amazfit Balance 2",
+    screenshots: intervalScreenshots,
+    deployedUrl: "",
+    githubUrl: "https://github.com/isaacrundev/interval-timer",
+  },
+  {
+    name: "Apnea",
+    desc: "A dry static breath-hold trainer for the same watch. Runs CO₂ and O₂ tables -- the default CO₂ table is the one printed in the AIDA3 manual -- and walks you through every hold and rest interval on the dial.",
+    libraries: "Zepp OS 5, JavaScript, Zeus CLI, Amazfit Balance 2",
+    screenshots: apneaScreenshots,
+    deployedUrl: "",
+    githubUrl: "https://github.com/isaacrundev/apnea",
+  },
+  {
+    name: "Sushi Otoko",
+    desc: "A plate-counting bill calculator for conveyor-belt sushi. Pick your chain, tap a plate colour each time one comes round, and you know what the meal costs -- service charge included -- before you walk up to the register. Installs to the home screen and keeps working offline.",
+    libraries: "JavaScript, PWA, Service Worker, Bun, GitHub Actions",
+    screenshots: sushiOtokoScreenshots,
+    deployedUrl: "https://isaacrundev.github.io/sushi-otoko/",
+    githubUrl: "https://github.com/isaacrundev/sushi-otoko",
+  },
   {
     name: "MVDB",
     desc: "A multilanguage pure front-end website enables users to see and look up movie info.",

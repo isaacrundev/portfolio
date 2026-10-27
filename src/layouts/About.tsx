@@ -55,6 +55,10 @@ const About = () => {
               <p>
                 {t('about.story')}
               </p>
+              <div>
+                <span className="block mb-2 font-mono text-xs font-bold tracking-widest uppercase text-brand-cyan">{t('about.nowLabel')}</span>
+                <p>{t('about.now')}</p>
+              </div>
               <div className="bg-white/5 p-6 rounded-2xl border border-white/5 shadow-inner">
                 <p className="italic text-slate-200">
                   {t('about.quote1')}

@@ -11,6 +11,9 @@ const getDescKey = (name: string) => {
     case "FoxBook": return "foxbookDesc";
     case "Whistler App": return "whistlerDesc";
     case "Card Game": return "cardgameDesc";
+    case "Interval": return "intervalDesc";
+    case "Apnea": return "apneaDesc";
+    case "Sushi Otoko": return "sushiOtokoDesc";
     default: return "";
   }
 };

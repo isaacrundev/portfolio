@@ -25,6 +25,12 @@ import foxBookMobile1 from "./showcases/FoxBook/foxBook-mobile1.webp";
 import foxBookMobile2 from "./showcases/FoxBook/foxBook-mobile2.webp";
 import foxBookMobile3 from "./showcases/FoxBook/foxBook-mobile3.webp";
 
+import sushiOtoko1 from "./showcases/SushiOtoko/sushiOtoko1.webp";
+import sushiOtokoMobile1 from "./showcases/SushiOtoko/sushiOtoko-mobile1.webp";
+
+import interval1 from "./showcases/Interval/interval1.webp";
+import apnea1 from "./showcases/Apnea/apnea1.webp";
+
 // ?no-inline: each of these is under Vite's 4KB inline limit, so without it they
 // become base64 in both the SSR'd HTML and the route bundle -- 10KB of PNG as
 // 13.7KB of base64 on the critical path, for icons at the bottom of the page.
@@ -104,6 +110,9 @@ export const whistlerAppScreenshots = [
   whistlerAppMobile3,
 ];
 
+export const sushiOtokoScreenshots = [sushiOtoko1, sushiOtokoMobile1];
+export const intervalScreenshots = [interval1];
+export const apneaScreenshots = [apnea1];
 export const foxBookScreenshots = [
   foxBook1,
   foxBook2,

@@ -24,6 +24,8 @@
     "title2": "Me",
     "intro": "Hello, I'm <1>Isaac Wu</1>, a passionate web developer and former project manager.",
     "story": "Sometimes I wondered—it would be perfect if I could know more about programming and software development when I was a project manager. That curiosity led me to dive deep into code.",
+    "nowLabel": "Right now",
+    "now": "Lately the daily chores go to a self-hosted Hermes Agent: it keeps my memory store backed up every day, runs the scheduled jobs, looks after the search service I host myself, and writes down what it learned from each mess it had to clean up. Less time on chores, more time on code — and building the small tools that fix my own problems is the part I enjoy most these days.",
     "quote1": "\"Now, web development is not only a way to understand how systems work behind the scenes, but a canvas to build something ",
     "quote2": "interesting, handy, and visually stunning.",
     "quote3": "\""
@@ -38,6 +40,9 @@
     "foxbookDesc": "A CRUD MERN stack website for sharing posts among registered users. *This project is built by using serverless database, you might see errors when sending the first request. Please try again later.",
     "whistlerDesc": "An anonymous system for reporting inappropriate behaviors to admins. For both reporters and admins.",
     "cardgameDesc": "Get a new deck of cards every single game. 100% no cheating guaranteed.",
+    "intervalDesc": "A watch-only interval timer for the Amazfit Balance 2. No phone app, no account: set work, rest, rounds and sets on the watch, hit start, and it counts down with vibration cues while you train.",
+    "apneaDesc": "A dry static breath-hold trainer for the same watch. Runs CO₂ and O₂ tables -- the default CO₂ table is the one printed in the AIDA3 manual -- and walks you through every hold and rest interval on the dial.",
+    "sushiOtokoDesc": "A plate-counting bill calculator for conveyor-belt sushi. Pick your chain, tap a plate colour each time one comes round, and you know what the meal costs -- service charge included -- before you walk up to the register. Installs to the home screen and keeps working offline.",
     "role": "Frontend developer",
     "roleLabel": "Role",
     "credentials": "Test Credentials",
