@@ -3,12 +3,11 @@ import {
   dodScreenshots,
   intervalScreenshots,
   sushiOtokoScreenshots,
-  youbikeScreenshots,
 } from "../assets";
 
 export const showcaseData = [
   {
-    name: "Interval",
+    name: "Interval Timer",
     desc: "A watch-only interval timer for the Amazfit Balance 2. No phone app, no account: set work, rest, rounds and sets on the watch, hit start, and it counts down with vibration cues while you train.",
     libraries: "Zepp OS 5, JavaScript, Zeus CLI, Amazfit Balance 2",
     screenshots: intervalScreenshots,
@@ -25,7 +24,7 @@ export const showcaseData = [
   },
   {
     name: "Sushi Otoko",
-    desc: "A plate-counting bill calculator for conveyor-belt sushi. Pick your chain, tap a plate colour each time one comes round, and you know what the meal costs -- service charge included -- before you walk up to the register. Installs to the home screen and keeps working offline.",
+    desc: "A per-plate bill calculator -- built for conveyor-belt sushi, but the custom mode takes any place that charges by the plate. The Sushiro, Kura and Sushi Express presets ship with their tier prices; in custom mode you name the tiers, set the prices and pick the colours yourself. Tap a tier each time a plate lands and the running total, service charge included once you switch it on, is there before you reach the register. Installs to the home screen and works offline.",
     libraries: "JavaScript, PWA, Service Worker, Bun, GitHub Actions",
     screenshots: sushiOtokoScreenshots,
     deployedUrl: "https://isaacrundev.github.io/sushi-otoko/",
@@ -41,13 +40,5 @@ export const showcaseData = [
     githubUrl: "https://github.com/isaacrundev/dod-nextjs",
     demoUsername: "aloha@qmail.com",
     demoPswd: "111111",
-  },
-  {
-    name: "YouBike Live Data Tracker",
-    desc: "A web-based service enables users to check live data of the bicycle-sharing system (YouBike) in Taipei city",
-    libraries: "Vite, ReactJS, TailwindCSS, Shadcn/ui, React Query, Axios",
-    screenshots: youbikeScreenshots,
-    deployedUrl: "https://youbike-tan.vercel.app/",
-    githubUrl: "https://github.com/isaacrundev/Youbike",
   },
 ];

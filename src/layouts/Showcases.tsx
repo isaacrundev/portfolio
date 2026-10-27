@@ -6,8 +6,7 @@ import { useReveal } from "../hooks/useReveal.ts";
 const getDescKey = (name: string) => {
   switch(name) {
     case "Diet or Die": return "dodDesc";
-    case "YouBike Live Data Tracker": return "youbikeDesc";
-    case "Interval": return "intervalDesc";
+    case "Interval Timer": return "intervalDesc";
     case "Apnea": return "apneaDesc";
     case "Sushi Otoko": return "sushiOtokoDesc";
     default: return "";

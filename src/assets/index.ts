@@ -19,9 +19,6 @@ import contactLinkedIn from "./contact/iconmonstr-linkedin-4-96.png?no-inline";
 
 import me from "./me.webp";
 
-import youbikeDesktop1 from "../assets/showcases/Youbike/youbike-desktop1.webp";
-import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.webp";
-
 // AVIF, but only where encoding from the original beat WebP at matched quality.
 // The rest are flat app screenshots that WebP already handles well -- for those,
 // AVIF at the same PSNR comes out the same size or larger, so a second copy would
@@ -30,7 +27,6 @@ import youbikeMobile1 from "../assets/showcases/Youbike/youbike-mobile1.webp";
 // under 4KB as base64.
 // Keyed by the WebP URL, so the screenshot lists below stay plain strings.
 import meAvif from "./me.avif?no-inline";
-import youbikeMobile1Avif from "./showcases/Youbike/youbike-mobile1.avif?no-inline";
 import dod1Avif from "./showcases/dod/dod1.avif?no-inline";
 import dod2Avif from "./showcases/dod/dod2.avif?no-inline";
 import dod3Avif from "./showcases/dod/dod3.avif?no-inline";
@@ -38,14 +34,11 @@ import dod4Avif from "./showcases/dod/dod4.avif?no-inline";
 
 export const avifVersions: Record<string, string> = {
   [me]: meAvif,
-  [youbikeMobile1]: youbikeMobile1Avif,
   [dod1]: dod1Avif,
   [dod2]: dod2Avif,
   [dod3]: dod3Avif,
   [dod4]: dod4Avif,
 };
-
-export const youbikeScreenshots = [youbikeMobile1, youbikeDesktop1];
 
 export const dodScreenshots = [dod1, dod2, dod3, dod4];
 
