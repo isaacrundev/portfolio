@@ -10,6 +10,8 @@ import interval1 from "./showcases/Interval/interval1.webp";
 import interval2 from "./showcases/Interval/interval2.webp";
 import interval3 from "./showcases/Interval/interval3.webp";
 import apnea1 from "./showcases/Apnea/apnea1.webp";
+import apnea2 from "./showcases/Apnea/apnea2.webp";
+import apnea3 from "./showcases/Apnea/apnea3.webp";
 
 // ?no-inline: each of these is under Vite's 4KB inline limit, so without it they
 // become base64 in both the SSR'd HTML and the route bundle -- 10KB of PNG as
@@ -48,7 +50,9 @@ export const sushiOtokoScreenshots = [sushiOtoko1, sushiOtokoMobile1];
 // order is the story: running timer, then the home screen it starts from,
 // then the 1-5 module settings behind it
 export const intervalScreenshots = [interval1, interval2, interval3];
-export const apneaScreenshots = [apnea1];
+// same story order as Interval: the running screen leads, then the setup it
+// came from, then the first-run disclaimer
+export const apneaScreenshots = [apnea1, apnea2, apnea3];
 
 export { contactEmail, contactGithub, contactLinkedIn };
 export { me };
