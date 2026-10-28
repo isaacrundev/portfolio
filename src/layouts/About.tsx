@@ -12,17 +12,14 @@ const About = () => {
   const storyRef = useReveal<HTMLDivElement>(0.15);
 
   return (
-    <section
-      id="about"
-      className="snap-section relative flex justify-center overflow-hidden py-20 sm:py-32 lg:min-h-[100svh] lg:items-center lg:py-10"
-    >
+    <section data-section="about" className="snap-section relative flex justify-center overflow-hidden py-20 sm:py-32 lg:min-h-[100svh] lg:items-center lg:py-10">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-foam/15 to-transparent" />
         <div className="absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-reef/[0.045] blur-[120px]" />
       </div>
 
       <div className="w-full max-w-6xl px-6 sm:px-10">
-        <div ref={headingRef} className="reveal mb-14 flex flex-col gap-5 sm:mb-16 lg:mb-8">
+        <div ref={headingRef} id="about" data-nav-heading className="reveal mb-14 flex flex-col gap-5 sm:mb-16 lg:mb-8">
           <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.32em] text-reef/70">
             <span className="h-px w-10 bg-reef/40" />
             {t("about.eyebrow")}
