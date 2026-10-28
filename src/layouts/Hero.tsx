@@ -75,6 +75,7 @@ const Hero = () => {
               key={lang}
               sequence={[
                 t("hero.developer"), 2000,
+                t("hero.projectProductManager"), 2000,
                 t("hero.freediver"), 2000,
                 t("hero.problemSolver"), 2000,
                 t("hero.scubaDiver"), 2000,
