@@ -37,7 +37,7 @@ const Hero = () => {
 
         <h1
           style={{ animationDelay: `${STAGGER[0]}s` }}
-          className="enter-up mt-4 text-balance text-[clamp(3.3rem,11vw,8.5rem)] font-light leading-[0.95] tracking-[-0.04em] text-foam"
+          className="enter-up mt-4 text-balance text-[clamp(3rem,10vw,7.5rem)] font-light leading-[0.95] tracking-[-0.04em] text-foam"
         >
           Isaac <span className="text-gradient font-normal">Wu</span>
         </h1>
