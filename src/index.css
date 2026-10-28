@@ -45,8 +45,18 @@
        controls on a dark page. */
     color-scheme: dark;
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
     background-color: var(--color-abyss);
+  }
+
+  /* Nav links target the section heading, not the section's padded top edge.
+     The header slides away on the same scroll, so 2rem is the whole gap. */
+  [data-nav-heading] {
+    scroll-margin-top: 2rem;
+  }
+
+  /* Without JS the header stays put, so leave room for it. */
+  html:not(.js) [data-nav-heading] {
+    scroll-margin-top: 6rem;
   }
 
   :focus-visible {
@@ -337,6 +347,11 @@
   }
   .snap-section {
     scroll-snap-align: start;
+  }
+  /* The heading is deliberately below the section's top edge; without this the
+     snap would drag the heading back down after a nav click. */
+  .snap-section:has([data-nav-heading]:target) {
+    scroll-snap-align: none;
   }
 }
 

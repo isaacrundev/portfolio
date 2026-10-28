@@ -18,17 +18,14 @@ const Showcases = () => {
   const headingRef = useReveal<HTMLDivElement>();
 
   return (
-    <section
-      id="showcases"
-      className="snap-section relative flex flex-col items-center overflow-hidden py-20 sm:py-32"
-    >
+    <section data-section="showcases" className="snap-section relative flex flex-col items-center overflow-hidden py-20 sm:py-32">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-reef/[0.05] blur-[120px]" />
         <div className="absolute -left-48 bottom-0 h-[560px] w-[560px] rounded-full bg-shoal/[0.05] blur-[140px]" />
       </div>
 
       <div className="flex w-full max-w-7xl flex-col px-6 sm:px-10">
-        <div ref={headingRef} className="reveal mb-12 flex flex-col gap-5 sm:mb-16">
+        <div ref={headingRef} id="showcases" data-nav-heading className="reveal mb-12 flex flex-col gap-5 sm:mb-16">
           <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.32em] text-reef/70">
             <span className="h-px w-10 bg-reef/40" />
             {t("showcases.subtitle")}
