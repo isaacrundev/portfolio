@@ -7,23 +7,27 @@
     "about": "About",
     "showcases": "Showcases",
     "contact": "Contact",
-    "backToTop": "Back to top"
+    "backToTop": "Ascend"
   },
   "hero": {
     "available": "Available for new projects",
     "greeting": "Hi, I am",
     "developer": "> Developer_",
+    "freediver": "> Freediver_",
     "problemSolver": "> Problem Solver_",
     "uiuxEngineer": "> UI/UX Engineer_",
     "lifelongLearner": "> Lifelong Learner_",
     "viewWork": "View Work",
-    "contactMe": "Contact Me"
+    "contactMe": "Contact Me",
+    "scroll": "Scroll to descend"
   },
   "about": {
+    "eyebrow": "The Diver",
     "title1": "About ",
     "title2": "Me",
     "intro": "Hello, I'm <1>Isaac Wu</1>, a developer who builds, researches and ships with AI — and a former project manager.",
     "story": "Sometimes I wondered—it would be perfect if I could know more about programming and software development when I was a project manager. That curiosity led me to dive deep into code.",
+    "ocean": "When I'm not pushing pixels I'm usually underwater — freediving first, scuba whenever the sea allows. Same calm, same breath, different kind of depth.",
     "nowLabel": "Right now",
     "now": "Lately the daily chores go to a self-hosted Hermes Agent: it keeps my memory store backed up every day, runs the scheduled jobs, looks after the search service I host myself, and writes down what it learned from each mess it had to clean up. Less time on chores, more time on code — and building the small tools that fix my own problems is the part I enjoy most these days.",
     "quote1": "\"These days it is not just web development -- ",
@@ -49,8 +53,13 @@
     "prevScreenshot": "Previous screenshot"
   },
   "contact": {
+    "eyebrow": "Signal",
     "title1": "Let's ",
     "title2": "Connect",
     "desc": "Currently open to new opportunities! Let's build something awesome together."
+  },
+  "footer": {
+    "surface": "Surface",
+    "made": "Made between dives"
   }
 }

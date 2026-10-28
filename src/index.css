@@ -26,74 +26,238 @@
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
 @theme {
-  --color-brand-cyan: #06b6d4;
-  --color-brand-purple: #8b5cf6;
-  --color-brand-pink: #ec4899;
-
-  --color-black-rich: #0b0f19;
-  --color-black-glass: rgba(15, 23, 42, 0.6);
+  /* The water column. Light at the surface, the deep shelf in the middle, the
+     trench at the footer -- the page reads top to bottom as a single descent. */
+  --color-foam: #e9fbf7;
+  --color-reef: #5eead4;
+  --color-shoal: #7dd3fc;
+  --color-deep: #041b26;
+  --color-abyss: #010c12;
 
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-
-  /* Custom Animations */
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-blob: blob 7s infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
 }
 
 @layer base {
-  body {
-    @apply bg-black-rich text-slate-200 antialiased overflow-x-hidden selection:bg-brand-cyan/30 selection:text-brand-cyan min-h-screen relative;
-    font-family: var(--font-sans);
-  }
-  
   html {
     /* Dark only: without this a light-OS visitor gets light scrollbars and form
        controls on a dark page. */
     color-scheme: dark;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    background-color: var(--color-abyss);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-reef);
+    outline-offset: 3px;
+  }
+
+  body {
+    @apply text-foam/80 antialiased overflow-x-hidden selection:bg-reef/25 selection:text-foam min-h-screen relative;
+    font-family: var(--font-sans);
+    background-color: var(--color-abyss);
+    /* One gradient for the whole document: a sunlit surface, then shelf, then
+       trench. No fixed-attachment (it is janky on iOS); the page scrolls
+       through the gradient instead. */
+    background-image:
+      radial-gradient(
+        1100px 760px at 50% -140px,
+        rgba(233, 251, 247, 0.26),
+        rgba(125, 211, 252, 0.1) 46%,
+        transparent 72%
+      ),
+      linear-gradient(
+        180deg,
+        #0b5a6b 0%,
+        #074352 12%,
+        #05323f 26%,
+        #042630 44%,
+        #031c25 62%,
+        #02141b 80%,
+        #010c12 100%
+      );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 }
 
 @layer utilities {
+  /* Nav / fixed chrome: the only place that still pays for a backdrop blur. */
   .glass-panel {
-    @apply bg-slate-900/60 backdrop-blur-3xl border border-slate-700/50 shadow-[0_8px_32px_rgba(0,0,0,0.5)];
+    background: rgba(4, 27, 38, 0.55);
+    border: 1px solid rgba(233, 251, 247, 0.1);
+    backdrop-filter: blur(18px) saturate(140%);
   }
-  
+
+  /* Cards are translucent water, not frosted glass: a gradient + hairline is
+     cheaper than a backdrop-filter on every card in the grid, and the page
+     behind them is a smooth gradient anyway. */
   .glass-card {
-    @apply bg-slate-800/40 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300;
+    background: linear-gradient(
+      165deg,
+      rgba(233, 251, 247, 0.06),
+      rgba(233, 251, 247, 0.015) 55%,
+      rgba(1, 12, 18, 0.18)
+    );
+    border: 1px solid rgba(233, 251, 247, 0.09);
+    box-shadow:
+      inset 0 1px 0 rgba(233, 251, 247, 0.05),
+      0 30px 60px -40px rgba(0, 0, 0, 0.9);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink;
+    background-image: linear-gradient(
+      100deg,
+      var(--color-foam) 0%,
+      var(--color-reef) 55%,
+      var(--color-shoal) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
+}
 
-  .glow-cyan {
-    @apply shadow-[0_0_20px_rgba(6,182,212,0.5)];
+/* ---------------------------------------------------------------------------
+   Water light. Positioned inside the hero (and echoed at the contact end),
+   never across the whole page, so the paint cost stays where the eye is.
+   ------------------------------------------------------------------------ */
+
+.surface-glow {
+  background: radial-gradient(
+    60% 55% at 50% 0%,
+    rgba(233, 251, 247, 0.4),
+    rgba(94, 234, 212, 0.12) 45%,
+    transparent 75%
+  );
+}
+
+.light-shaft {
+  position: absolute;
+  top: -25%;
+  height: 150%;
+  width: 17vw;
+  min-width: 90px;
+  border-radius: 9999px;
+  filter: blur(38px);
+  background: linear-gradient(
+    180deg,
+    rgba(233, 251, 247, 0.32),
+    rgba(125, 211, 252, 0.07) 45%,
+    transparent 80%
+  );
+  transform: rotate(var(--tilt, 14deg));
+  transform-origin: top center;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: shaft-drift 18s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes shaft-drift {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: translate3d(0, 0, 0) rotate(var(--tilt, 14deg));
   }
-  
-  .glow-purple {
-    @apply shadow-[0_0_20px_rgba(139,92,246,0.5)];
+  50% {
+    opacity: 0.55;
+    transform: translate3d(2.5vw, 1vh, 0) rotate(calc(var(--tilt, 14deg) + 2deg));
   }
-  
-  .glow-pink {
-    @apply shadow-[0_0_20px_rgba(236,72,153,0.5)];
+}
+
+/* A soft net of light blobs, brightest just under the surface. */
+.caustics {
+  background-image:
+    radial-gradient(ellipse 34px 14px at 30% 40%, rgba(233, 251, 247, 0.55), transparent 70%),
+    radial-gradient(ellipse 44px 12px at 72% 68%, rgba(125, 211, 252, 0.5), transparent 70%),
+    radial-gradient(ellipse 26px 10px at 55% 18%, rgba(233, 251, 247, 0.4), transparent 70%),
+    radial-gradient(ellipse 38px 14px at 12% 78%, rgba(94, 234, 212, 0.4), transparent 70%);
+  background-size: 260px 190px, 310px 220px, 380px 260px, 440px 300px;
+  filter: blur(9px);
+  opacity: 0.3;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
+  pointer-events: none;
+  animation: caustics-shift 26s linear infinite;
+}
+
+@keyframes caustics-shift {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 80px 40px, -60px 30px, 40px -50px, -30px -60px;
+  }
+}
+
+/* Bubbles rise the full height of the viewport, then start again. */
+.bubble {
+  position: absolute;
+  bottom: -12vh;
+  border-radius: 9999px;
+  border: 1px solid rgba(233, 251, 247, 0.35);
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(233, 251, 247, 0.55),
+    rgba(233, 251, 247, 0.06) 55%,
+    transparent 72%
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: bubble-rise var(--duration, 22s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.55;
+  }
+  55% {
+    transform: translate3d(var(--sway, 24px), -55vh, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(calc(var(--sway, 24px) * -0.8), -115vh, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Bioluminescent specks: only the contact end of the page is deep enough. */
+.plankton {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(233, 251, 247, 0.8), transparent 100%),
+    radial-gradient(1px 1px at 70% 60%, rgba(94, 234, 212, 0.9), transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 80%, rgba(125, 211, 252, 0.7), transparent 100%);
+  background-size: 180px 180px, 240px 240px, 300px 300px;
+  pointer-events: none;
+  animation: plankton-glow 9s ease-in-out infinite;
+}
+
+@keyframes plankton-glow {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Desktop gets full-page paging; touch and short screens keep free scrolling.
+   `proximity` (not `mandatory`) because the showcases section is taller than
+   the viewport -- mandatory would trap the reader mid-grid. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .snap-section {
+    scroll-snap-align: start;
   }
 }
 
@@ -102,36 +266,60 @@
    hidden start state through animation-delay, then hands the element back to
    normal CSS, so hover transforms keep working after the reveal. */
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(2.5rem); filter: blur(8px); }
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
 }
 
 @keyframes reveal-scale {
-  from { opacity: 0; transform: scale(0.95); }
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
 }
 
 @keyframes reveal-left {
-  from { opacity: 0; transform: translateX(-1.25rem); }
+  from {
+    opacity: 0;
+    transform: translateX(-1.25rem);
+  }
 }
 
 @keyframes reveal-down {
-  from { opacity: 0; transform: translateY(-1.25rem); }
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
 }
 
 @keyframes slide-in-from-right {
-  from { opacity: 0; transform: translateX(100%); }
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 @keyframes slide-in-from-left {
-  from { opacity: 0; transform: translateX(-100%); }
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 /* Only the `to` keyframe: the exit picks up wherever the drag left the image. */
 @keyframes slide-out-left {
-  to { opacity: 0; transform: translateX(-100%); }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes slide-out-right {
-  to { opacity: 0; transform: translateX(100%); }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 /* Scroll reveals: useReveal adds .is-revealed once the element is in view.
@@ -141,29 +329,93 @@
   opacity: 0;
 }
 
-.js .reveal.is-revealed { animation: reveal-up 0.8s ease-out backwards; }
-.js .reveal-scale.is-revealed { animation: reveal-scale 0.8s ease-out backwards; }
+.js .reveal.is-revealed {
+  animation: reveal-up 0.8s ease-out backwards;
+}
+.js .reveal-scale.is-revealed {
+  animation: reveal-scale 0.8s ease-out backwards;
+}
 
 /* Shorter than the scroll reveals below: these are the first thing painted, and
    LCP is the hero heading, so every millisecond of delay + duration here is a
-   millisecond of LCP. At 0.8s with a 0.35s delay the heading only became opaque
-   1.15s after the CSS applied, which was the whole LCP budget. */
-.enter-up { animation: reveal-up 0.45s ease-out backwards; }
-.enter-left { animation: reveal-left 0.45s ease-out backwards; }
-.enter-down { animation: reveal-down 0.45s ease-out backwards; }
+   millisecond of LCP. */
+.enter-up {
+  animation: reveal-up 0.45s ease-out backwards;
+}
+.enter-left {
+  animation: reveal-left 0.45s ease-out backwards;
+}
+.enter-down {
+  animation: reveal-down 0.45s ease-out backwards;
+}
 
-.slide-in-right { animation: slide-in-from-right 0.35s ease-out backwards; }
-.slide-in-left { animation: slide-in-from-left 0.35s ease-out backwards; }
-.slide-out-left { animation: slide-out-left 0.35s ease-out forwards; }
-.slide-out-right { animation: slide-out-right 0.35s ease-out forwards; }
+.slide-in-right {
+  animation: slide-in-from-right 0.35s ease-out backwards;
+}
+.slide-in-left {
+  animation: slide-in-from-left 0.35s ease-out backwards;
+}
+.slide-out-left {
+  animation: slide-out-left 0.35s ease-out forwards;
+}
+.slide-out-right {
+  animation: slide-out-right 0.35s ease-out forwards;
+}
+
+/* Phones: the same atmosphere, frozen and thinned out. No drifting light, no
+   caustic repaint, half the bubbles -- the page has to stay readable and the
+   scroll has to stay native. */
+@media (max-width: 767px) {
+  .light-shaft {
+    animation: none;
+    opacity: 0.25;
+  }
+  .light-shaft {
+    display: none;
+  }
+  .light-shaft:first-of-type {
+    display: block;
+  }
+  .caustics {
+    animation: none;
+    opacity: 0.14;
+  }
+  .bubble:nth-child(n + 7) {
+    display: none;
+  }
+  .plankton {
+    animation: none;
+    opacity: 0.3;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+
   .js .reveal:not(.is-revealed),
-  .js .reveal-scale:not(.is-revealed) { opacity: 1; }
+  .js .reveal-scale:not(.is-revealed) {
+    opacity: 1;
+  }
 
   .js .reveal.is-revealed,
   .js .reveal-scale.is-revealed,
   .enter-up,
   .enter-left,
-  .enter-down { animation: none; }
+  .enter-down {
+    animation: none;
+  }
+
+  .light-shaft,
+  .caustics,
+  .plankton,
+  .bubble {
+    animation: none;
+  }
+
+  .bubble {
+    display: none;
+  }
 }

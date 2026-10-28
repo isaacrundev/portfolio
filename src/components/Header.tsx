@@ -25,22 +25,27 @@ const Header = ({ children }: Props) => {
   return (
     <header
       id="header"
-      className="fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-6 md:px-12 pointer-events-none"
+      className="pointer-events-none fixed left-0 top-0 z-50 w-full px-4 py-4 sm:px-6 md:px-10"
     >
       <div
         ref={backdrop}
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-3xl border-b border-white/5 pointer-events-none -z-10"
+        className="absolute inset-0 -z-10 border-b border-foam/5 bg-deep/55 backdrop-blur-xl"
       />
-      <div className="max-w-7xl mx-auto flex justify-between items-center bg-transparent pointer-events-auto">
-        <div className="enter-left text-xl sm:text-2xl font-extrabold tracking-tighter">
-          <span className="text-white hover:text-brand-cyan transition-colors cursor-pointer select-none">
+      <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <a
+          href="#main"
+          className="enter-left pointer-events-auto flex items-center gap-2.5"
+          aria-label="Isaac Wu — back to top"
+        >
+          <span className="font-mono text-[11px] font-medium tracking-[0.32em] text-foam/75 transition-colors hover:text-reef">
             I.W
           </span>
-        </div>
+          <span className="h-1 w-1 rounded-full bg-reef/70" />
+        </a>
 
         <nav
           style={{ animationDelay: "0.1s" }}
-          className="enter-down flex flex-row gap-1 sm:gap-6 items-center p-1.5 sm:p-2 rounded-full glass-card pointer-events-auto"
+          className="enter-down pointer-events-auto flex flex-nowrap items-center gap-0.5 rounded-full border border-foam/10 bg-deep/40 px-1 py-1 backdrop-blur-md sm:gap-1 sm:px-2"
         >
           {children}
         </nav>

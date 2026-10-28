@@ -121,18 +121,18 @@ export default function SlideCard({ screenshots, name }: Props) {
       <button
         type="button"
         aria-label={t("showcases.nextScreenshot")}
-        className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none right-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
+        className="group absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer select-none items-center justify-center rounded-full border border-foam/10 bg-abyss/40 text-lg text-foam/70 backdrop-blur-md transition-colors hover:border-reef/40 hover:bg-reef/10 hover:text-reef sm:right-4 sm:h-12 sm:w-12 sm:text-2xl"
         onClick={() => paginate(1)}
       >
-        <span className="group-hover:translate-x-0.5 transition-transform">❯</span>
+        <span className="transition-transform group-hover:translate-x-0.5">❯</span>
       </button>
       <button
         type="button"
         aria-label={t("showcases.prevScreenshot")}
-        className="absolute z-10 flex items-center justify-center w-12 h-12 text-2xl text-white bg-black/30 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan/50 backdrop-blur-md rounded-full cursor-pointer select-none left-4 top-1/2 -translate-y-1/2 hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center group"
+        className="group absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer select-none items-center justify-center rounded-full border border-foam/10 bg-abyss/40 text-lg text-foam/70 backdrop-blur-md transition-colors hover:border-reef/40 hover:bg-reef/10 hover:text-reef sm:left-4 sm:h-12 sm:w-12 sm:text-2xl"
         onClick={() => paginate(-1)}
       >
-        <span className="group-hover:-translate-x-0.5 transition-transform">❮</span>
+        <span className="transition-transform group-hover:-translate-x-0.5">❮</span>
       </button>
     </>
   );
