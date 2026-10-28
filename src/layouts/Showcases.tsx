@@ -34,7 +34,7 @@ const Showcases = () => {
             {t("showcases.subtitle")}
             <span className="tracking-[0.2em] text-foam/40">− 32 m</span>
           </div>
-          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-6xl md:text-7xl">
+          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-5xl">
             {t("showcases.title1")}
             <span className="text-gradient font-normal">{t("showcases.title2")}</span>
           </h2>

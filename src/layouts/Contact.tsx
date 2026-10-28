@@ -70,7 +70,7 @@ const Contact = () => {
             {t("contact.eyebrow")}
             <span className="tracking-[0.2em] text-foam/40">− 48 m</span>
           </div>
-          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-6xl md:text-7xl">
+          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-5xl">
             {t("contact.title1")}
             <span className="text-gradient font-normal">{t("contact.title2")}</span>
           </h2>

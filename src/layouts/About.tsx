@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="snap-section relative flex justify-center overflow-hidden py-20 sm:py-32"
+      className="snap-section relative flex justify-center overflow-hidden py-20 sm:py-32 lg:min-h-[100svh] lg:items-center lg:py-10"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-foam/15 to-transparent" />
@@ -22,19 +22,19 @@ const About = () => {
       </div>
 
       <div className="w-full max-w-6xl px-6 sm:px-10">
-        <div ref={headingRef} className="reveal mb-14 flex flex-col gap-5 sm:mb-16">
+        <div ref={headingRef} className="reveal mb-14 flex flex-col gap-5 sm:mb-16 lg:mb-8">
           <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.32em] text-reef/70">
             <span className="h-px w-10 bg-reef/40" />
             {t("about.eyebrow")}
             <span className="tracking-[0.2em] text-foam/40">− 18 m</span>
           </div>
-          <h2 className="max-w-3xl text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-6xl md:text-7xl">
+          <h2 className="max-w-3xl text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-5xl">
             {t("about.title1")}
             <span className="text-gradient font-normal">{t("about.title2")}</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           <div ref={profileRef} className="reveal lg:col-span-5">
             <figure className="relative overflow-hidden rounded-[2rem] border border-foam/10 bg-abyss/40 p-2">
               {/* Below the fold. React 19 emits a high-priority
@@ -43,7 +43,7 @@ const About = () => {
               <picture className="contents">
                 {avifVersions[me] && <source srcSet={avifVersions[me]} type="image/avif" />}
                 <img
-                  className="h-[420px] w-full rounded-[1.6rem] object-cover object-top sm:h-[520px]"
+                  className="h-[420px] w-full rounded-[1.6rem] object-cover object-top sm:h-[520px] lg:h-[min(440px,46vh)]"
                   src={me}
                   alt="Isaac Wu"
                   loading="lazy"
@@ -60,16 +60,16 @@ const About = () => {
 
           <div
             ref={storyRef}
-            className="reveal flex flex-col justify-center gap-8 lg:col-span-7"
+            className="reveal flex flex-col justify-center gap-8 lg:gap-5 lg:col-span-7"
           >
-            <div className="space-y-6 text-base font-light leading-relaxed text-foam/65 sm:text-lg">
+            <div className="space-y-6 text-base font-light leading-relaxed text-foam/65 sm:text-lg lg:space-y-4 lg:text-base">
               <p>
                 {intro}
                 <strong className="font-medium text-foam">{introName}</strong>
                 {introRest}
               </p>
               <p>{t("about.story")}</p>
-              <div className="rounded-2xl border border-foam/10 bg-abyss/30 p-5 sm:p-6">
+              <div className="rounded-2xl border border-foam/10 bg-abyss/30 p-5 sm:p-6 lg:p-5">
                 <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.28em] text-reef/70">
                   {t("about.nowLabel")}
                 </span>
@@ -77,8 +77,8 @@ const About = () => {
               </div>
             </div>
 
-            <blockquote className="rounded-2xl border border-foam/10 bg-gradient-to-br from-foam/[0.05] to-transparent p-6 sm:p-8">
-              <p className="text-lg font-light leading-snug text-foam/80 sm:text-xl">
+            <blockquote className="rounded-2xl border border-foam/10 bg-gradient-to-br from-foam/[0.05] to-transparent p-6 sm:p-8 lg:p-5">
+              <p className="text-lg font-light leading-snug text-foam/80 sm:text-xl lg:text-lg">
                 {t("about.quote1")}
                 <span className="text-gradient font-normal">{t("about.quote2")}</span>
                 {t("about.quote3")}
