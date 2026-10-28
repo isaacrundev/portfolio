@@ -69,7 +69,6 @@ const About = () => {
                 {introRest}
               </p>
               <p>{t("about.story")}</p>
-              <p className="border-l border-reef/30 pl-5 text-foam/80">{t("about.ocean")}</p>
               <div className="rounded-2xl border border-foam/10 bg-abyss/30 p-5 sm:p-6">
                 <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.28em] text-reef/70">
                   {t("about.nowLabel")}
