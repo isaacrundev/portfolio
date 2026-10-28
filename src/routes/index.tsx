@@ -19,12 +19,18 @@ const menuItem: string[] = ["about", "showcases", "contact"];
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showUnderwater, setShowUnderwater] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
     // Boolean state: React bails out of re-rendering when the value is unchanged,
     // so scrolling no longer re-renders every showcase on every scroll event.
-    const onScroll = () => setShowBackToTop(window.scrollY > 64);
+    const onScroll = () => {
+      setShowBackToTop(window.scrollY > 64);
+      // The first viewport is above water: bubbles and the depth gauge only
+      // belong in the descent, once the horizon has scrolled past.
+      setShowUnderwater(window.scrollY > window.innerHeight * 0.8);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,8 +38,10 @@ function App() {
 
   return (
     <>
-      <Bubbles />
-      <Header>
+      {showUnderwater && <Bubbles />}
+      {/* The header and the back-to-top button trade places past the same
+          scroll threshold, so the content gets the full width. */}
+      <Header hidden={showBackToTop}>
         {menuItem.map((item) => (
           <MenuButton
             key={item}
@@ -50,7 +58,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <DepthGauge />
+      {showUnderwater && <DepthGauge />}
       {showBackToTop && <BackToTop />}
     </>
   );

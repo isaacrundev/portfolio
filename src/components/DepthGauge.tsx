@@ -44,7 +44,7 @@ const DepthGauge = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 select-none flex-col items-center gap-3 font-mono text-[9px] uppercase tracking-[0.3em] text-foam/35 min-[1400px]:flex"
+      className="pointer-events-none fixed right-4 top-[58%] z-40 hidden -translate-y-1/2 select-none flex-col items-center gap-3 font-mono text-[9px] uppercase tracking-[0.3em] text-foam/35 min-[1400px]:flex"
     >
       <span>Depth</span>
       <span

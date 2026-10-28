@@ -17,31 +17,20 @@ const Hero = () => {
       id="main"
       className="snap-section relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 sm:px-10"
     >
-      {/* Surface light: one glow, a few shafts, and a caustic net just under the
-          top edge. All decorative, all pointer-events-none. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="surface-glow absolute inset-x-0 top-0 h-[75vh]" />
-        <div className="absolute inset-0">
-          <div
-            className="light-shaft left-[8%]"
-            style={{ "--tilt": "13deg", "--delay": "0s" } as React.CSSProperties}
-          />
-          <div
-            className="light-shaft left-[38%] w-[12vw]"
-            style={{ "--tilt": "-6deg", "--delay": "3s" } as React.CSSProperties}
-          />
-          <div
-            className="light-shaft right-[10%]"
-            style={{ "--tilt": "-15deg", "--delay": "6s" } as React.CSSProperties}
-          />
-        </div>
-        <div className="caustics absolute inset-x-0 top-0 h-[65vh]" />
+      {/* Above the water: a clear sky, a bright sun and a flat horizon at the
+          bottom of the viewport. Scrolling takes the reader below it -- the rest
+          of the page is the water column. */}
+      <div aria-hidden="true" className="hero-surface pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="hero-sun" />
+        <div className="hero-horizon" />
+        <div className="hero-glitter" />
+        <div className="hero-ripples" />
       </div>
 
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
         <p
           style={{ animationDelay: `${STAGGER[0] * 0.7}s` }}
-          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-reef/70"
+          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-foam/80"
         >
           {t("hero.greeting")}
         </p>
@@ -55,7 +44,7 @@ const Hero = () => {
 
         <div
           style={{ animationDelay: `${STAGGER[1]}s` }}
-          className="enter-up mt-8 flex h-12 items-center font-mono text-sm text-shoal/80 sm:h-14 sm:text-base"
+          className="enter-up mt-8 flex h-12 items-center font-mono text-sm text-foam/80 sm:h-14 sm:text-base"
         >
           {reducedMotion ? (
             <span>{t("hero.developer")}</span>
@@ -90,7 +79,7 @@ const Hero = () => {
           </a>
           <a
             href="#contact"
-            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-foam/20 px-8 py-3.5 text-sm font-semibold tracking-wide text-foam/85 transition-colors hover:border-reef/40 hover:bg-foam/5 hover:text-foam sm:w-auto"
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-foam/30 bg-abyss/20 px-8 py-3.5 text-sm font-semibold tracking-wide text-foam/85 transition-colors hover:border-reef/40 hover:bg-abyss/35 hover:text-foam sm:w-auto"
           >
             {t("hero.contactMe")}
             <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

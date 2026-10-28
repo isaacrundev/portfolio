@@ -120,78 +120,157 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Water light. Positioned inside the hero (and echoed at the contact end),
-   never across the whole page, so the paint cost stays where the eye is.
-   ------------------------------------------------------------------------ */
-
-.surface-glow {
-  background: radial-gradient(
-    60% 55% at 50% 0%,
-    rgba(233, 251, 247, 0.4),
-    rgba(94, 234, 212, 0.12) 45%,
-    transparent 75%
-  );
-}
-
-.light-shaft {
-  position: absolute;
-  top: -25%;
-  height: 150%;
-  width: 17vw;
-  min-width: 90px;
-  border-radius: 9999px;
-  filter: blur(38px);
-  background: linear-gradient(
-    180deg,
-    rgba(233, 251, 247, 0.32),
-    rgba(125, 211, 252, 0.07) 45%,
-    transparent 80%
-  );
-  transform: rotate(var(--tilt, 14deg));
-  transform-origin: top center;
-  opacity: 0.5;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  animation: shaft-drift 18s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-}
-
-@keyframes shaft-drift {
-  0%,
-  100% {
-    opacity: 0.22;
-    transform: translate3d(0, 0, 0) rotate(var(--tilt, 14deg));
-  }
-  50% {
-    opacity: 0.55;
-    transform: translate3d(2.5vw, 1vh, 0) rotate(calc(var(--tilt, 14deg) + 2deg));
-  }
-}
-
-/* A soft net of light blobs, brightest just under the surface. */
-.caustics {
+/* The first viewport is the surface, not the water. A clear sky, a low sun and
+   a flat horizon; the sea below it is already the top of the dive. The scene
+   fades into the document background at the bottom so About starts underwater. */
+.hero-surface {
+  --horizon: 80%;
+  background-color: #031c25;
   background-image:
-    radial-gradient(ellipse 34px 14px at 30% 40%, rgba(233, 251, 247, 0.55), transparent 70%),
-    radial-gradient(ellipse 44px 12px at 72% 68%, rgba(125, 211, 252, 0.5), transparent 70%),
-    radial-gradient(ellipse 26px 10px at 55% 18%, rgba(233, 251, 247, 0.4), transparent 70%),
-    radial-gradient(ellipse 38px 14px at 12% 78%, rgba(94, 234, 212, 0.4), transparent 70%);
-  background-size: 260px 190px, 310px 220px, 380px 260px, 440px 300px;
-  filter: blur(9px);
-  opacity: 0.3;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
-  pointer-events: none;
-  animation: caustics-shift 26s linear infinite;
+    radial-gradient(ellipse 24% 5% at 72% 80%, rgba(255, 244, 210, 0.3), transparent 70%),
+    radial-gradient(ellipse 38% 26% at 72% 14%, rgba(255, 241, 200, 0.24), transparent 70%),
+    linear-gradient(
+      180deg,
+      #0b4f6e 0%,
+      #0e5a7a 13%,
+      #146f96 30%,
+      #1b7d9f 50%,
+      #1f809c 69%,
+      #2f93ad 76%,
+      #7ac9d8 78.8%,
+      #eafffd 80%,
+      #b4f0ef 80.4%,
+      #57c9d2 81%,
+      #1a99ab 82%,
+      #0b7288 83.5%,
+      #07566a 85%,
+      #063f4e 88%,
+      #052f3b 92%,
+      #04242e 96%,
+      #031c25 100%
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 92%, transparent 100%);
+}
+.hero-sun {
+  position: absolute;
+  left: 72%;
+  top: 14%;
+  width: clamp(48px, 5.2vw, 82px);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    #fffef6 0%,
+    rgba(255, 247, 211, 0.95) 18%,
+    rgba(255, 232, 170, 0.55) 42%,
+    rgba(255, 220, 150, 0.12) 65%,
+    transparent 72%
+  );
+  box-shadow:
+    0 0 70px 30px rgba(255, 241, 200, 0.32),
+    0 0 180px 80px rgba(255, 231, 180, 0.14);
+  filter: blur(1.4px);
+  opacity: 0.92;
 }
 
-@keyframes caustics-shift {
-  from {
-    background-position: 0 0, 0 0, 0 0, 0 0;
-  }
-  to {
-    background-position: 80px 40px, -60px 30px, 40px -50px, -30px -60px;
-  }
+.hero-horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--horizon);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 30%,
+    rgba(255, 255, 255, 0.9) 72%,
+    rgba(255, 255, 255, 0.5) 90%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 6px rgba(220, 255, 252, 0.4),
+    0 0 18px rgba(125, 211, 252, 0.15);
+  opacity: 0.75;
+  animation: horizon-breathe 10s ease-in-out infinite;
+}
+
+.hero-horizon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2px;
+  height: 1px;
+  background: inherit;
+  opacity: 0.35;
+  filter: blur(1px);
+  animation: horizon-shimmer 7s ease-in-out infinite;
+}
+
+@keyframes horizon-breathe {
+  0%, 100% { transform: translateY(-2px); opacity: 0.68; }
+  50% { transform: translateY(2px); opacity: 0.92; }
+}
+
+@keyframes horizon-shimmer {
+  0%, 100% { transform: translateY(0); opacity: 0.25; }
+  50% { transform: translateY(-3px); opacity: 0.6; }
+}
+
+/* The sun's path on calm water: a soft column with a few broad glints. */
+.hero-glitter {
+  position: absolute;
+  top: var(--horizon);
+  left: 72%;
+  width: clamp(140px, 18%, 300px);
+  height: calc(100% - var(--horizon));
+  transform: translateX(-50%);
+  background-image:
+    linear-gradient(180deg, rgba(255, 248, 220, 0.45), rgba(255, 248, 220, 0.14) 40%, transparent 82%),
+    repeating-linear-gradient(180deg, transparent 0 18px, rgba(255, 248, 220, 0.22) 18px 20px, transparent 20px 38px);
+  -webkit-mask-image: radial-gradient(
+    ellipse 55% 100% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 85%
+  );
+  mask-image: radial-gradient(
+    ellipse 55% 100% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 85%
+  );
+  filter: blur(2.5px);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  animation: glitter-breathe 12s ease-in-out infinite;
+}
+
+@keyframes glitter-breathe {
+  0%, 100% { opacity: 0.72; }
+  50% { opacity: 0.88; }
+}
+/* Calm water: fine horizontal lines that fade with distance below the horizon. */
+.hero-ripples {
+  position: absolute;
+  inset: var(--horizon) 0 0;
+  background-image:
+    repeating-linear-gradient(180deg, rgba(233, 251, 247, 0.2) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(180deg, rgba(125, 211, 252, 0.1) 0 1px, transparent 1px 41px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 60%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 60%);
+  filter: blur(0.6px);
+  opacity: 0.85;
+  animation: ripple-breathe 14s ease-in-out infinite;
+}
+
+@keyframes ripple-breathe {
+  0%, 100% { background-position: 0 0, 0 0; }
+  50% { background-position: 0 4px, 0 7px; }
 }
 
 /* Bubbles rise the full height of the viewport, then start again. */
@@ -362,30 +441,23 @@
   animation: slide-out-right 0.35s ease-out forwards;
 }
 
-/* Phones: the same atmosphere, frozen and thinned out. No drifting light, no
-   caustic repaint, half the bubbles -- the page has to stay readable and the
-   scroll has to stay native. */
+/* Phones: the same atmosphere, frozen and thinned out. Half the bubbles --
+   the page has to stay readable and the scroll has to stay native. */
 @media (max-width: 767px) {
-  .light-shaft {
-    animation: none;
-    opacity: 0.25;
-  }
-  .light-shaft {
-    display: none;
-  }
-  .light-shaft:first-of-type {
-    display: block;
-  }
-  .caustics {
-    animation: none;
-    opacity: 0.14;
-  }
   .bubble:nth-child(n + 7) {
     display: none;
   }
   .plankton {
     animation: none;
     opacity: 0.3;
+  }
+  /* The water is static on phones: the scene still reads, without repainting
+     a full-width shimmer while the page scrolls. */
+  .hero-horizon,
+  .hero-horizon::after,
+  .hero-glitter,
+  .hero-ripples {
+    animation: none;
   }
 }
 
@@ -408,8 +480,10 @@
     animation: none;
   }
 
-  .light-shaft,
-  .caustics,
+  .hero-horizon,
+  .hero-horizon::after,
+  .hero-glitter,
+  .hero-ripples,
   .plankton,
   .bubble {
     animation: none;

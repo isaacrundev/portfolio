@@ -2,9 +2,10 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
+  hidden?: boolean;
 };
 
-const Header = ({ children }: Props) => {
+const Header = ({ children, hidden = false }: Props) => {
   const backdrop = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,7 +26,10 @@ const Header = ({ children }: Props) => {
   return (
     <header
       id="header"
-      className="pointer-events-none fixed left-0 top-0 z-50 w-full px-4 py-4 sm:px-6 md:px-10"
+      inert={hidden}
+      className={`pointer-events-none fixed left-0 top-0 z-50 w-full px-4 py-4 transition-[translate,opacity] duration-300 ease-out motion-reduce:transition-none sm:px-6 md:px-10 ${
+        hidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+      }`}
     >
       <div
         ref={backdrop}
@@ -37,7 +41,7 @@ const Header = ({ children }: Props) => {
           className="enter-left pointer-events-auto flex items-center gap-2.5"
           aria-label="Isaac Wu — back to top"
         >
-          <span className="font-mono text-[11px] font-medium tracking-[0.32em] text-foam/75 transition-colors hover:text-reef">
+          <span className="font-mono text-[11px] font-medium tracking-[0.32em] text-foam/90 drop-shadow-[0_1px_8px_rgba(1,12,18,0.4)] transition-colors hover:text-reef">
             I.W
           </span>
           <span className="h-1 w-1 rounded-full bg-reef/70" />
