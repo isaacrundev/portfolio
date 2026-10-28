@@ -120,78 +120,123 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Water light. Positioned inside the hero (and echoed at the contact end),
-   never across the whole page, so the paint cost stays where the eye is.
-   ------------------------------------------------------------------------ */
-
-.surface-glow {
-  background: radial-gradient(
-    60% 55% at 50% 0%,
-    rgba(233, 251, 247, 0.4),
-    rgba(94, 234, 212, 0.12) 45%,
-    transparent 75%
-  );
+/* The first viewport is the surface, not the water. A clear sky, a low sun and
+   a flat horizon; the sea below it is already the top of the dive. The scene
+   fades into the document background at the bottom so About starts underwater. */
+.hero-surface {
+  --horizon: 27%;
+  background-color: #031c25;
+  background-image:
+    radial-gradient(ellipse 30% 14% at 72% 30%, rgba(255, 244, 210, 0.12), transparent 70%),
+    radial-gradient(ellipse 38% 26% at 72% 14%, rgba(255, 241, 200, 0.24), transparent 70%),
+    linear-gradient(
+      180deg,
+      #146f96 0%,
+      #2b8aae 10%,
+      #6cc1d6 20%,
+      #a6e2ea 25%,
+      #c9f2f3 26.4%,
+      #ecfffc 27%,
+      #b4f0ef 27.4%,
+      #57c9d2 28%,
+      #1a99ab 28.8%,
+      #0b7288 29.8%,
+      #07566a 31%,
+      #063f4e 34%,
+      #052f3b 40%,
+      #04242e 55%,
+      #031c25 100%
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
 }
 
-.light-shaft {
+.hero-sun {
   position: absolute;
-  top: -25%;
-  height: 150%;
-  width: 17vw;
-  min-width: 90px;
+  left: 72%;
+  top: 14%;
+  width: clamp(48px, 5.2vw, 82px);
+  aspect-ratio: 1;
   border-radius: 9999px;
-  filter: blur(38px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    #fffef6 0%,
+    rgba(255, 247, 211, 0.95) 18%,
+    rgba(255, 232, 170, 0.55) 42%,
+    rgba(255, 220, 150, 0.12) 65%,
+    transparent 72%
+  );
+  box-shadow:
+    0 0 70px 30px rgba(255, 241, 200, 0.32),
+    0 0 180px 80px rgba(255, 231, 180, 0.14);
+  filter: blur(1.4px);
+  opacity: 0.92;
+}
+
+.hero-horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--horizon);
+  height: 1px;
   background: linear-gradient(
-    180deg,
-    rgba(233, 251, 247, 0.32),
-    rgba(125, 211, 252, 0.07) 45%,
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 30%,
+    rgba(255, 255, 255, 0.9) 72%,
+    rgba(255, 255, 255, 0.5) 90%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 8px rgba(220, 255, 252, 0.45),
+    0 0 28px rgba(125, 211, 252, 0.18);
+  opacity: 0.8;
+}
+
+/* The sun's path on calm water: a soft column with a few broad glints. */
+.hero-glitter {
+  position: absolute;
+  top: var(--horizon);
+  left: 72%;
+  width: clamp(140px, 18%, 300px);
+  height: 26%;
+  transform: translateX(-50%);
+  background-image:
+    radial-gradient(ellipse 34% 2px at 50% 50%, rgba(255, 248, 216, 0.42), transparent 72%),
+    radial-gradient(ellipse 22% 2px at 50% 50%, rgba(255, 248, 216, 0.22), transparent 72%),
+    linear-gradient(180deg, rgba(255, 248, 220, 0.12), transparent 65%);
+  background-size: 150px 24px, 95px 37px, 100% 100%;
+  -webkit-mask-image: radial-gradient(
+    ellipse 45% 100% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 45%,
     transparent 80%
   );
-  transform: rotate(var(--tilt, 14deg));
-  transform-origin: top center;
-  opacity: 0.5;
+  mask-image: radial-gradient(
+    ellipse 45% 100% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    transparent 80%
+  );
+  filter: blur(4px);
   mix-blend-mode: screen;
-  pointer-events: none;
-  animation: shaft-drift 18s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
+  opacity: 0.55;
 }
 
-@keyframes shaft-drift {
-  0%,
-  100% {
-    opacity: 0.22;
-    transform: translate3d(0, 0, 0) rotate(var(--tilt, 14deg));
-  }
-  50% {
-    opacity: 0.55;
-    transform: translate3d(2.5vw, 1vh, 0) rotate(calc(var(--tilt, 14deg) + 2deg));
-  }
-}
-
-/* A soft net of light blobs, brightest just under the surface. */
-.caustics {
+/* Calm water: fine horizontal lines that fade with distance below the horizon. */
+.hero-ripples {
+  position: absolute;
+  inset: var(--horizon) 0 0;
   background-image:
-    radial-gradient(ellipse 34px 14px at 30% 40%, rgba(233, 251, 247, 0.55), transparent 70%),
-    radial-gradient(ellipse 44px 12px at 72% 68%, rgba(125, 211, 252, 0.5), transparent 70%),
-    radial-gradient(ellipse 26px 10px at 55% 18%, rgba(233, 251, 247, 0.4), transparent 70%),
-    radial-gradient(ellipse 38px 14px at 12% 78%, rgba(94, 234, 212, 0.4), transparent 70%);
-  background-size: 260px 190px, 310px 220px, 380px 260px, 440px 300px;
-  filter: blur(9px);
-  opacity: 0.3;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 72%);
-  pointer-events: none;
-  animation: caustics-shift 26s linear infinite;
-}
-
-@keyframes caustics-shift {
-  from {
-    background-position: 0 0, 0 0, 0 0, 0 0;
-  }
-  to {
-    background-position: 80px 40px, -60px 30px, 40px -50px, -30px -60px;
-  }
+    repeating-linear-gradient(180deg, rgba(233, 251, 247, 0.08) 0 1px, transparent 1px 25px),
+    repeating-linear-gradient(180deg, rgba(125, 211, 252, 0.05) 0 1px, transparent 1px 43px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 32%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 32%);
+  filter: blur(1px);
+  opacity: 0.8;
 }
 
 /* Bubbles rise the full height of the viewport, then start again. */
@@ -362,24 +407,9 @@
   animation: slide-out-right 0.35s ease-out forwards;
 }
 
-/* Phones: the same atmosphere, frozen and thinned out. No drifting light, no
-   caustic repaint, half the bubbles -- the page has to stay readable and the
-   scroll has to stay native. */
+/* Phones: the same atmosphere, frozen and thinned out. Half the bubbles --
+   the page has to stay readable and the scroll has to stay native. */
 @media (max-width: 767px) {
-  .light-shaft {
-    animation: none;
-    opacity: 0.25;
-  }
-  .light-shaft {
-    display: none;
-  }
-  .light-shaft:first-of-type {
-    display: block;
-  }
-  .caustics {
-    animation: none;
-    opacity: 0.14;
-  }
   .bubble:nth-child(n + 7) {
     display: none;
   }
@@ -408,8 +438,6 @@
     animation: none;
   }
 
-  .light-shaft,
-  .caustics,
   .plankton,
   .bubble {
     animation: none;

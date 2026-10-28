@@ -19,12 +19,17 @@ const menuItem: string[] = ["about", "showcases", "contact"];
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showBubbles, setShowBubbles] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
     // Boolean state: React bails out of re-rendering when the value is unchanged,
     // so scrolling no longer re-renders every showcase on every scroll event.
-    const onScroll = () => setShowBackToTop(window.scrollY > 64);
+    const onScroll = () => {
+      setShowBackToTop(window.scrollY > 64);
+      // The first viewport is above water: bubbles only belong in the descent.
+      setShowBubbles(window.scrollY > window.innerHeight * 0.8);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,7 +37,7 @@ function App() {
 
   return (
     <>
-      <Bubbles />
+      {showBubbles && <Bubbles />}
       <Header>
         {menuItem.map((item) => (
           <MenuButton

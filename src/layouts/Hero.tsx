@@ -17,31 +17,19 @@ const Hero = () => {
       id="main"
       className="snap-section relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 sm:px-10"
     >
-      {/* Surface light: one glow, a few shafts, and a caustic net just under the
-          top edge. All decorative, all pointer-events-none. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="surface-glow absolute inset-x-0 top-0 h-[75vh]" />
-        <div className="absolute inset-0">
-          <div
-            className="light-shaft left-[8%]"
-            style={{ "--tilt": "13deg", "--delay": "0s" } as React.CSSProperties}
-          />
-          <div
-            className="light-shaft left-[38%] w-[12vw]"
-            style={{ "--tilt": "-6deg", "--delay": "3s" } as React.CSSProperties}
-          />
-          <div
-            className="light-shaft right-[10%]"
-            style={{ "--tilt": "-15deg", "--delay": "6s" } as React.CSSProperties}
-          />
-        </div>
-        <div className="caustics absolute inset-x-0 top-0 h-[65vh]" />
+      {/* Above the water: a clear sky, a low sun and a flat horizon. Scrolling
+          takes the reader below it -- the rest of the page is the water column. */}
+      <div aria-hidden="true" className="hero-surface pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="hero-sun" />
+        <div className="hero-horizon" />
+        <div className="hero-glitter" />
+        <div className="hero-ripples" />
       </div>
 
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
         <p
           style={{ animationDelay: `${STAGGER[0] * 0.7}s` }}
-          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-reef/70"
+          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-foam/60"
         >
           {t("hero.greeting")}
         </p>

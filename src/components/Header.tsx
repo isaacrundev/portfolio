@@ -37,7 +37,7 @@ const Header = ({ children }: Props) => {
           className="enter-left pointer-events-auto flex items-center gap-2.5"
           aria-label="Isaac Wu — back to top"
         >
-          <span className="font-mono text-[11px] font-medium tracking-[0.32em] text-foam/75 transition-colors hover:text-reef">
+          <span className="font-mono text-[11px] font-medium tracking-[0.32em] text-foam/90 drop-shadow-[0_1px_8px_rgba(1,12,18,0.4)] transition-colors hover:text-reef">
             I.W
           </span>
           <span className="h-1 w-1 rounded-full bg-reef/70" />
