@@ -5,12 +5,10 @@ import { useReveal } from "../hooks/useReveal.ts";
 
 const getDescKey = (name: string) => {
   switch(name) {
-    case "MVDB": return "mvdbDesc";
-    case "YouBike Live Data Tracker": return "youbikeDesc";
     case "Diet or Die": return "dodDesc";
-    case "FoxBook": return "foxbookDesc";
-    case "Whistler App": return "whistlerDesc";
-    case "Card Game": return "cardgameDesc";
+    case "Interval Timer": return "intervalDesc";
+    case "Apnea Trainer": return "apneaDesc";
+    case "Sushi Otoko": return "sushiOtokoDesc";
     default: return "";
   }
 };
@@ -53,7 +51,6 @@ const Showcases = () => {
               screenshots={item.screenshots}
               deployedUrl={item.deployedUrl}
               githubUrl={item.githubUrl}
-              role={item.role ? t("showcases.role") : undefined}
               demoUsername={item.demoUsername}
               demoPswd={item.demoPswd}
             />

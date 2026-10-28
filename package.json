@@ -36,11 +36,12 @@
     "@vitejs/plugin-react": "^5.1.4",
     "jsdom": "^28.1.0",
     "typescript": "^5.7.2",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.11"
+    "vite": "^8.3.5",
+    "vitest": "^4.1.12"
   },
   "overrides": {
-    "nanoid": "^3.3.17"
+    "nanoid": "^3.3.17",
+    "undici": "^7.30.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
