@@ -1,29 +1,33 @@
 {
   "meta": {
-    "title": "Isaac Wu｜網頁開發者作品集",
-    "description": "Isaac Wu 的作品集：充滿熱忱的網頁開發者，專注打造現代化、高效能的使用者介面與網頁體驗。"
+    "title": "Isaac Wu｜網頁開發者與自由潛水員",
+    "description": "Isaac Wu 的作品集：網頁開發者，也是自由潛水員。專注打造現代化、高效能的使用者介面，其餘時間多半待在水裡。"
   },
   "nav": {
     "about": "關於我",
     "showcases": "作品集",
     "contact": "聯絡我",
-    "backToTop": "回到頂端"
+    "backToTop": "回到水面"
   },
   "hero": {
     "available": "歡迎洽談新專案",
     "greeting": "你好，我是",
     "developer": "> 軟體工程師_",
+    "freediver": "> 自由潛水員_",
     "problemSolver": "> 問題解決專家_",
     "uiuxEngineer": "> UI/UX 工程師_",
     "lifelongLearner": "> 終身學習者_",
     "viewWork": "瀏覽作品",
-    "contactMe": "聯絡我"
+    "contactMe": "聯絡我",
+    "scroll": "向下滑動，開始下潛"
   },
   "about": {
+    "eyebrow": "潛水員",
     "title1": "關於 ",
     "title2": "我",
     "intro": "你好，我是 <1>Isaac Wu</1>，一名充滿熱忱的網頁開發者，也曾擔任專案經理。",
     "story": "我有時會想，如果我當專案經理的時候，能多懂一些程式設計和軟體開發就好了。這股好奇心讓我一頭栽進程式碼的世界。",
+    "ocean": "不寫程式時，我多半待在水裡——最常自由潛水，有機會就背著氣瓶下水。一樣的平靜、一樣的一口氣，只是換了一種深度。",
     "quote1": "「現在，網頁開發不只是了解系統背後怎麼運作，更是創造出",
     "quote2": "有趣、實用且視覺驚豔",
     "quote3": "作品的畫布。」"
@@ -49,8 +53,13 @@
     "prevScreenshot": "上一張截圖"
   },
   "contact": {
+    "eyebrow": "發送訊號",
     "title1": "與我 ",
     "title2": "聯絡",
     "desc": "目前開放新的合作機會，一起做點有趣的東西吧！"
+  },
+  "footer": {
+    "surface": "水面",
+    "made": "在兩次下潛之間完成"
   }
 }

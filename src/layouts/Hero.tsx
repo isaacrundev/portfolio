@@ -1,11 +1,11 @@
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { useTranslation } from "../i18n";
 import { useReducedMotion } from "../hooks/useReducedMotion.ts";
 
-// Staggered entrance: 0.05s delay before the first item, 0.07s between them.
-// Kept deliberately tight -- the heading is the LCP element, so delay plus the
-// 0.45s in index.css is what LCP costs. At the old [0.2 ... 0.65] the heading
-// finished at 1.15s.
+// Staggered entrance: 0.05s before the first item, 0.07s between them. Kept
+// deliberately tight -- the heading is the LCP element, so delay plus the
+// 0.45s in index.css is what LCP costs.
 const STAGGER = [0.05, 0.12, 0.19, 0.26];
 
 const Hero = () => {
@@ -13,72 +13,110 @@ const Hero = () => {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section id="main" className="flex flex-col min-h-screen pt-28 pb-12 justify-center items-center overflow-hidden relative">
-      {/* Dynamic Animated Background Blobs */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden -z-20 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-brand-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-[blob_10s_infinite] motion-reduce:animate-none" />
-        <div className="absolute top-[30%] right-[10%] w-[400px] h-[400px] bg-brand-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-[blob_12s_infinite_4s] motion-reduce:animate-none" />
-        <div className="absolute bottom-[10%] left-[40%] w-[600px] h-[600px] bg-brand-pink/10 rounded-full mix-blend-screen filter blur-[120px] animate-[blob_15s_infinite_2s] motion-reduce:animate-none" />
+    <section
+      id="main"
+      className="snap-section relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 sm:px-10"
+    >
+      {/* Surface light: one glow, a few shafts, and a caustic net just under the
+          top edge. All decorative, all pointer-events-none. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="surface-glow absolute inset-x-0 top-0 h-[75vh]" />
+        <div className="absolute inset-0">
+          <div
+            className="light-shaft left-[8%]"
+            style={{ "--tilt": "13deg", "--delay": "0s" } as React.CSSProperties}
+          />
+          <div
+            className="light-shaft left-[38%] w-[12vw]"
+            style={{ "--tilt": "-6deg", "--delay": "3s" } as React.CSSProperties}
+          />
+          <div
+            className="light-shaft right-[10%]"
+            style={{ "--tilt": "-15deg", "--delay": "6s" } as React.CSSProperties}
+          />
+        </div>
+        <div className="caustics absolute inset-x-0 top-0 h-[65vh]" />
       </div>
 
-      <div className="flex flex-col items-center justify-center text-center gap-6 px-6 sm:px-12 z-10 w-full max-w-5xl">
+      <div className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
         <div
           style={{ animationDelay: `${STAGGER[0]}s` }}
-          className="enter-up inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:bg-white/10 transition-colors"
+          className="enter-down inline-flex items-center gap-3 rounded-full border border-foam/15 bg-foam/[0.04] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.26em] text-foam/65 sm:text-[11px]"
         >
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-cyan"></span>
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-reef opacity-60 motion-reduce:animate-none" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-reef" />
           </span>
-          <span className="text-sm sm:text-base font-semibold text-slate-200 tracking-wide">
-            {t('hero.available')}
-          </span>
+          {t("hero.available")}
         </div>
+
+        <p
+          style={{ animationDelay: `${STAGGER[1] * 0.7}s` }}
+          className="enter-up mt-10 font-mono text-[11px] uppercase tracking-[0.4em] text-reef/70"
+        >
+          {t("hero.greeting")}
+        </p>
 
         <h1
           style={{ animationDelay: `${STAGGER[1]}s` }}
-          className="enter-up text-6xl sm:text-7xl lg:text-9xl py-2 font-black tracking-tighter leading-[1.1] text-white"
+          className="enter-up mt-4 text-balance text-[clamp(3.3rem,11vw,8.5rem)] font-light leading-[0.95] tracking-[-0.04em] text-foam"
         >
-          {t('hero.greeting')} <br/>
-          <span className="text-gradient">
-            Isaac Wu
-          </span>
+          Isaac <span className="text-gradient font-normal">Wu</span>
         </h1>
 
         <div
           style={{ animationDelay: `${STAGGER[2]}s` }}
-          className="enter-up text-xl sm:text-2xl lg:text-3xl text-slate-400 font-mono h-16 sm:h-20 mt-6 lg:mt-8 flex items-center justify-center"
+          className="enter-up mt-8 flex h-12 items-center font-mono text-sm text-shoal/80 sm:h-14 sm:text-base"
         >
           {reducedMotion ? (
-            <span className="text-white/80">{t('hero.developer')}</span>
+            <span>{t("hero.developer")}</span>
           ) : (
-          <TypeAnimation
-            key={lang}
-            sequence={[
-              t('hero.developer'), 2000,
-              t('hero.problemSolver'), 2000,
-              t('hero.uiuxEngineer'), 2000,
-              t('hero.lifelongLearner'), 2000,
-            ]}
-            wrapper="span"
-            speed={40}
-            repeat={Infinity}
-            className="text-white/80"
-          />
+            <TypeAnimation
+              key={lang}
+              sequence={[
+                t("hero.developer"), 2000,
+                t("hero.freediver"), 2000,
+                t("hero.problemSolver"), 2000,
+                t("hero.uiuxEngineer"), 2000,
+                t("hero.lifelongLearner"), 2000,
+              ]}
+              wrapper="span"
+              speed={45}
+              repeat={Infinity}
+            />
           )}
         </div>
 
         <div
           style={{ animationDelay: `${STAGGER[3]}s` }}
-          className="enter-up flex flex-col sm:flex-row gap-6 mt-8 w-full sm:w-auto"
+          className="enter-up mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
         >
-          <a href="#showcases" className="group relative px-10 py-4 rounded-2xl bg-slate-50 text-slate-900 font-bold tracking-wide transition-all hover:scale-[1.03] active:scale-95 w-full sm:w-auto overflow-hidden">
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink opacity-0 group-hover:opacity-20 transition-opacity"></span>
-            {t('hero.viewWork')}
+          <a
+            href="#showcases"
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-foam px-8 py-3.5 text-sm font-semibold tracking-wide text-abyss transition-colors hover:bg-reef sm:w-auto"
+          >
+            {t("hero.viewWork")}
+            <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" />
           </a>
-          <a href="#contact" className="px-10 py-4 rounded-2xl w-full sm:w-auto backdrop-blur-md bg-white/5 hover:bg-white/10 text-slate-100 font-bold border border-white/10 transition-all hover:scale-[1.03] active:scale-95">
-            {t('hero.contactMe')}
+          <a
+            href="#contact"
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-foam/20 px-8 py-3.5 text-sm font-semibold tracking-wide text-foam/85 transition-colors hover:border-reef/40 hover:bg-foam/5 hover:text-foam sm:w-auto"
+          >
+            {t("hero.contactMe")}
+            <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
+        </div>
+      </div>
+
+      <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 sm:block">
+        <div
+          style={{ animationDelay: "0.55s" }}
+          className="enter-up flex flex-col items-center gap-3"
+        >
+          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-foam/35">
+            {t("hero.scroll")}
+          </span>
+          <span className="h-10 w-px bg-gradient-to-b from-reef/60 to-transparent" />
         </div>
       </div>
     </section>

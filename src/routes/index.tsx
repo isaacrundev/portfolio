@@ -2,6 +2,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from "react";
 import { useTranslation } from "../i18n";
 import BackToTop from "../components/BackToTop";
+import Bubbles from "../components/Bubbles";
+import DepthGauge from "../components/DepthGauge";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MenuButton from "../components/MenuButton";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -29,6 +32,7 @@ function App() {
 
   return (
     <>
+      <Bubbles />
       <Header>
         {menuItem.map((item) => (
           <MenuButton
@@ -39,10 +43,14 @@ function App() {
         ))}
         <LanguageSwitcher />
       </Header>
-      <Hero />
-      <About />
-      <Showcases />
-      <Contact />
+      <main className="relative z-10">
+        <Hero />
+        <About />
+        <Showcases />
+        <Contact />
+      </main>
+      <Footer />
+      <DepthGauge />
       {showBackToTop && <BackToTop />}
     </>
   );

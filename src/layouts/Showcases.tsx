@@ -20,24 +20,29 @@ const Showcases = () => {
   const headingRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="showcases" className="flex flex-col items-center py-16 md:py-20 relative overflow-hidden scroll-mt-24">
-      {/* Background Orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[150px] -z-10 pointer-events-none" />
+    <section
+      id="showcases"
+      className="snap-section relative flex flex-col items-center overflow-hidden py-20 sm:py-32"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-reef/[0.05] blur-[120px]" />
+        <div className="absolute -left-48 bottom-0 h-[560px] w-[560px] rounded-full bg-shoal/[0.05] blur-[140px]" />
+      </div>
 
-      <div className="flex flex-col w-full max-w-7xl px-6 sm:px-12">
-        <div
-          ref={headingRef}
-          className="reveal flex flex-col items-center mb-12 text-center"
-        >
-          <span className="text-brand-cyan font-mono font-bold tracking-widest uppercase mb-4 text-sm">{t('showcases.subtitle')}</span>
-          <h2 className="text-5xl md:text-6xl font-black tracking-tight text-white relative">
-            {t('showcases.title1')}<span className="text-gradient">{t('showcases.title2')}</span>
-            <div className="absolute -bottom-4 left-1/4 right-1/4 h-1 bg-gradient-to-r from-transparent via-brand-purple to-transparent opacity-50"></div>
+      <div className="flex w-full max-w-7xl flex-col px-6 sm:px-10">
+        <div ref={headingRef} className="reveal mb-12 flex flex-col gap-5 sm:mb-16">
+          <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.32em] text-reef/70">
+            <span className="h-px w-10 bg-reef/40" />
+            {t("showcases.subtitle")}
+            <span className="tracking-[0.2em] text-foam/40">− 32 m</span>
+          </div>
+          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-6xl md:text-7xl">
+            {t("showcases.title1")}
+            <span className="text-gradient font-normal">{t("showcases.title2")}</span>
           </h2>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-14 w-full items-stretch justify-items-center">
+
+        <div className="grid w-full grid-cols-1 items-stretch gap-6 lg:grid-cols-2 xl:gap-8">
           {showcaseData.map((item, i) => (
             <Showcase
               key={item.name}
@@ -48,7 +53,7 @@ const Showcases = () => {
               screenshots={item.screenshots}
               deployedUrl={item.deployedUrl}
               githubUrl={item.githubUrl}
-              role={item.role ? t('showcases.role') : undefined}
+              role={item.role ? t("showcases.role") : undefined}
               demoUsername={item.demoUsername}
               demoPswd={item.demoPswd}
             />

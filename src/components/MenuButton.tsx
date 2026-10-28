@@ -5,9 +5,12 @@ type Props = {
 
 function MenuButton({ text, linkTo }: Props) {
   return (
-    <a href={linkTo} className="relative px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-base font-semibold text-slate-300 hover:text-white transition-all group rounded-full hover:bg-white/10 overflow-hidden">
-      <span className="relative z-10">{text}</span>
-      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-full bg-brand-cyan/20 blur-md transition-all duration-300 group-hover:w-full z-0"></span>
+    <a
+      href={linkTo}
+      className="group relative rounded-full px-2.5 py-1.5 text-[11px] font-medium tracking-wide text-foam/65 transition-colors hover:text-foam sm:px-4 sm:py-2 sm:text-sm"
+    >
+      {text}
+      <span className="absolute inset-x-2.5 -bottom-0.5 h-px origin-left scale-x-0 bg-reef/70 transition-transform duration-300 group-hover:scale-x-100 sm:inset-x-4" />
     </a>
   );
 }

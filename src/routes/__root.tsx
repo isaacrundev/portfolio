@@ -96,7 +96,7 @@ function Document({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: JS_CLASS_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased bg-gray-900 text-white min-h-screen">
+      <body className="min-h-screen font-sans antialiased">
         {children}
         <TanStackDevtools
           config={{

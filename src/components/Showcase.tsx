@@ -36,67 +36,96 @@ const Showcase = ({
   return (
     <div
       ref={revealRef}
-      className="reveal flex flex-col w-full h-full mx-auto glass-card rounded-[2rem] overflow-hidden group"
+      className="reveal glass-card group flex h-full w-full flex-col overflow-hidden rounded-[1.75rem] transition-[transform,border-color] duration-500 hover:-translate-y-1 hover:border-reef/25"
     >
-      <div className="relative w-full h-[300px] sm:h-[350px] shrink-0 overflow-hidden bg-slate-900 border-b border-white/5">
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 pointer-events-none" />
+      <div className="relative h-[280px] w-full shrink-0 overflow-hidden border-b border-foam/5 bg-abyss/50 sm:h-[340px]">
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-abyss/70 via-transparent to-transparent" />
         <SlideCard screenshots={screenshots} name={name} />
-        <div className="absolute top-4 left-4 z-20 flex gap-2">
-           <div className="w-3 h-3 rounded-full bg-red-400"></div>
-           <div className="w-3 h-3 rounded-full bg-amber-400"></div>
-           <div className="w-3 h-3 rounded-full bg-green-400"></div>
-        </div>
+        <span className="absolute left-4 top-4 z-20 rounded-full border border-foam/15 bg-abyss/50 px-3 py-1 font-mono text-[9px] tracking-[0.24em] text-foam/55 backdrop-blur-sm">
+          {String(index + 1).padStart(2, "0")}
+        </span>
       </div>
-      
-      <div className="flex flex-col flex-grow w-full px-8 py-8 relative -mt-6 z-20 bg-slate-900/90 backdrop-blur-xl rounded-t-[2rem] border-t border-white/10">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <h3 className="text-3xl font-bold tracking-tight text-white group-hover:text-brand-cyan transition-colors duration-300">{name}</h3>
-          <div className="flex gap-3">
+
+      <div className="relative z-20 flex flex-grow flex-col px-6 py-7 sm:px-8">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h3 className="text-2xl font-light tracking-tight text-foam transition-colors duration-300 group-hover:text-reef sm:text-3xl">
+            {name}
+          </h3>
+          <div className="flex gap-2.5">
             {githubUrl && (
-              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 border border-white/10 transition-all text-slate-300 hover:text-white hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.05)]" href={githubUrl} target="_blank" rel="noreferrer" title={t("showcases.viewSource")} aria-label={`${name} — ${t("showcases.viewSource")}`}>
-                <Code2 size={22} strokeWidth={2} />
+              <a
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-foam/15 text-foam/60 transition-colors hover:border-reef/40 hover:bg-reef/5 hover:text-reef sm:h-11 sm:w-11"
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                title={t("showcases.viewSource")}
+                aria-label={`${name} — ${t("showcases.viewSource")}`}
+              >
+                <Code2 size={18} strokeWidth={1.75} />
               </a>
             )}
             {deployedUrl && (
-              <a className="w-12 h-12 flex items-center justify-center rounded-full bg-brand-cyan/20 hover:bg-brand-cyan/40 border border-brand-cyan/30 transition-all text-brand-cyan hover:text-white hover:scale-110 active:scale-95 glow-cyan" href={deployedUrl} target="_blank" rel="noreferrer" title={t("showcases.visitSite")} aria-label={`${name} — ${t("showcases.visitSite")}`}>
-                <ExternalLink size={22} strokeWidth={2} />
+              <a
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-reef/25 bg-reef/[0.07] text-reef/80 transition-colors hover:border-reef/50 hover:bg-reef/10 hover:text-reef sm:h-11 sm:w-11"
+                href={deployedUrl}
+                target="_blank"
+                rel="noreferrer"
+                title={t("showcases.visitSite")}
+                aria-label={`${name} — ${t("showcases.visitSite")}`}
+              >
+                <ExternalLink size={18} strokeWidth={1.75} />
               </a>
             )}
           </div>
         </div>
-        
-        <p className="text-slate-300 leading-relaxed text-base flex-grow mb-6 font-light whitespace-pre-wrap">
-          {desc.split('*').map((part, i) => (
-            i === 0 ? part : <span key={i} className="block mt-2 opacity-80 text-sm">*{part}</span>
-          ))}
+
+        <p className="mb-6 flex-grow whitespace-pre-wrap text-sm font-light leading-relaxed text-foam/60 sm:text-[15px]">
+          {desc.split("*").map((part, i) =>
+            i === 0 ? (
+              part
+            ) : (
+              <span key={i} className="mt-2 block text-xs text-foam/40">
+                *{part}
+              </span>
+            ),
+          )}
         </p>
-        
+
         {role && (
-          <div className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-brand-purple/10 border border-brand-purple/20">
-            <UserRound size={18} className="text-brand-purple" />
-            <span className="font-semibold text-brand-purple text-sm">{t("showcases.roleLabel")}</span>
-            <span className="text-slate-200 font-medium text-sm">{role}</span>
+          <div className="mb-5 flex items-center gap-2.5 border-l border-reef/30 pl-3">
+            <UserRound size={14} className="text-reef/70" />
+            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-foam/40">
+              {t("showcases.roleLabel")}
+            </span>
+            <span className="text-xs font-medium text-foam/75">{role}</span>
           </div>
         )}
 
         {demoUsername && demoPswd && (
-          <div className="bg-slate-950/50 p-4 rounded-xl border border-white/10 text-xs text-slate-400 font-mono flex flex-col gap-3 mb-6 shadow-inner">
-            <div className="flex items-center gap-2 text-slate-300 mb-1">
-              <KeyRound size={16} className="text-brand-pink" />
-              <span className="font-bold tracking-widest text-[11px] uppercase text-brand-pink/90">{t("showcases.credentials")}</span>
+          <div className="mb-6 flex flex-col gap-2.5 rounded-xl border border-foam/10 bg-abyss/40 p-4 font-mono text-[11px]">
+            <div className="mb-1 flex items-center gap-2">
+              <KeyRound size={14} className="text-reef/70" />
+              <span className="text-[9px] uppercase tracking-[0.24em] text-foam/45">
+                {t("showcases.credentials")}
+              </span>
             </div>
-            <div className="flex justify-between items-center bg-black/40 px-4 py-2.5 rounded-lg border border-white/5">
-              <span className="text-slate-500 font-medium tracking-wide">{t("showcases.user")}</span> <span className="text-brand-cyan select-all font-bold">{demoUsername}</span>
+            <div className="flex items-center justify-between gap-4 rounded-lg border border-foam/5 bg-abyss/50 px-3 py-2">
+              <span className="tracking-wide text-foam/35">{t("showcases.user")}</span>
+              <span className="select-all font-medium text-shoal/90">{demoUsername}</span>
             </div>
-            <div className="flex justify-between items-center bg-black/40 px-4 py-2.5 rounded-lg border border-white/5">
-              <span className="text-slate-500 font-medium tracking-wide">{t("showcases.pass")}</span> <span className="text-brand-cyan select-all font-bold">{demoPswd}</span>
+            <div className="flex items-center justify-between gap-4 rounded-lg border border-foam/5 bg-abyss/50 px-3 py-2">
+              <span className="tracking-wide text-foam/35">{t("showcases.pass")}</span>
+              <span className="select-all font-medium text-shoal/90">{demoPswd}</span>
             </div>
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 pt-6 mt-auto border-t border-white/10">
-          {techStack.map(tech => (
-            <span key={tech} className="px-4 py-1.5 text-[11px] font-bold tracking-wider text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/20 rounded-full hover:bg-brand-cyan/20 cursor-default transition-colors">
+        <div className="mt-auto flex flex-wrap gap-2 border-t border-foam/10 pt-5">
+          {techStack.map((tech) => (
+            <span
+              key={tech}
+              className="cursor-default rounded-full border border-foam/12 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-foam/55 transition-colors hover:border-reef/35 hover:text-reef/90"
+            >
               {tech}
             </span>
           ))}

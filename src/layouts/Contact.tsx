@@ -1,8 +1,4 @@
-import {
-  contactEmail,
-  contactGithub,
-  contactLinkedIn,
-} from "../assets/index.ts";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { useTranslation } from "../i18n.tsx";
 import { useReveal } from "../hooks/useReveal.ts";
 
@@ -10,26 +6,17 @@ const contactMethods = [
   {
     name: "Email",
     link: "https://formsubmit.co/el/dobuye",
-    icon: contactEmail,
-    color: "group-hover:text-red-400 group-hover:glow-pink",
-    border: "group-hover:border-red-500/50",
-    bg: "group-hover:bg-red-500/10",
+    Icon: Mail,
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/isaac-842886255/",
-    icon: contactLinkedIn,
-    color: "group-hover:text-blue-400 group-hover:glow-cyan",
-    border: "group-hover:border-blue-500/50",
-    bg: "group-hover:bg-blue-500/10",
+    Icon: Linkedin,
   },
   {
     name: "GitHub",
     link: "https://github.com/isaacrundev",
-    icon: contactGithub,
-    color: "group-hover:text-purple-400 group-hover:glow-purple",
-    border: "group-hover:border-purple-500/50",
-    bg: "group-hover:bg-purple-500/10",
+    Icon: Github,
   },
 ];
 
@@ -37,6 +24,7 @@ type ContactMethod = (typeof contactMethods)[number];
 
 const ContactLink = ({ method, index }: { method: ContactMethod; index: number }) => {
   const ref = useReveal<HTMLAnchorElement>(index * 0.15);
+  const { Icon } = method;
 
   return (
     <a
@@ -44,13 +32,17 @@ const ContactLink = ({ method, index }: { method: ContactMethod; index: number }
       href={method.link}
       target="_blank"
       rel="noreferrer"
-      className={`reveal group flex flex-col items-center justify-center gap-6 bg-slate-900/40 p-10 rounded-[2rem] border border-white/10 transition-all duration-500 backdrop-blur-md hover:-translate-y-2.5 active:scale-95 ${method.border} ${method.bg} shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-2xl`}
+      className="reveal group relative flex flex-col gap-8 overflow-hidden rounded-[1.75rem] border border-foam/10 bg-foam/[0.03] p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-reef/30 hover:bg-foam/[0.06] sm:p-9"
     >
-      <div className="w-20 h-20 flex items-center justify-center bg-slate-950 rounded-2xl p-4 border border-white/5 group-hover:scale-110 transition-transform duration-500 shadow-inner">
-        <img src={method.icon} alt={method.name} loading="lazy" decoding="async" className="w-full h-full object-contain filter drop-shadow-lg" />
-      </div>
-      <span className={`text-xl font-bold tracking-wide text-slate-300 transition-colors duration-500 ${method.color}`}>
-        {method.name}
+      <span className="flex h-12 w-12 items-center justify-center rounded-full border border-foam/10 bg-abyss/30 text-foam/65 transition-colors duration-500 group-hover:border-reef/30 group-hover:text-reef">
+        <Icon size={22} strokeWidth={1.5} />
+      </span>
+      <span className="flex items-center justify-between gap-3">
+        <span className="text-lg font-light tracking-wide text-foam/85">{method.name}</span>
+        <ArrowUpRight
+          size={16}
+          className="text-foam/25 transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-reef"
+        />
       </span>
     </a>
   );
@@ -62,29 +54,36 @@ const Contact = () => {
   const panelRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="contact" className="py-20 relative flex justify-center overflow-hidden scroll-mt-28">
-      {/* Background gradients */}
-      <div className="absolute bottom-0 w-full h-[600px] bg-gradient-to-t from-brand-purple/10 via-brand-pink/5 to-transparent -z-10" />
-      <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-cyan/20 blur-[150px] rounded-[100%] pointer-events-none -z-10" />
+    <section
+      id="contact"
+      className="snap-section relative flex justify-center overflow-hidden py-20 sm:py-32"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="plankton absolute inset-0 opacity-40" />
+        <div className="absolute inset-x-0 bottom-0 h-[70vh] bg-[radial-gradient(55%_100%_at_50%_100%,rgba(94,234,212,0.12),transparent_72%)]" />
+      </div>
 
-      <div className="flex flex-col items-center w-full max-w-5xl px-8">
-        <div ref={headingRef} className="reveal text-center mb-10">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
-            {t('contact.title1')}<span className="text-gradient">{t('contact.title2')}</span>
+      <div className="flex w-full max-w-5xl flex-col items-center px-6 sm:px-10">
+        <div ref={headingRef} className="reveal mb-12 flex flex-col items-center gap-5 text-center sm:mb-16">
+          <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.32em] text-reef/70">
+            <span className="h-px w-10 bg-reef/40" />
+            {t("contact.eyebrow")}
+            <span className="tracking-[0.2em] text-foam/40">− 48 m</span>
+          </div>
+          <h2 className="text-balance text-4xl font-light leading-[1.05] tracking-tight text-foam sm:text-6xl md:text-7xl">
+            {t("contact.title1")}
+            <span className="text-gradient font-normal">{t("contact.title2")}</span>
           </h2>
-          <p className="text-xl md:text-2xl font-light text-slate-300 max-w-2xl mx-auto">
-            {t('contact.desc')}
+          <p className="max-w-xl text-base font-light leading-relaxed text-foam/60 sm:text-lg">
+            {t("contact.desc")}
           </p>
         </div>
 
         <div
           ref={panelRef}
-          className="reveal-scale flex flex-col w-full glass-card rounded-[3rem] p-8 md:p-12 relative overflow-hidden"
+          className="reveal-scale w-full rounded-[2rem] border border-foam/10 bg-abyss/20 p-3 sm:rounded-[2.5rem] sm:p-5"
         >
-          {/* Internal Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[60px]" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full z-10 relative">
+          <div className="grid w-full grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
             {contactMethods.map((method, index) => (
               <ContactLink key={method.name} method={method} index={index} />
             ))}

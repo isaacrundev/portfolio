@@ -6,19 +6,21 @@ const BackToTop = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <button
       type="button"
       onClick={handleClick}
       aria-label={t("nav.backToTop")}
-      className="fixed flex items-center justify-center text-brand-cyan transition-all duration-500 ease-in-out bg-slate-900/60 backdrop-blur-xl border border-brand-cyan/30 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:bg-brand-cyan/10 hover:border-brand-cyan hover:scale-110 w-12 h-12 sm:w-14 sm:h-14 bottom-6 right-6 group z-50 pointer-events-auto overflow-hidden"
+      title={t("nav.backToTop")}
+      className="group fixed bottom-6 right-5 z-40 flex items-center gap-2 rounded-full border border-foam/15 bg-deep/60 px-3.5 py-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-foam/60 backdrop-blur-md transition-colors hover:border-reef/40 hover:text-reef sm:bottom-8 sm:right-8 sm:px-4"
     >
-      <div className="absolute inset-0 bg-brand-cyan/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
       <ArrowUpFromLine
-        className="group-hover:-translate-y-1 relative z-10 transition-transform"
-        strokeWidth={2.5}
-        size={22}
+        size={14}
+        strokeWidth={1.75}
+        className="transition-transform duration-300 group-hover:-translate-y-0.5"
       />
+      <span className="hidden sm:inline">{t("nav.backToTop")}</span>
     </button>
   );
 };
