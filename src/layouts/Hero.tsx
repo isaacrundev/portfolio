@@ -17,8 +17,9 @@ const Hero = () => {
       id="main"
       className="snap-section relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 sm:px-10"
     >
-      {/* Above the water: a clear sky, a low sun and a flat horizon. Scrolling
-          takes the reader below it -- the rest of the page is the water column. */}
+      {/* Above the water: a clear sky, a bright sun and a flat horizon at the
+          bottom of the viewport. Scrolling takes the reader below it -- the rest
+          of the page is the water column. */}
       <div aria-hidden="true" className="hero-surface pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="hero-sun" />
         <div className="hero-horizon" />
@@ -29,7 +30,7 @@ const Hero = () => {
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center text-center">
         <p
           style={{ animationDelay: `${STAGGER[0] * 0.7}s` }}
-          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-foam/60"
+          className="enter-up font-mono text-[11px] uppercase tracking-[0.4em] text-foam/80"
         >
           {t("hero.greeting")}
         </p>
@@ -43,7 +44,7 @@ const Hero = () => {
 
         <div
           style={{ animationDelay: `${STAGGER[1]}s` }}
-          className="enter-up mt-8 flex h-12 items-center font-mono text-sm text-shoal/80 sm:h-14 sm:text-base"
+          className="enter-up mt-8 flex h-12 items-center font-mono text-sm text-foam/80 sm:h-14 sm:text-base"
         >
           {reducedMotion ? (
             <span>{t("hero.developer")}</span>
@@ -78,7 +79,7 @@ const Hero = () => {
           </a>
           <a
             href="#contact"
-            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-foam/20 px-8 py-3.5 text-sm font-semibold tracking-wide text-foam/85 transition-colors hover:border-reef/40 hover:bg-foam/5 hover:text-foam sm:w-auto"
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-foam/30 bg-abyss/20 px-8 py-3.5 text-sm font-semibold tracking-wide text-foam/85 transition-colors hover:border-reef/40 hover:bg-abyss/35 hover:text-foam sm:w-auto"
           >
             {t("hero.contactMe")}
             <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
