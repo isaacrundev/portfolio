@@ -39,7 +39,9 @@ function App() {
   return (
     <>
       {showUnderwater && <Bubbles />}
-      <Header>
+      {/* The header and the back-to-top button trade places past the same
+          scroll threshold, so the content gets the full width. */}
+      <Header hidden={showBackToTop}>
         {menuItem.map((item) => (
           <MenuButton
             key={item}
