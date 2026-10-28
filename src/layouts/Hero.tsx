@@ -75,9 +75,10 @@ const Hero = () => {
               key={lang}
               sequence={[
                 t("hero.developer"), 2000,
+                t("hero.projectProductManager"), 2000,
                 t("hero.freediver"), 2000,
                 t("hero.problemSolver"), 2000,
-                t("hero.uiuxEngineer"), 2000,
+                t("hero.scubaDiver"), 2000,
                 t("hero.lifelongLearner"), 2000,
               ]}
               wrapper="span"
