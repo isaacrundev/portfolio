@@ -24,7 +24,7 @@ export const showcaseData = [
   },
   {
     name: "Sushi Otoko",
-    desc: "A per-plate bill calculator -- built for conveyor-belt sushi, but the custom mode takes any place that charges by the plate. The Sushiro, Kura and Sushi Express presets ship with their tier prices; in custom mode you name the tiers, set the prices and pick the colours yourself. Tap a tier each time a plate lands and the running total, service charge included once you switch it on, is there before you reach the register. Installs to the home screen and works offline.",
+    desc: "A per-plate bill calculator -- built for conveyor-belt sushi, but the custom mode takes any place that charges by the plate. The Sushiro, Kura and Sushi Express presets ship with their tier prices; in custom mode you name the tiers, set the prices and pick the colours yourself. Tap a tier each time a plate lands and the running total, service charge included once you switch it on, is there before you reach the register. Installs to the home screen as a PWA and, once installed, runs fully offline -- no signal needed, because every price and total stays on the device.",
     libraries: "JavaScript, PWA, Service Worker, Bun, GitHub Actions",
     screenshots: sushiOtokoScreenshots,
     deployedUrl: "https://isaacrundev.github.io/sushi-otoko/",
