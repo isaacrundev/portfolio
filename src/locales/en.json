@@ -22,7 +22,7 @@
     "scroll": "Scroll to descend"
   },
   "about": {
-    "eyebrow": "The Diver",
+    "eyebrow": "The Developer",
     "title1": "About ",
     "title2": "Me",
     "intro": "Hello, I'm <1>Isaac Wu</1>, a developer who builds, researches and ships with AI — and a former project manager.",
@@ -58,7 +58,6 @@
     "desc": "Currently open to new opportunities! Let's build something awesome together."
   },
   "footer": {
-    "surface": "Surface",
     "made": "Made between dives"
   }
 }
